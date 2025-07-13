@@ -115,7 +115,7 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    border-radius: 0 !important; /* Force all elements to have sharp corners */
+    /* border-radius: 0; /* Force all elements to have sharp corners */
   }
   body {
     @apply bg-background text-foreground font-sans;

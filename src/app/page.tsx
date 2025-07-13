@@ -41,30 +41,30 @@ export default function Home() {
               style={{ y: heroY, opacity: heroOpacity }}
             >
               {/* Terminal Window */}
-              <div className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl border border-slate-600/50 rounded-lg shadow-2xl overflow-hidden">
-                {/* Terminal Header */}
-                <div className="flex items-center justify-between px-4 py-3 bg-slate-700/50 border-b border-slate-600/30">
+                            <div style={{ borderRadius: '10px' }} className="bg-gradient-to-br from-gray-100/95 to-gray-200/95 dark:from-slate-800/90 dark:to-slate-900/90 backdrop-blur-xl border border-gray-300/50 dark:border-slate-600/50 shadow-2xl overflow-hidden">
+                 {/* Terminal Header */}
+                 <div className="flex items-center justify-between px-4 py-3 bg-gray-200/80 dark:bg-slate-700/50 border-b border-gray-300/50 dark:border-slate-600/30">
                   <div className="flex items-center space-x-2">
-                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                    <div className="w-3 h-3 bg-red-500" style={{ borderRadius: '50%' }}></div>
+                    <div className="w-3 h-3 bg-yellow-500" style={{ borderRadius: '50%' }}></div>
+                    <div className="w-3 h-3 bg-green-500" style={{ borderRadius: '50%' }}></div>
                   </div>
-                  <div className="text-slate-400 text-sm font-mono">~/ibraheem-portfolio</div>
+                                     <div className="text-gray-600 dark:text-slate-400 text-sm font-mono">~/ibraheem-portfolio</div>
                   <div className="w-16"></div> {/* Spacer for balance */}
                 </div>
 
-                {/* Terminal Content */}
-                <div className="p-8 bg-slate-900/60 backdrop-blur-md">
-                  <div className="text-slate-300 text-sm md:text-base space-y-3 font-mono max-w-4xl">
+                                 {/* Terminal Content */}
+                 <div className="p-8 bg-white/70 dark:bg-slate-900/60 backdrop-blur-md">
+                   <div className="text-gray-700 dark:text-slate-300 text-sm md:text-base space-y-3 font-mono max-w-4xl">
                     {/* Welcome Header */}
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.5, duration: 0.5 }}
                     >
-                      <p className="text-cyan-400 text-lg mb-4">
-                        # Welcome to Ibraheem's Digital Workspace
-                      </p>
+                                             <p className="text-blue-600 dark:text-cyan-400 text-lg mb-4">
+                         # Welcome to Ibraheem's Digital Workspace
+                       </p>
                     </motion.div>
 
                     {/* Terminal Commands */}
@@ -74,11 +74,11 @@ export default function Home() {
                       transition={{ delay: 0.8, duration: 0.5 }}
                       className="space-y-2"
                     >
-                      <p>
-                        <span className="text-green-400">$</span> <span className="text-white">whoami</span>
-                      </p>
-                      <p className="text-cyan-400 pl-4">Ibraheem Amin</p>
-                      <p className="text-slate-300 pl-4">CS Student & Developer at Princeton University</p>
+                                             <p>
+                         <span className="text-green-600 dark:text-green-400">$</span> <span className="text-gray-900 dark:text-white">whoami</span>
+                       </p>
+                       <p className="text-blue-600 dark:text-cyan-400 pl-4">Ibraheem Amin</p>
+                       <p className="text-gray-600 dark:text-slate-300 pl-4">CS Student at Princeton University</p>
                     </motion.div>
 
                     <motion.div
@@ -87,12 +87,12 @@ export default function Home() {
                       transition={{ delay: 1.1, duration: 0.5 }}
                       className="space-y-2"
                     >
-                      <p>
-                        <span className="text-green-400">$</span> <span className="text-white">cat about.txt</span>
-                      </p>
-                      <p className="text-slate-300 pl-4">📍 Princeton University - Class of 2028</p>
-                      <p className="text-slate-300 pl-4">🎓 Computer Science Major, Sophomore</p>
-                      <p className="text-slate-300 pl-4">💻 Passionate about building meaningful software solutions</p>
+                                             <p>
+                         <span className="text-green-600 dark:text-green-400">$</span> <span className="text-gray-900 dark:text-white">cat about.txt</span>
+                       </p>
+                       <p className="text-gray-600 dark:text-slate-300 pl-4">Lowell, MA</p>
+                       <p className="text-gray-600 dark:text-slate-300 pl-4">Sophomore</p>
+                       {/* <p className="text-gray-600 dark:text-slate-300 pl-4">💻 Passionate about building meaningful software solutions</p> */}
                     </motion.div>
 
                     <motion.div
@@ -101,13 +101,13 @@ export default function Home() {
                       transition={{ delay: 1.4, duration: 0.5 }}
                       className="space-y-2"
                     >
-                      <p>
-                        <span className="text-green-400">$</span> <span className="text-white">ls -la skills/</span>
-                      </p>
-                      <p className="text-slate-300 pl-4">drwxr-xr-x  full-stack-development/</p>
-                      <p className="text-slate-300 pl-4">drwxr-xr-x  algorithms-and-data-structures/</p>
-                      <p className="text-slate-300 pl-4">drwxr-xr-x  software-engineering/</p>
-                      <p className="text-slate-300 pl-4">drwxr-xr-x  problem-solving/</p>
+                                             <p>
+                         <span className="text-green-600 dark:text-green-400">$</span> <span className="text-gray-900 dark:text-white">ls -la skills/</span>
+                       </p>
+                       <p className="text-gray-600 dark:text-slate-300 pl-4">drwxr-xr-x  full-stack-development/</p>
+                       <p className="text-gray-600 dark:text-slate-300 pl-4">drwxr-xr-x  systems-design/</p>
+                       <p className="text-gray-600 dark:text-slate-300 pl-4">drwxr-xr-x  design-thinking/</p>
+                       <p className="text-gray-600 dark:text-slate-300 pl-4">drwxr-xr-x  builder/</p>
                     </motion.div>
 
                     <motion.div
@@ -116,11 +116,11 @@ export default function Home() {
                       transition={{ delay: 1.7, duration: 0.5 }}
                       className="space-y-2"
                     >
-                      <p>
-                        <span className="text-green-400">$</span>{" "}
-                        <span className="text-white">echo "Thanks for visiting my portfolio!"</span>
-                      </p>
-                      <p className="text-purple-400 pl-4">Thanks for visiting my portfolio!</p>
+                                             <p>
+                         <span className="text-green-600 dark:text-green-400">$</span>{" "}
+                         <span className="text-gray-900 dark:text-white">echo "Thanks for visiting my portfolio!"</span>
+                       </p>
+                       <p className="text-purple-600 dark:text-purple-400 pl-4">Thanks for visiting my portfolio!</p>
                     </motion.div>
 
                     <motion.div
@@ -129,23 +129,23 @@ export default function Home() {
                       transition={{ delay: 2.0, duration: 0.5 }}
                       className="space-y-2"
                     >
-                      <p>
-                        <span className="text-green-400">$</span>{" "}
-                        <span className="text-white">explore_projects --interactive</span>
-                      </p>
-                      <p className="text-yellow-400 pl-4">Loading project showcase...</p>
-                      <p className="text-slate-400 pl-4">↓ Scroll down to explore my work ↓</p>
+                                             <p>
+                         <span className="text-green-600 dark:text-green-400">$</span>{" "}
+                         <span className="text-gray-900 dark:text-white">./explore_projects --interactive</span>
+                       </p>
+                       <p className="text-orange-600 dark:text-yellow-400 pl-4">Loading project showcase...</p>
+                       <p className="text-gray-500 dark:text-slate-400 pl-4">↓ Scroll down to explore my work ↓</p>
                     </motion.div>
 
-                    <motion.p
-                      className="flex items-center pt-2"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 2.3, duration: 0.5 }}
-                    >
-                      <span className="text-green-400">$</span>
-                      <span className="w-2 h-4 bg-white ml-2 animate-pulse rounded-sm"></span>
-                    </motion.p>
+                                         <motion.p
+                       className="flex items-center pt-2"
+                       initial={{ opacity: 0 }}
+                       animate={{ opacity: 1 }}
+                       transition={{ delay: 2.3, duration: 0.5 }}
+                     >
+                       <span className="text-green-600 dark:text-green-400">$</span>
+                       <span className="w-2 h-4 bg-gray-900 dark:bg-white ml-2 animate-pulse rounded-sm"></span>
+                     </motion.p>
                   </div>
                 </div>
               </div>
