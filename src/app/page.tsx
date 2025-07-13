@@ -1,27 +1,57 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 "use client"
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Github, ExternalLink, Mail, Linkedin, Award, Calendar, MapPin, ImageIcon, Copy } from "lucide-react";
+import { Github, ExternalLink, Calendar, ImageIcon, Copy } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { toast, Toaster } from "sonner";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
   const heroY = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
   const [activeTab, setActiveTab] = useState<'main' | 'connect'>('main');
+  const [highlightCerts, setHighlightCerts] = useState(false);
+  
+  // Refs for scrolling
+  const projectsRef = useRef<HTMLDivElement>(null);
+  const certsRef = useRef<HTMLDivElement>(null);
 
   const copyToClipboard = async (text: string, label: string) => {
     try {
       await navigator.clipboard.writeText(text);
       toast.success(`${label} copied to clipboard!`);
-    } catch (err) {
+    } catch {
       toast.error('Failed to copy to clipboard');
     }
+  };
+
+  const scrollToProjects = () => {
+    projectsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const scrollToCertifications = () => {
+    // Switch to certifications tab
+    setActiveTab('connect');
+    
+    // Scroll to certifications terminal
+    certsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    
+    // Highlight animation
+    setHighlightCerts(true);
+    setTimeout(() => setHighlightCerts(false), 2000);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -29,16 +59,46 @@ export default function Home() {
       <Toaster position="bottom-right" richColors />
       {/* Header */}
       <header className="border-b bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <div>
-            <h1 className="text-2xl font-bold">Ibraheem Amin</h1>
-            <p className="text-sm text-muted-foreground">CS Student at Princeton</p>
+        <div className="max-w-[90rem] mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="logo-rainbow-hover" onClick={scrollToTop}>
+            <div className="p-1">
+              <h1 className="text-2xl font-bold">Ibraheem Amin</h1>
+              <p className="text-sm text-muted-foreground">CS Student at Princeton</p>
+            </div>
           </div>
+          
+          {/* Navigation Links */}
+          <nav className="hidden md:flex items-center space-x-8">
+            <button
+              onClick={scrollToProjects}
+              className="relative text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer group"
+            >
+              Projects
+              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </button>
+            <button
+              onClick={scrollToCertifications}
+              className="relative text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer group"
+            >
+              Certifications
+              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </button>
+            <a
+              href="https://ibraheem-amin.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer group"
+            >
+              Legacy Portfolio
+              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </a>
+          </nav>
+          
           <ThemeToggle />
         </div>
       </header>
 
-              <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="max-w-[90rem] mx-auto px-4 py-8">
         {/* Top Grid - Terminals */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
           
@@ -76,7 +136,7 @@ export default function Home() {
                       transition={{ delay: 0.5, duration: 0.5 }}
                     >
                                              <p className="text-blue-600 dark:text-cyan-400 text-lg mb-4">
-                         # Welcome to Ibraheem's Digital Workspace
+                         # Welcome to Ibraheem&apos;s Digital Workspace
                        </p>
                     </motion.div>
 
@@ -131,7 +191,7 @@ export default function Home() {
                     >
                                              <p>
                          <span className="text-green-600 dark:text-green-400">$</span>{" "}
-                         <span className="text-gray-900 dark:text-white">echo "Thanks for visiting my portfolio!"</span>
+                         <span className="text-gray-900 dark:text-white">echo &quot;Thanks for visiting my portfolio!&quot;</span>
                        </p>
                        <p className="text-purple-600 dark:text-purple-400 pl-4">Thanks for visiting my portfolio!</p>
                     </motion.div>
@@ -169,12 +229,20 @@ export default function Home() {
           {/* Sidebar - Second Terminal */}
           <div className="space-y-6">
             <motion.div
+              ref={certsRef}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               {/* Second Terminal Window */}
-              <div style={{ borderRadius: '10px' }} className="bg-gradient-to-br from-gray-100/95 to-gray-200/95 dark:from-slate-800/90 dark:to-slate-900/90 backdrop-blur-xl border border-gray-300/50 dark:border-slate-600/50 shadow-2xl overflow-hidden">
+              <div 
+                style={{ borderRadius: '10px' }} 
+                className={`bg-gradient-to-br from-gray-100/95 to-gray-200/95 dark:from-slate-800/90 dark:to-slate-900/90 backdrop-blur-xl border shadow-2xl overflow-hidden transition-all duration-500 ${
+                  highlightCerts 
+                    ? 'border-blue-500/80 dark:border-blue-400/80 shadow-blue-500/20 dark:shadow-blue-400/20 shadow-2xl ring-2 ring-blue-500/20 dark:ring-blue-400/20' 
+                    : 'border-gray-300/50 dark:border-slate-600/50'
+                }`}
+              >
                 {/* Terminal Header with Tabs */}
                 <div className="bg-gray-200/80 dark:bg-slate-700/50 border-b border-gray-300/50 dark:border-slate-600/30">
                   <div className="flex items-center justify-between px-4 py-3">
@@ -191,7 +259,7 @@ export default function Home() {
                   <div className="flex border-t border-gray-300/50 dark:border-slate-600/30">
                     <button
                       onClick={() => setActiveTab('main')}
-                      className={`px-4 py-2 text-sm font-mono border-r border-gray-300/50 dark:border-slate-600/30 transition-colors ${
+                      className={`px-4 py-2 text-sm font-mono border-r border-gray-300/50 dark:border-slate-600/30 transition-colors cursor-pointer ${
                         activeTab === 'main' 
                           ? 'bg-white/70 dark:bg-slate-900/60 text-gray-900 dark:text-white' 
                           : 'text-gray-600 dark:text-slate-400 hover:bg-gray-100/50 dark:hover:bg-slate-800/50'
@@ -201,7 +269,7 @@ export default function Home() {
                     </button>
                     <button
                       onClick={() => setActiveTab('connect')}
-                      className={`px-4 py-2 text-sm font-mono transition-colors ${
+                      className={`px-4 py-2 text-sm font-mono transition-colors cursor-pointer ${
                         activeTab === 'connect' 
                           ? 'bg-white/70 dark:bg-slate-900/60 text-gray-900 dark:text-white' 
                           : 'text-gray-600 dark:text-slate-400 hover:bg-gray-100/50 dark:hover:bg-slate-800/50'
@@ -234,18 +302,18 @@ export default function Home() {
                               <span className="text-gray-600 dark:text-slate-300">ibraheem.amin2@gmail.com</span>
                               <button
                                 onClick={() => copyToClipboard('ibraheem.amin2@gmail.com', 'Personal email')}
-                                className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-gray-200/50 dark:hover:bg-slate-800/50 rounded"
+                                className="p-1 hover:bg-gray-200/50 dark:hover:bg-slate-800/50 rounded cursor-pointer transition-colors hover:scale-110"
                               >
-                                <Copy className="h-3 w-3 text-gray-500 dark:text-slate-400" />
+                                <Copy className="h-3 w-3 text-gray-500 dark:text-slate-400 hover:text-gray-700 dark:hover:text-slate-300" />
                               </button>
                             </div>
                             <div className="flex items-center justify-between group">
                               <span className="text-gray-600 dark:text-slate-300">ibraheem@princeton.edu</span>
                               <button
                                 onClick={() => copyToClipboard('ibraheem@princeton.edu', 'Princeton email')}
-                                className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-gray-200/50 dark:hover:bg-slate-800/50 rounded"
+                                className="p-1 hover:bg-gray-200/50 dark:hover:bg-slate-800/50 rounded cursor-pointer transition-colors hover:scale-110"
                               >
-                                <Copy className="h-3 w-3 text-gray-500 dark:text-slate-400" />
+                                <Copy className="h-3 w-3 text-gray-500 dark:text-slate-400 hover:text-gray-700 dark:hover:text-slate-300" />
                               </button>
                             </div>
                           </div>
@@ -255,14 +323,23 @@ export default function Home() {
                             <span className="text-gray-900 dark:text-white">cat social.txt</span>
                           </p>
                           
-                          <div className="pl-4">
+                          <div className="pl-4 space-y-2">
                             <div className="flex items-center justify-between group">
                               <span className="text-gray-600 dark:text-slate-300">GitHub: DIodide</span>
                               <button
-                                onClick={() => copyToClipboard('DIodide', 'GitHub username')}
-                                className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-gray-200/50 dark:hover:bg-slate-800/50 rounded"
+                                onClick={() => copyToClipboard('https://github.com/DIodide', 'GitHub profile')}
+                                className="p-1 hover:bg-gray-200/50 dark:hover:bg-slate-800/50 rounded cursor-pointer transition-colors hover:scale-110"
                               >
-                                <Copy className="h-3 w-3 text-gray-500 dark:text-slate-400" />
+                                <Copy className="h-3 w-3 text-gray-500 dark:text-slate-400 hover:text-gray-700 dark:hover:text-slate-300" />
+                              </button>
+                            </div>
+                            <div className="flex items-center justify-between group">
+                              <span className="text-gray-600 dark:text-slate-300">LinkedIn: /in/ibraheem-amin</span>
+                              <button
+                                onClick={() => copyToClipboard('https://linkedin.com/in/ibraheem-amin', 'LinkedIn profile')}
+                                className="p-1 hover:bg-gray-200/50 dark:hover:bg-slate-800/50 rounded cursor-pointer transition-colors hover:scale-110"
+                              >
+                                <Copy className="h-3 w-3 text-gray-500 dark:text-slate-400 hover:text-gray-700 dark:hover:text-slate-300" />
                               </button>
                             </div>
                           </div>
@@ -290,19 +367,19 @@ export default function Home() {
                           </p>
                           
                           <div className="pl-4 space-y-1">
-                            <a href="#" className="text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors block">
+                            <a href="#" className="text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors block cursor-pointer">
                               -rw-r--r--  AWS Cloud Practitioner
                             </a>
-                            <a href="#" className="text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors block">
+                            <a href="#" className="text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors block cursor-pointer">
                               -rw-r--r--  Google Cloud Associate
                             </a>
-                            <a href="#" className="text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors block">
+                            <a href="#" className="text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors block cursor-pointer">
                               -rw-r--r--  MongoDB Developer
                             </a>
-                            <a href="#" className="text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors block">
+                            <a href="#" className="text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors block cursor-pointer">
                               -rw-r--r--  CompTIA Security+
                             </a>
-                            <a href="#" className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors block">
+                            <a href="#" className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors block cursor-pointer">
                               ... and 7 more
                             </a>
                           </div>
@@ -322,7 +399,7 @@ export default function Home() {
         </div>
 
         {/* Projects Section - Separate Grid */}
-        <div className="mb-12">
+        <div ref={projectsRef} className="mb-12">
           <motion.div 
             className="mb-8"
             initial={{ opacity: 0, y: 20 }}
@@ -342,18 +419,18 @@ export default function Home() {
                 
                 {/* Code-style decorative elements */}
                 <div className="absolute top-3 right-4 text-gray-400/30 dark:text-slate-500/30 font-mono text-xs">
-                  // showcase
+                  {/* // showcase */}
                 </div>
-                <div className="absolute bottom-3 left-4 text-gray-400/30 dark:text-slate-500/30 font-mono text-xs">
+                <div className="absolute bottom-1 left-4 text-gray-400/30 dark:text-slate-500/30 font-mono text-xs">
                   &lt;portfolio/&gt;
                 </div>
                 
                 <div className="relative z-10 flex items-center gap-4">
                   {/* Command prompt style indicator */}
-                  <div className="flex items-center gap-2">
+                  {/* <div className="flex items-center gap-2">
                     <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                     <span className="text-green-600 dark:text-green-400 font-mono text-sm">&gt;</span>
-                  </div>
+                  </div> */}
                   
                   {/* Main heading */}
                   <div className="flex-1">
@@ -361,15 +438,10 @@ export default function Home() {
                       Featured Projects
                     </h2>
                     <p className="text-sm text-gray-600 dark:text-slate-400 mt-1 font-mono">
-                      Building solutions, one commit at a time
+                      personal projects, freelance work, and hackathon ideas.
                     </p>
                   </div>
-                  
-                  {/* Status indicator */}
-                  <div className="hidden md:flex items-center gap-2 text-xs text-gray-500 dark:text-slate-400 font-mono">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full animate-ping"></div>
-                    <span>Active Development</span>
-                  </div>
+
                 </div>
                 
                 {/* Progress bar aesthetic */}
@@ -410,17 +482,43 @@ export default function Home() {
                   </div>
                 </div>
                 
-                {/* Project Image */}
+                {/* Project Image Carousel */}
                 <div className="relative h-48 w-full bg-gradient-to-br from-blue-500/10 via-transparent to-indigo-500/10 overflow-hidden">
-                  <Image
-                    src="https://evalgaming.com/api/og/home-og"
-                    alt="EVAL Gaming Platform"
-                    fill
-                    className="object-cover transition-transform group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
+                  <Carousel className="w-full h-full">
+                    <CarouselContent>
+                      <CarouselItem>
+                        <div className="relative h-48 w-full">
+                          <Image
+                            src="https://evalgaming.com/api/og/home-og"
+                            alt="EVAL Gaming Platform - Home"
+                            fill
+                            className="object-cover transition-transform group-hover:scale-105"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          />
+                        </div>
+                      </CarouselItem>
+                      <CarouselItem>
+                        <div className="relative h-48 w-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
+                          <div className="text-center">
+                            <ImageIcon className="h-12 w-12 text-blue-500 mx-auto mb-2" />
+                            <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">Dashboard View</p>
+                          </div>
+                        </div>
+                      </CarouselItem>
+                      <CarouselItem>
+                        <div className="relative h-48 w-full bg-gradient-to-br from-purple-500/20 to-cyan-500/20 flex items-center justify-center">
+                          <div className="text-center">
+                            <ImageIcon className="h-12 w-12 text-purple-500 mx-auto mb-2" />
+                            <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">Player Profiles</p>
+                          </div>
+                        </div>
+                      </CarouselItem>
+                    </CarouselContent>
+                    <CarouselPrevious className="left-2" />
+                    <CarouselNext className="right-2" />
+                  </Carousel>
                   {/* Animated overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent pointer-events-none"></div>
                   <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 opacity-50 group-hover:opacity-100 transition-opacity"></div>
                 </div>
                 
@@ -441,16 +539,16 @@ export default function Home() {
                     </div>
                     <p className="text-sm text-gray-600 dark:text-slate-400 flex items-center gap-2 font-mono">
                       <Calendar className="h-3 w-3" />
-                      <span>Fall 2024</span>
+                      <span>Summer 2025</span>
                       <span className="text-gray-400 dark:text-slate-500">•</span>
-                      <span>v2.0.0</span>
+                      <span>v0.1.0</span>
                     </p>
                     <div className="flex gap-2 flex-wrap">
-                      <a href="https://github.com/DIodide/eval-next" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gray-100/80 dark:bg-slate-800/80 backdrop-blur-sm border border-gray-300/50 dark:border-slate-600/50 hover:bg-gray-200/80 dark:hover:bg-slate-700/80 transition-all rounded-lg group/btn">
+                      <a href="https://github.com/DIodide/eval-next" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gray-100/80 dark:bg-slate-800/80 backdrop-blur-sm border border-gray-300/50 dark:border-slate-600/50 hover:bg-gray-200/80 dark:hover:bg-slate-700/80 transition-all rounded-lg group/btn cursor-pointer">
                         <Github className="h-4 w-4 group-hover/btn:scale-110 transition-transform" />
                         Repository
                       </a>
-                      <a href="https://evalgaming.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 transition-all rounded-lg group/btn shadow-lg shadow-blue-500/20">
+                      <a href="https://evalgaming.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 transition-all rounded-lg group/btn shadow-lg shadow-blue-500/20 cursor-pointer">
                         <ExternalLink className="h-4 w-4 group-hover/btn:scale-110 transition-transform" />
                         Live Demo
                       </a>
@@ -490,7 +588,7 @@ export default function Home() {
                 <div className="flex items-center justify-between px-4 py-2 bg-gray-100/60 dark:bg-slate-700/60 border-b border-gray-200/50 dark:border-slate-600/50">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></div>
-                    <span className="text-xs text-gray-600 dark:text-slate-400 font-mono">project_02.py</span>
+                    <span className="text-xs text-gray-600 dark:text-slate-400 font-mono">mindbridge.tsx</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <div className="w-1 h-1 bg-green-500 rounded-full"></div>
@@ -499,65 +597,93 @@ export default function Home() {
                   </div>
                 </div>
                 
-                {/* Project Image */}
+                {/* Project Image Carousel */}
                 <div className="relative h-48 w-full bg-gradient-to-br from-green-500/10 via-transparent to-emerald-500/10 overflow-hidden">
-                  {/* Placeholder for project image */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="relative">
-                        <ImageIcon className="h-12 w-12 text-gray-400 dark:text-slate-500 mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                        <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg blur-xl group-hover:blur-2xl transition-all"></div>
-                      </div>
-                      <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">// project-screenshot.jpg</p>
-                    </div>
-                  </div>
+                  <Carousel className="w-full h-full">
+                    <CarouselContent>
+                      <CarouselItem>
+                        <div className="relative h-48 w-full bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center">
+                          <div className="text-center">
+                            <div className="relative">
+                              <div className="h-12 w-12 mx-auto mb-2 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+                                </svg>
+                              </div>
+                            </div>
+                            <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">Roadmap View</p>
+                          </div>
+                        </div>
+                      </CarouselItem>
+                      <CarouselItem>
+                        <div className="relative h-48 w-full bg-gradient-to-br from-emerald-500/20 to-teal-500/20 flex items-center justify-center">
+                          <div className="text-center">
+                            <ImageIcon className="h-12 w-12 text-emerald-500 mx-auto mb-2" />
+                            <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">Learning Path</p>
+                          </div>
+                        </div>
+                      </CarouselItem>
+                      <CarouselItem>
+                        <div className="relative h-48 w-full bg-gradient-to-br from-teal-500/20 to-cyan-500/20 flex items-center justify-center">
+                          <div className="text-center">
+                            <ImageIcon className="h-12 w-12 text-teal-500 mx-auto mb-2" />
+                            <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">Progress Tracking</p>
+                          </div>
+                        </div>
+                      </CarouselItem>
+                    </CarouselContent>
+                    <CarouselPrevious className="left-2" />
+                    <CarouselNext className="right-2" />
+                  </Carousel>
                   {/* Animated overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent pointer-events-none"></div>
                   <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 opacity-50 group-hover:opacity-100 transition-opacity"></div>
                 </div>
                 
                 <div className="p-6 relative">
                   {/* Decorative code comment */}
                   <div className="absolute top-2 right-4 text-gray-400/40 dark:text-slate-500/40 font-mono text-xs">
-                    /* stable */
+                    /* hackathon */
                   </div>
                   
                   <div className="flex flex-col space-y-4 mb-4">
                     <div className="flex items-center gap-2">
                       <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 via-green-800 to-emerald-800 dark:from-white dark:via-green-200 dark:to-emerald-200 bg-clip-text text-transparent">
-                        Project Two
+                        MindBridge
                       </h3>
-                      <div className="px-2 py-1 bg-yellow-500/20 dark:bg-yellow-400/20 border border-yellow-500/30 dark:border-yellow-400/30 rounded text-xs text-yellow-700 dark:text-yellow-300 font-mono">
-                        STABLE
+                      <div className="px-2 py-1 bg-purple-500/20 dark:bg-purple-400/20 border border-purple-500/30 dark:border-purple-400/30 rounded text-xs text-purple-700 dark:text-purple-300 font-mono">
+                        HACKATHON
                       </div>
                     </div>
                     <p className="text-sm text-gray-600 dark:text-slate-400 flex items-center gap-2 font-mono">
                       <Calendar className="h-3 w-3" />
-                      <span>Fall 2023</span>
+                      <span>Fall 2024</span>
                       <span className="text-gray-400 dark:text-slate-500">•</span>
-                      <span>v2.1.3</span>
+                      <span>v1.0.0</span>
                     </p>
                     <div className="flex gap-2 flex-wrap">
-                      <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gray-100/80 dark:bg-slate-800/80 backdrop-blur-sm border border-gray-300/50 dark:border-slate-600/50 hover:bg-gray-200/80 dark:hover:bg-slate-700/80 transition-all rounded-lg group/btn">
+                      <a href="https://github.com/DIodide/MindBridge-front" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gray-100/80 dark:bg-slate-800/80 backdrop-blur-sm border border-gray-300/50 dark:border-slate-600/50 hover:bg-gray-200/80 dark:hover:bg-slate-700/80 transition-all rounded-lg group/btn cursor-pointer">
                         <Github className="h-4 w-4 group-hover/btn:scale-110 transition-transform" />
                         Repository
-                      </button>
-                      <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gradient-to-r from-green-500 to-emerald-500 text-white hover:from-green-600 hover:to-emerald-600 transition-all rounded-lg group/btn shadow-lg shadow-green-500/20">
+                      </a>
+                      <a href="https://mindbridge.courses" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gradient-to-r from-green-500 to-emerald-500 text-white hover:from-green-600 hover:to-emerald-600 transition-all rounded-lg group/btn shadow-lg shadow-green-500/20 cursor-pointer">
                         <ExternalLink className="h-4 w-4 group-hover/btn:scale-110 transition-transform" />
                         Live Demo
-                      </button>
+                      </a>
                     </div>
                   </div>
                   
                   <p className="text-gray-600 dark:text-slate-300 mb-4 leading-relaxed">
-                    Description of your second project. Highlight the unique challenges 
-                    you faced and the innovative solutions you implemented.
+                    AI-powered roadmap generator that creates personalized educational guides for any topic. 
+                    Built at HackPrinceton, it processes natural language learning goals into dynamic, 
+                    interactive roadmaps with step-by-step guides and practice problems.
                   </p>
                   
                   <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 text-xs bg-green-500/20 dark:bg-green-400/20 border border-green-500/30 dark:border-green-400/30 text-green-700 dark:text-green-300 rounded-full font-mono">Python</span>
-                    <span className="px-3 py-1 text-xs bg-emerald-500/20 dark:bg-emerald-400/20 border border-emerald-500/30 dark:border-emerald-400/30 text-emerald-700 dark:text-emerald-300 rounded-full font-mono">Flask</span>
-                    <span className="px-3 py-1 text-xs bg-teal-500/20 dark:bg-teal-400/20 border border-teal-500/30 dark:border-teal-400/30 text-teal-700 dark:text-teal-300 rounded-full font-mono">PostgreSQL</span>
+                    <span className="px-3 py-1 text-xs bg-blue-500/20 dark:bg-blue-400/20 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 rounded-full font-mono">Next.js</span>
+                    <span className="px-3 py-1 text-xs bg-green-500/20 dark:bg-green-400/20 border border-green-500/30 dark:border-green-400/30 text-green-700 dark:text-green-300 rounded-full font-mono">OpenAI API</span>
+                    <span className="px-3 py-1 text-xs bg-emerald-500/20 dark:bg-emerald-400/20 border border-emerald-500/30 dark:border-emerald-400/30 text-emerald-700 dark:text-emerald-300 rounded-full font-mono">Tailwind CSS</span>
+                    <span className="px-3 py-1 text-xs bg-purple-500/20 dark:bg-purple-400/20 border border-purple-500/30 dark:border-purple-400/30 text-purple-700 dark:text-purple-300 rounded-full font-mono">MUI</span>
                   </div>
                 </div>
               </div>
@@ -588,20 +714,40 @@ export default function Home() {
                   </div>
                 </div>
                 
-                {/* Project Image */}
+                {/* Project Image Carousel */}
                 <div className="relative h-48 w-full bg-gradient-to-br from-purple-500/10 via-transparent to-violet-500/10 overflow-hidden">
-                  {/* Placeholder for project image */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="relative">
-                        <ImageIcon className="h-12 w-12 text-gray-400 dark:text-slate-500 mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-violet-500/20 rounded-lg blur-xl group-hover:blur-2xl transition-all"></div>
-                      </div>
-                      <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">// project-screenshot.jpg</p>
-                    </div>
-                  </div>
+                  <Carousel className="w-full h-full">
+                    <CarouselContent>
+                      <CarouselItem>
+                        <div className="relative h-48 w-full bg-gradient-to-br from-purple-500/20 to-violet-500/20 flex items-center justify-center">
+                          <div className="text-center">
+                            <ImageIcon className="h-12 w-12 text-purple-500 mx-auto mb-2" />
+                            <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">Main Interface</p>
+                          </div>
+                        </div>
+                      </CarouselItem>
+                      <CarouselItem>
+                        <div className="relative h-48 w-full bg-gradient-to-br from-violet-500/20 to-indigo-500/20 flex items-center justify-center">
+                          <div className="text-center">
+                            <ImageIcon className="h-12 w-12 text-violet-500 mx-auto mb-2" />
+                            <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">Feature View</p>
+                          </div>
+                        </div>
+                      </CarouselItem>
+                      <CarouselItem>
+                        <div className="relative h-48 w-full bg-gradient-to-br from-indigo-500/20 to-blue-500/20 flex items-center justify-center">
+                          <div className="text-center">
+                            <ImageIcon className="h-12 w-12 text-indigo-500 mx-auto mb-2" />
+                            <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">Archive View</p>
+                          </div>
+                        </div>
+                      </CarouselItem>
+                    </CarouselContent>
+                    <CarouselPrevious className="left-2" />
+                    <CarouselNext className="right-2" />
+                  </Carousel>
                   {/* Animated overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent pointer-events-none"></div>
                   <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-violet-500 to-indigo-500 opacity-50 group-hover:opacity-100 transition-opacity"></div>
                 </div>
                 
@@ -627,11 +773,11 @@ export default function Home() {
                       <span>v1.0.0</span>
                     </p>
                     <div className="flex gap-2 flex-wrap">
-                      <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gray-100/80 dark:bg-slate-800/80 backdrop-blur-sm border border-gray-300/50 dark:border-slate-600/50 hover:bg-gray-200/80 dark:hover:bg-slate-700/80 transition-all rounded-lg group/btn">
+                      <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gray-100/80 dark:bg-slate-800/80 backdrop-blur-sm border border-gray-300/50 dark:border-slate-600/50 hover:bg-gray-200/80 dark:hover:bg-slate-700/80 transition-all rounded-lg group/btn cursor-pointer">
                         <Github className="h-4 w-4 group-hover/btn:scale-110 transition-transform" />
                         Repository
                       </button>
-                      <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gradient-to-r from-purple-500 to-violet-500 text-white hover:from-purple-600 hover:to-violet-600 transition-all rounded-lg group/btn shadow-lg shadow-purple-500/20">
+                      <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gradient-to-r from-purple-500 to-violet-500 text-white hover:from-purple-600 hover:to-violet-600 transition-all rounded-lg group/btn shadow-lg shadow-purple-500/20 cursor-pointer">
                         <ExternalLink className="h-4 w-4 group-hover/btn:scale-110 transition-transform" />
                         Live Demo
                       </button>

@@ -188,3 +188,39 @@ html {
     left: 0.75rem;
   }
 }
+
+/* Rainbow border animation for logo */
+.logo-rainbow-hover {
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.logo-rainbow-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #06b6d4, #8b5cf6, #f59e0b, #06b6d4);
+  background-size: 200% 200%;
+  border-radius: 8px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  animation: rainbow-rotate 3s linear infinite;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+  padding: 2px;
+}
+
+.logo-rainbow-hover:hover::before {
+  opacity: 1;
+}
+
+@keyframes rainbow-rotate {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
