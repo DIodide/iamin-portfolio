@@ -3,17 +3,30 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Github, ExternalLink, Mail, Linkedin, Award, Calendar, MapPin, ImageIcon } from "lucide-react";
+import { Github, ExternalLink, Mail, Linkedin, Award, Calendar, MapPin, ImageIcon, Copy } from "lucide-react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { toast, Toaster } from "sonner";
+import { useState } from "react";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
   const heroY = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  const [activeTab, setActiveTab] = useState<'main' | 'connect'>('main');
+
+  const copyToClipboard = async (text: string, label: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      toast.success(`${label} copied to clipboard!`);
+    } catch (err) {
+      toast.error('Failed to copy to clipboard');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
+      <Toaster position="bottom-right" richColors />
       {/* Header */}
       <header className="border-b bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
@@ -328,82 +341,158 @@ export default function Home() {
 
           </div>
 
-          {/* Sidebar - Takes 1/4 of the width on large screens */}
+          {/* Sidebar - Second Terminal */}
           <div className="space-y-6">
-            
-            {/* Social Links Panel */}
-            <div className="bg-card/40 backdrop-blur-xl border border-border/50">
-              <div className="p-6 border-b border-border/30">
-                <h3 className="text-lg font-semibold flex items-center gap-2">
-                  <Github className="h-5 w-5" />
-                  Connect With Me
-                </h3>
-              </div>
-              <div className="p-6 space-y-3">
-                <a 
-                  href="#" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 w-full p-3 bg-background/30 backdrop-blur-sm border border-border/30 hover:bg-background/50 transition-all text-sm"
-                >
-                  <Github className="h-4 w-4" />
-                  GitHub
-                </a>
-                <a 
-                  href="#" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 w-full p-3 bg-background/30 backdrop-blur-sm border border-border/30 hover:bg-background/50 transition-all text-sm"
-                >
-                  <Linkedin className="h-4 w-4" />
-                  LinkedIn
-                </a>
-                <a 
-                  href="mailto:your.email@princeton.edu"
-                  className="flex items-center gap-3 w-full p-3 bg-background/30 backdrop-blur-sm border border-border/30 hover:bg-background/50 transition-all text-sm"
-                >
-                  <Mail className="h-4 w-4" />
-                  Email
-                </a>
-              </div>
-            </div>
-
-            {/* Certifications Panel */}
-            <div className="bg-card/40 backdrop-blur-xl border border-border/50">
-              <div className="p-6 border-b border-border/30">
-                <h3 className="text-lg font-semibold flex items-center gap-2">
-                  <Award className="h-5 w-5" />
-                  Certifications
-                </h3>
-              </div>
-              <div className="p-6 space-y-4">
-                <div className="border-l-2 border-primary pl-4">
-                  <h4 className="font-semibold">AWS Cloud Practitioner</h4>
-                  <p className="text-sm text-muted-foreground">Amazon Web Services</p>
-                  <p className="text-xs text-muted-foreground">Expected: Summer 2024</p>
-                </div>
-                
-                <div className="border-l-2 border-primary pl-4">
-                  <h4 className="font-semibold">Google Cloud Associate</h4>
-                  <p className="text-sm text-muted-foreground">Google Cloud Platform</p>
-                  <p className="text-xs text-muted-foreground">In Progress</p>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              {/* Second Terminal Window */}
+              <div style={{ borderRadius: '10px' }} className="bg-gradient-to-br from-gray-100/95 to-gray-200/95 dark:from-slate-800/90 dark:to-slate-900/90 backdrop-blur-xl border border-gray-300/50 dark:border-slate-600/50 shadow-2xl overflow-hidden">
+                {/* Terminal Header with Tabs */}
+                <div className="bg-gray-200/80 dark:bg-slate-700/50 border-b border-gray-300/50 dark:border-slate-600/30">
+                  <div className="flex items-center justify-between px-4 py-3">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-3 h-3 bg-red-500" style={{ borderRadius: '50%' }}></div>
+                      <div className="w-3 h-3 bg-yellow-500" style={{ borderRadius: '50%' }}></div>
+                      <div className="w-3 h-3 bg-green-500" style={{ borderRadius: '50%' }}></div>
+                    </div>
+                    <div className="text-gray-600 dark:text-slate-400 text-sm font-mono">~/connect</div>
+                    <div className="w-16"></div>
+                  </div>
+                  
+                  {/* Tab Navigation */}
+                  <div className="flex border-t border-gray-300/50 dark:border-slate-600/30">
+                    <button
+                      onClick={() => setActiveTab('main')}
+                      className={`px-4 py-2 text-sm font-mono border-r border-gray-300/50 dark:border-slate-600/30 transition-colors ${
+                        activeTab === 'main' 
+                          ? 'bg-white/70 dark:bg-slate-900/60 text-gray-900 dark:text-white' 
+                          : 'text-gray-600 dark:text-slate-400 hover:bg-gray-100/50 dark:hover:bg-slate-800/50'
+                      }`}
+                    >
+                      connect.sh
+                    </button>
+                    <button
+                      onClick={() => setActiveTab('connect')}
+                      className={`px-4 py-2 text-sm font-mono transition-colors ${
+                        activeTab === 'connect' 
+                          ? 'bg-white/70 dark:bg-slate-900/60 text-gray-900 dark:text-white' 
+                          : 'text-gray-600 dark:text-slate-400 hover:bg-gray-100/50 dark:hover:bg-slate-800/50'
+                      }`}
+                    >
+                      certs.sh
+                    </button>
+                  </div>
                 </div>
 
-                <div className="border-l-2 border-muted pl-4">
-                  <h4 className="font-semibold text-muted-foreground">MongoDB Developer</h4>
-                  <p className="text-sm text-muted-foreground">MongoDB University</p>
-                  <p className="text-xs text-muted-foreground">Planned: Fall 2024</p>
-                </div>
+                {/* Terminal Content */}
+                <div className="p-6 bg-white/70 dark:bg-slate-900/60 backdrop-blur-md min-h-[400px]">
+                  {activeTab === 'main' ? (
+                    <div className="text-gray-700 dark:text-slate-300 text-sm font-mono space-y-3">
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.3 }}
+                      >
+                        <p className="text-blue-600 dark:text-cyan-400 mb-3"># Contact Information</p>
+                        
+                        <div className="space-y-2">
+                          <p>
+                            <span className="text-green-600 dark:text-green-400">$</span>{" "}
+                            <span className="text-gray-900 dark:text-white">cat emails.txt</span>
+                          </p>
+                          
+                          <div className="pl-4 space-y-2">
+                            <div className="flex items-center justify-between group">
+                              <span className="text-gray-600 dark:text-slate-300">ibraheem.amin2@gmail.com</span>
+                              <button
+                                onClick={() => copyToClipboard('ibraheem.amin2@gmail.com', 'Personal email')}
+                                className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-gray-200/50 dark:hover:bg-slate-800/50 rounded"
+                              >
+                                <Copy className="h-3 w-3 text-gray-500 dark:text-slate-400" />
+                              </button>
+                            </div>
+                            <div className="flex items-center justify-between group">
+                              <span className="text-gray-600 dark:text-slate-300">ibraheem@princeton.edu</span>
+                              <button
+                                onClick={() => copyToClipboard('ibraheem@princeton.edu', 'Princeton email')}
+                                className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-gray-200/50 dark:hover:bg-slate-800/50 rounded"
+                              >
+                                <Copy className="h-3 w-3 text-gray-500 dark:text-slate-400" />
+                              </button>
+                            </div>
+                          </div>
 
-                <div className="pt-2">
-                  <button className="w-full p-2 text-sm bg-background/30 backdrop-blur-sm border border-border/30 hover:bg-background/50 transition-all flex items-center justify-center gap-2">
-                    <ExternalLink className="h-3 w-3" />
-                    View All Credentials
-                  </button>
+                          <p className="pt-2">
+                            <span className="text-green-600 dark:text-green-400">$</span>{" "}
+                            <span className="text-gray-900 dark:text-white">cat social.txt</span>
+                          </p>
+                          
+                          <div className="pl-4">
+                            <div className="flex items-center justify-between group">
+                              <span className="text-gray-600 dark:text-slate-300">GitHub: DIodide</span>
+                              <button
+                                onClick={() => copyToClipboard('DIodide', 'GitHub username')}
+                                className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-gray-200/50 dark:hover:bg-slate-800/50 rounded"
+                              >
+                                <Copy className="h-3 w-3 text-gray-500 dark:text-slate-400" />
+                              </button>
+                            </div>
+                          </div>
+
+                          <p className="pt-2 flex items-center">
+                            <span className="text-green-600 dark:text-green-400">$</span>
+                            <span className="w-2 h-4 bg-gray-900 dark:bg-white ml-2 animate-pulse rounded-sm"></span>
+                          </p>
+                        </div>
+                      </motion.div>
+                    </div>
+                  ) : (
+                    <div className="text-gray-700 dark:text-slate-300 text-sm font-mono space-y-3">
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.3 }}
+                      >
+                        <p className="text-blue-600 dark:text-cyan-400 mb-3"># Certifications & Achievements</p>
+                        
+                        <div className="space-y-2">
+                          <p>
+                            <span className="text-green-600 dark:text-green-400">$</span>{" "}
+                            <span className="text-gray-900 dark:text-white">ls -la certifications/</span>
+                          </p>
+                          
+                          <div className="pl-4 space-y-1">
+                            <a href="#" className="text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors block">
+                              -rw-r--r--  AWS Cloud Practitioner
+                            </a>
+                            <a href="#" className="text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors block">
+                              -rw-r--r--  Google Cloud Associate
+                            </a>
+                            <a href="#" className="text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors block">
+                              -rw-r--r--  MongoDB Developer
+                            </a>
+                            <a href="#" className="text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors block">
+                              -rw-r--r--  CompTIA Security+
+                            </a>
+                            <a href="#" className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors block">
+                              ... and 7 more
+                            </a>
+                          </div>
+
+                          <p className="pt-2 flex items-center">
+                            <span className="text-green-600 dark:text-green-400">$</span>
+                            <span className="w-2 h-4 bg-gray-900 dark:bg-white ml-2 animate-pulse rounded-sm"></span>
+                          </p>
+                        </div>
+                      </motion.div>
+                    </div>
+                  )}
                 </div>
               </div>
-            </div>
-
+            </motion.div>
           </div>
         </div>
 
