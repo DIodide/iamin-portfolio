@@ -401,7 +401,7 @@ export default function Home() {
                 <div className="flex items-center justify-between px-4 py-2 bg-gray-100/60 dark:bg-slate-700/60 border-b border-gray-200/50 dark:border-slate-600/50">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-xs text-gray-600 dark:text-slate-400 font-mono">project_01.tsx</span>
+                    <span className="text-xs text-gray-600 dark:text-slate-400 font-mono">eval-gaming.tsx</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <div className="w-1 h-1 bg-blue-500 rounded-full"></div>
@@ -412,16 +412,13 @@ export default function Home() {
                 
                 {/* Project Image */}
                 <div className="relative h-48 w-full bg-gradient-to-br from-blue-500/10 via-transparent to-indigo-500/10 overflow-hidden">
-                  {/* Placeholder for project image */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="relative">
-                        <ImageIcon className="h-12 w-12 text-gray-400 dark:text-slate-500 mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg blur-xl group-hover:blur-2xl transition-all"></div>
-                      </div>
-                      <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">// project-screenshot.jpg</p>
-                    </div>
-                  </div>
+                  <Image
+                    src="https://evalgaming.com/api/og/home-og"
+                    alt="EVAL Gaming Platform"
+                    fill
+                    className="object-cover transition-transform group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
                   {/* Animated overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent"></div>
                   <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 opacity-50 group-hover:opacity-100 transition-opacity"></div>
@@ -436,7 +433,7 @@ export default function Home() {
                   <div className="flex flex-col space-y-4 mb-4">
                     <div className="flex items-center gap-2">
                       <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
-                        Project One
+                        EVAL
                       </h3>
                       <div className="px-2 py-1 bg-green-500/20 dark:bg-green-400/20 border border-green-500/30 dark:border-green-400/30 rounded text-xs text-green-700 dark:text-green-300 font-mono">
                         ACTIVE
@@ -444,31 +441,34 @@ export default function Home() {
                     </div>
                     <p className="text-sm text-gray-600 dark:text-slate-400 flex items-center gap-2 font-mono">
                       <Calendar className="h-3 w-3" />
-                      <span>Spring 2024</span>
+                      <span>Fall 2024</span>
                       <span className="text-gray-400 dark:text-slate-500">•</span>
-                      <span>v1.2.0</span>
+                      <span>v2.0.0</span>
                     </p>
                     <div className="flex gap-2 flex-wrap">
-                      <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gray-100/80 dark:bg-slate-800/80 backdrop-blur-sm border border-gray-300/50 dark:border-slate-600/50 hover:bg-gray-200/80 dark:hover:bg-slate-700/80 transition-all rounded-lg group/btn">
+                      <a href="https://github.com/DIodide/eval-next" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gray-100/80 dark:bg-slate-800/80 backdrop-blur-sm border border-gray-300/50 dark:border-slate-600/50 hover:bg-gray-200/80 dark:hover:bg-slate-700/80 transition-all rounded-lg group/btn">
                         <Github className="h-4 w-4 group-hover/btn:scale-110 transition-transform" />
                         Repository
-                      </button>
-                      <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 transition-all rounded-lg group/btn shadow-lg shadow-blue-500/20">
+                      </a>
+                      <a href="https://evalgaming.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 transition-all rounded-lg group/btn shadow-lg shadow-blue-500/20">
                         <ExternalLink className="h-4 w-4 group-hover/btn:scale-110 transition-transform" />
                         Live Demo
-                      </button>
+                      </a>
                     </div>
                   </div>
                   
                   <p className="text-gray-600 dark:text-slate-300 mb-4 leading-relaxed">
-                    Description of your first project. This could include the technologies used, 
-                    the problem it solves, and key features implemented.
+                    A comprehensive high school e-sports recruiting platform connecting talented student gamers 
+                    with college recruiting opportunities. Features player profiles, tournament tracking, 
+                    recruitment dashboards, and comprehensive analytics.
                   </p>
                   
                   <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 text-xs bg-blue-500/20 dark:bg-blue-400/20 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 rounded-full font-mono">React</span>
-                    <span className="px-3 py-1 text-xs bg-purple-500/20 dark:bg-purple-400/20 border border-purple-500/30 dark:border-purple-400/30 text-purple-700 dark:text-purple-300 rounded-full font-mono">TypeScript</span>
-                    <span className="px-3 py-1 text-xs bg-cyan-500/20 dark:bg-cyan-400/20 border border-cyan-500/30 dark:border-cyan-400/30 text-cyan-700 dark:text-cyan-300 rounded-full font-mono">Node.js</span>
+                    <span className="px-3 py-1 text-xs bg-blue-500/20 dark:bg-blue-400/20 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 rounded-full font-mono">Next.js</span>
+                    <span className="px-3 py-1 text-xs bg-purple-500/20 dark:bg-purple-400/20 border border-purple-500/30 dark:border-purple-400/30 text-purple-700 dark:text-purple-300 rounded-full font-mono">tRPC</span>
+                    <span className="px-3 py-1 text-xs bg-cyan-500/20 dark:bg-cyan-400/20 border border-cyan-500/30 dark:border-cyan-400/30 text-cyan-700 dark:text-cyan-300 rounded-full font-mono">Prisma</span>
+                    <span className="px-3 py-1 text-xs bg-green-500/20 dark:bg-green-400/20 border border-green-500/30 dark:border-green-400/30 text-green-700 dark:text-green-300 rounded-full font-mono">Clerk</span>
+                    <span className="px-3 py-1 text-xs bg-indigo-500/20 dark:bg-indigo-400/20 border border-indigo-500/30 dark:border-indigo-400/30 text-indigo-700 dark:text-indigo-300 rounded-full font-mono">PostgreSQL</span>
                   </div>
                 </div>
               </div>
