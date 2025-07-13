@@ -38,12 +38,12 @@ export default function Home() {
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        {/* Two Column Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+              <div className="max-w-7xl mx-auto px-4 py-8">
+        {/* Top Grid - Terminals */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
           
-          {/* Main Content - Takes 3/4 of the width on large screens */}
-          <div className="lg:col-span-3 space-y-8">
+          {/* Main Terminal - Takes 3/4 of the width on large screens */}
+          <div className="lg:col-span-3">
             
             {/* Hero Section - Full Terminal */}
             <motion.section
@@ -162,182 +162,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </motion.section>
-
-            {/* Projects Section */}
-            <section>
-              <h2 className="text-3xl font-bold mb-6">Projects</h2>
-              
-              <div className="timeline">
-                {/* Project 1 */}
-                <div className="timeline-item">
-                  <div className="bg-card/40 backdrop-blur-xl border border-border/50 hover:bg-card/60 transition-all duration-300 overflow-hidden group">
-                    {/* Project Image */}
-                    <div className="relative h-48 w-full bg-muted/30 backdrop-blur-sm">
-                      {/* Placeholder for project image */}
-                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-500/10 via-transparent to-indigo-500/10">
-                        <div className="text-center">
-                          <ImageIcon className="h-12 w-12 text-muted-foreground mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                          <p className="text-sm text-muted-foreground">Project Screenshot</p>
-                        </div>
-                      </div>
-                      {/* Glass overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
-                      {/* Uncomment and replace with actual image when ready */}
-                      {/* <Image
-                        src="/project1-screenshot.jpg"
-                        alt="Project One Screenshot"
-                        fill
-                        className="object-cover"
-                      /> */}
-                    </div>
-                    
-                    <div className="p-6">
-                      <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                        <div>
-                          <h3 className="text-xl font-semibold mb-2">Project One</h3>
-                          <p className="text-sm text-muted-foreground mb-3 flex items-center gap-1">
-                            <Calendar className="h-3 w-3" />
-                            Spring 2024
-                          </p>
-                        </div>
-                        <div className="flex gap-2 flex-wrap">
-                          <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all">
-                            <Github className="h-4 w-4" />
-                            Repository
-                          </button>
-                          <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-primary/80 backdrop-blur-sm text-primary-foreground border border-primary/20 hover:bg-primary transition-all">
-                            <ExternalLink className="h-4 w-4" />
-                            Live Demo
-                          </button>
-                        </div>
-                      </div>
-                      <p className="text-muted-foreground mb-4">
-                        Description of your first project. This could include the technologies used, 
-                        the problem it solves, and key features implemented.
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        <span className="px-3 py-1 text-xs bg-secondary/50 backdrop-blur-sm border border-border/30 text-secondary-foreground">React</span>
-                        <span className="px-3 py-1 text-xs bg-secondary/50 backdrop-blur-sm border border-border/30 text-secondary-foreground">TypeScript</span>
-                        <span className="px-3 py-1 text-xs bg-secondary/50 backdrop-blur-sm border border-border/30 text-secondary-foreground">Node.js</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Project 2 */}
-                <div className="timeline-item">
-                  <div className="bg-card/40 backdrop-blur-xl border border-border/50 hover:bg-card/60 transition-all duration-300 overflow-hidden group">
-                    {/* Project Image */}
-                    <div className="relative h-48 w-full bg-muted/30 backdrop-blur-sm">
-                      {/* Placeholder for project image */}
-                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-green-500/10 via-transparent to-emerald-500/10">
-                        <div className="text-center">
-                          <ImageIcon className="h-12 w-12 text-muted-foreground mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                          <p className="text-sm text-muted-foreground">Project Screenshot</p>
-                        </div>
-                      </div>
-                      {/* Glass overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
-                      {/* Uncomment and replace with actual image when ready */}
-                      {/* <Image
-                        src="/project2-screenshot.jpg"
-                        alt="Project Two Screenshot"
-                        fill
-                        className="object-cover"
-                      /> */}
-                    </div>
-                    
-                    <div className="p-6">
-                      <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                        <div>
-                          <h3 className="text-xl font-semibold mb-2">Project Two</h3>
-                          <p className="text-sm text-muted-foreground mb-3 flex items-center gap-1">
-                            <Calendar className="h-3 w-3" />
-                            Fall 2023
-                          </p>
-                        </div>
-                        <div className="flex gap-2 flex-wrap">
-                          <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all">
-                            <Github className="h-4 w-4" />
-                            Repository
-                          </button>
-                          <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-primary/80 backdrop-blur-sm text-primary-foreground border border-primary/20 hover:bg-primary transition-all">
-                            <ExternalLink className="h-4 w-4" />
-                            Live Demo
-                          </button>
-                        </div>
-                      </div>
-                      <p className="text-muted-foreground mb-4">
-                        Description of your second project. Highlight the unique challenges 
-                        you faced and the innovative solutions you implemented.
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        <span className="px-3 py-1 text-xs bg-secondary/50 backdrop-blur-sm border border-border/30 text-secondary-foreground">Python</span>
-                        <span className="px-3 py-1 text-xs bg-secondary/50 backdrop-blur-sm border border-border/30 text-secondary-foreground">Flask</span>
-                        <span className="px-3 py-1 text-xs bg-secondary/50 backdrop-blur-sm border border-border/30 text-secondary-foreground">PostgreSQL</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Project 3 */}
-                <div className="timeline-item">
-                  <div className="bg-card/40 backdrop-blur-xl border border-border/50 hover:bg-card/60 transition-all duration-300 overflow-hidden group">
-                    {/* Project Image */}
-                    <div className="relative h-48 w-full bg-muted/30 backdrop-blur-sm">
-                      {/* Placeholder for project image */}
-                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-purple-500/10 via-transparent to-violet-500/10">
-                        <div className="text-center">
-                          <ImageIcon className="h-12 w-12 text-muted-foreground mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                          <p className="text-sm text-muted-foreground">Project Screenshot</p>
-                        </div>
-                      </div>
-                      {/* Glass overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
-                      {/* Uncomment and replace with actual image when ready */}
-                      {/* <Image
-                        src="/project3-screenshot.jpg"
-                        alt="Project Three Screenshot"
-                        fill
-                        className="object-cover"
-                      /> */}
-                    </div>
-                    
-                    <div className="p-6">
-                      <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                        <div>
-                          <h3 className="text-xl font-semibold mb-2">Project Three</h3>
-                          <p className="text-sm text-muted-foreground mb-3 flex items-center gap-1">
-                            <Calendar className="h-3 w-3" />
-                            Summer 2023
-                          </p>
-                        </div>
-                        <div className="flex gap-2 flex-wrap">
-                          <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all">
-                            <Github className="h-4 w-4" />
-                            Repository
-                          </button>
-                          <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-primary/80 backdrop-blur-sm text-primary-foreground border border-primary/20 hover:bg-primary transition-all">
-                            <ExternalLink className="h-4 w-4" />
-                            Live Demo
-                          </button>
-                        </div>
-                      </div>
-                      <p className="text-muted-foreground mb-4">
-                        Description of your third project. Focus on the impact it had and 
-                        the technical skills you developed while building it.
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        <span className="px-3 py-1 text-xs bg-secondary/50 backdrop-blur-sm border border-border/30 text-secondary-foreground">Java</span>
-                        <span className="px-3 py-1 text-xs bg-secondary/50 backdrop-blur-sm border border-border/30 text-secondary-foreground">Spring Boot</span>
-                        <span className="px-3 py-1 text-xs bg-secondary/50 backdrop-blur-sm border border-border/30 text-secondary-foreground">MySQL</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+                        </motion.section>
 
           </div>
 
@@ -490,6 +315,339 @@ export default function Home() {
                       </motion.div>
                     </div>
                   )}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Projects Section - Separate Grid */}
+        <div className="mb-12">
+          <motion.div 
+            className="mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <div className="relative">
+              {/* Background accent */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10 backdrop-blur-sm rounded-lg -z-10 transform rotate-1"></div>
+              
+              {/* Main header container */}
+              <div className="bg-gradient-to-r from-gray-50/80 via-white/60 to-gray-50/80 dark:from-slate-800/80 dark:via-slate-700/60 dark:to-slate-800/80 backdrop-blur-xl border border-gray-200/50 dark:border-slate-600/50 rounded-lg p-6 relative overflow-hidden">
+                {/* Animated background pattern */}
+                <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 animate-pulse"></div>
+                </div>
+                
+                {/* Code-style decorative elements */}
+                <div className="absolute top-3 right-4 text-gray-400/30 dark:text-slate-500/30 font-mono text-xs">
+                  // showcase
+                </div>
+                <div className="absolute bottom-3 left-4 text-gray-400/30 dark:text-slate-500/30 font-mono text-xs">
+                  &lt;portfolio/&gt;
+                </div>
+                
+                <div className="relative z-10 flex items-center gap-4">
+                  {/* Command prompt style indicator */}
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-green-600 dark:text-green-400 font-mono text-sm">&gt;</span>
+                  </div>
+                  
+                  {/* Main heading */}
+                  <div className="flex-1">
+                    <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
+                      Featured Projects
+                    </h2>
+                    <p className="text-sm text-gray-600 dark:text-slate-400 mt-1 font-mono">
+                      Building solutions, one commit at a time
+                    </p>
+                  </div>
+                  
+                  {/* Status indicator */}
+                  <div className="hidden md:flex items-center gap-2 text-xs text-gray-500 dark:text-slate-400 font-mono">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full animate-ping"></div>
+                    <span>Active Development</span>
+                  </div>
+                </div>
+                
+                {/* Progress bar aesthetic */}
+                <div className="mt-4 flex gap-1">
+                  <div className="h-1 bg-green-500 rounded-full flex-1 animate-pulse"></div>
+                  <div className="h-1 bg-blue-500 rounded-full flex-1 animate-pulse delay-75"></div>
+                  <div className="h-1 bg-purple-500 rounded-full flex-1 animate-pulse delay-150"></div>
+                  <div className="h-1 bg-cyan-500 rounded-full flex-1 animate-pulse delay-225"></div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+          
+          {/* Projects Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Project 1 */}
+            <motion.div 
+              className="relative group"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
+            >
+              {/* Background accent */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-cyan-500/10 backdrop-blur-sm rounded-lg -z-10 transform group-hover:rotate-1 transition-transform duration-300"></div>
+              
+              <div className="bg-gradient-to-br from-gray-50/90 via-white/70 to-gray-100/90 dark:from-slate-800/90 dark:via-slate-700/70 dark:to-slate-800/90 backdrop-blur-xl border border-gray-200/50 dark:border-slate-600/50 rounded-lg overflow-hidden group-hover:shadow-2xl group-hover:shadow-blue-500/10 transition-all duration-300">
+                
+                {/* Status bar */}
+                <div className="flex items-center justify-between px-4 py-2 bg-gray-100/60 dark:bg-slate-700/60 border-b border-gray-200/50 dark:border-slate-600/50">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-xs text-gray-600 dark:text-slate-400 font-mono">project_01.tsx</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <div className="w-1 h-1 bg-blue-500 rounded-full"></div>
+                    <div className="w-1 h-1 bg-purple-500 rounded-full"></div>
+                    <div className="w-1 h-1 bg-cyan-500 rounded-full"></div>
+                  </div>
+                </div>
+                
+                {/* Project Image */}
+                <div className="relative h-48 w-full bg-gradient-to-br from-blue-500/10 via-transparent to-indigo-500/10 overflow-hidden">
+                  {/* Placeholder for project image */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="relative">
+                        <ImageIcon className="h-12 w-12 text-gray-400 dark:text-slate-500 mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg blur-xl group-hover:blur-2xl transition-all"></div>
+                      </div>
+                      <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">// project-screenshot.jpg</p>
+                    </div>
+                  </div>
+                  {/* Animated overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                
+                <div className="p-6 relative">
+                  {/* Decorative code comment */}
+                  <div className="absolute top-2 right-4 text-gray-400/40 dark:text-slate-500/40 font-mono text-xs">
+                    /* featured */
+                  </div>
+                  
+                  <div className="flex flex-col space-y-4 mb-4">
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
+                        Project One
+                      </h3>
+                      <div className="px-2 py-1 bg-green-500/20 dark:bg-green-400/20 border border-green-500/30 dark:border-green-400/30 rounded text-xs text-green-700 dark:text-green-300 font-mono">
+                        ACTIVE
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-slate-400 flex items-center gap-2 font-mono">
+                      <Calendar className="h-3 w-3" />
+                      <span>Spring 2024</span>
+                      <span className="text-gray-400 dark:text-slate-500">•</span>
+                      <span>v1.2.0</span>
+                    </p>
+                    <div className="flex gap-2 flex-wrap">
+                      <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gray-100/80 dark:bg-slate-800/80 backdrop-blur-sm border border-gray-300/50 dark:border-slate-600/50 hover:bg-gray-200/80 dark:hover:bg-slate-700/80 transition-all rounded-lg group/btn">
+                        <Github className="h-4 w-4 group-hover/btn:scale-110 transition-transform" />
+                        Repository
+                      </button>
+                      <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 transition-all rounded-lg group/btn shadow-lg shadow-blue-500/20">
+                        <ExternalLink className="h-4 w-4 group-hover/btn:scale-110 transition-transform" />
+                        Live Demo
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-600 dark:text-slate-300 mb-4 leading-relaxed">
+                    Description of your first project. This could include the technologies used, 
+                    the problem it solves, and key features implemented.
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 text-xs bg-blue-500/20 dark:bg-blue-400/20 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 rounded-full font-mono">React</span>
+                    <span className="px-3 py-1 text-xs bg-purple-500/20 dark:bg-purple-400/20 border border-purple-500/30 dark:border-purple-400/30 text-purple-700 dark:text-purple-300 rounded-full font-mono">TypeScript</span>
+                    <span className="px-3 py-1 text-xs bg-cyan-500/20 dark:bg-cyan-400/20 border border-cyan-500/30 dark:border-cyan-400/30 text-cyan-700 dark:text-cyan-300 rounded-full font-mono">Node.js</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Project 2 */}
+            <motion.div 
+              className="relative group"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.2 }}
+            >
+              {/* Background accent */}
+              <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-emerald-500/5 to-teal-500/10 backdrop-blur-sm rounded-lg -z-10 transform group-hover:rotate-1 transition-transform duration-300"></div>
+              
+              <div className="bg-gradient-to-br from-gray-50/90 via-white/70 to-gray-100/90 dark:from-slate-800/90 dark:via-slate-700/70 dark:to-slate-800/90 backdrop-blur-xl border border-gray-200/50 dark:border-slate-600/50 rounded-lg overflow-hidden group-hover:shadow-2xl group-hover:shadow-green-500/10 transition-all duration-300">
+                
+                {/* Status bar */}
+                <div className="flex items-center justify-between px-4 py-2 bg-gray-100/60 dark:bg-slate-700/60 border-b border-gray-200/50 dark:border-slate-600/50">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></div>
+                    <span className="text-xs text-gray-600 dark:text-slate-400 font-mono">project_02.py</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <div className="w-1 h-1 bg-green-500 rounded-full"></div>
+                    <div className="w-1 h-1 bg-emerald-500 rounded-full"></div>
+                    <div className="w-1 h-1 bg-teal-500 rounded-full"></div>
+                  </div>
+                </div>
+                
+                {/* Project Image */}
+                <div className="relative h-48 w-full bg-gradient-to-br from-green-500/10 via-transparent to-emerald-500/10 overflow-hidden">
+                  {/* Placeholder for project image */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="relative">
+                        <ImageIcon className="h-12 w-12 text-gray-400 dark:text-slate-500 mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg blur-xl group-hover:blur-2xl transition-all"></div>
+                      </div>
+                      <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">// project-screenshot.jpg</p>
+                    </div>
+                  </div>
+                  {/* Animated overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                
+                <div className="p-6 relative">
+                  {/* Decorative code comment */}
+                  <div className="absolute top-2 right-4 text-gray-400/40 dark:text-slate-500/40 font-mono text-xs">
+                    /* stable */
+                  </div>
+                  
+                  <div className="flex flex-col space-y-4 mb-4">
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 via-green-800 to-emerald-800 dark:from-white dark:via-green-200 dark:to-emerald-200 bg-clip-text text-transparent">
+                        Project Two
+                      </h3>
+                      <div className="px-2 py-1 bg-yellow-500/20 dark:bg-yellow-400/20 border border-yellow-500/30 dark:border-yellow-400/30 rounded text-xs text-yellow-700 dark:text-yellow-300 font-mono">
+                        STABLE
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-slate-400 flex items-center gap-2 font-mono">
+                      <Calendar className="h-3 w-3" />
+                      <span>Fall 2023</span>
+                      <span className="text-gray-400 dark:text-slate-500">•</span>
+                      <span>v2.1.3</span>
+                    </p>
+                    <div className="flex gap-2 flex-wrap">
+                      <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gray-100/80 dark:bg-slate-800/80 backdrop-blur-sm border border-gray-300/50 dark:border-slate-600/50 hover:bg-gray-200/80 dark:hover:bg-slate-700/80 transition-all rounded-lg group/btn">
+                        <Github className="h-4 w-4 group-hover/btn:scale-110 transition-transform" />
+                        Repository
+                      </button>
+                      <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gradient-to-r from-green-500 to-emerald-500 text-white hover:from-green-600 hover:to-emerald-600 transition-all rounded-lg group/btn shadow-lg shadow-green-500/20">
+                        <ExternalLink className="h-4 w-4 group-hover/btn:scale-110 transition-transform" />
+                        Live Demo
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-600 dark:text-slate-300 mb-4 leading-relaxed">
+                    Description of your second project. Highlight the unique challenges 
+                    you faced and the innovative solutions you implemented.
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 text-xs bg-green-500/20 dark:bg-green-400/20 border border-green-500/30 dark:border-green-400/30 text-green-700 dark:text-green-300 rounded-full font-mono">Python</span>
+                    <span className="px-3 py-1 text-xs bg-emerald-500/20 dark:bg-emerald-400/20 border border-emerald-500/30 dark:border-emerald-400/30 text-emerald-700 dark:text-emerald-300 rounded-full font-mono">Flask</span>
+                    <span className="px-3 py-1 text-xs bg-teal-500/20 dark:bg-teal-400/20 border border-teal-500/30 dark:border-teal-400/30 text-teal-700 dark:text-teal-300 rounded-full font-mono">PostgreSQL</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Project 3 */}
+            <motion.div 
+              className="relative group"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.4 }}
+            >
+              {/* Background accent */}
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-violet-500/5 to-indigo-500/10 backdrop-blur-sm rounded-lg -z-10 transform group-hover:rotate-1 transition-transform duration-300"></div>
+              
+              <div className="bg-gradient-to-br from-gray-50/90 via-white/70 to-gray-100/90 dark:from-slate-800/90 dark:via-slate-700/70 dark:to-slate-800/90 backdrop-blur-xl border border-gray-200/50 dark:border-slate-600/50 rounded-lg overflow-hidden group-hover:shadow-2xl group-hover:shadow-purple-500/10 transition-all duration-300">
+                
+                {/* Status bar */}
+                <div className="flex items-center justify-between px-4 py-2 bg-gray-100/60 dark:bg-slate-700/60 border-b border-gray-200/50 dark:border-slate-600/50">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                    <span className="text-xs text-gray-600 dark:text-slate-400 font-mono">project_03.java</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <div className="w-1 h-1 bg-purple-500 rounded-full"></div>
+                    <div className="w-1 h-1 bg-violet-500 rounded-full"></div>
+                    <div className="w-1 h-1 bg-indigo-500 rounded-full"></div>
+                  </div>
+                </div>
+                
+                {/* Project Image */}
+                <div className="relative h-48 w-full bg-gradient-to-br from-purple-500/10 via-transparent to-violet-500/10 overflow-hidden">
+                  {/* Placeholder for project image */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="relative">
+                        <ImageIcon className="h-12 w-12 text-gray-400 dark:text-slate-500 mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-violet-500/20 rounded-lg blur-xl group-hover:blur-2xl transition-all"></div>
+                      </div>
+                      <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">// project-screenshot.jpg</p>
+                    </div>
+                  </div>
+                  {/* Animated overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-violet-500 to-indigo-500 opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                
+                <div className="p-6 relative">
+                  {/* Decorative code comment */}
+                  <div className="absolute top-2 right-4 text-gray-400/40 dark:text-slate-500/40 font-mono text-xs">
+                    /* archived */
+                  </div>
+                  
+                  <div className="flex flex-col space-y-4 mb-4">
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 via-purple-800 to-violet-800 dark:from-white dark:via-purple-200 dark:to-violet-200 bg-clip-text text-transparent">
+                        Project Three
+                      </h3>
+                      <div className="px-2 py-1 bg-red-500/20 dark:bg-red-400/20 border border-red-500/30 dark:border-red-400/30 rounded text-xs text-red-700 dark:text-red-300 font-mono">
+                        ARCHIVED
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-slate-400 flex items-center gap-2 font-mono">
+                      <Calendar className="h-3 w-3" />
+                      <span>Summer 2023</span>
+                      <span className="text-gray-400 dark:text-slate-500">•</span>
+                      <span>v1.0.0</span>
+                    </p>
+                    <div className="flex gap-2 flex-wrap">
+                      <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gray-100/80 dark:bg-slate-800/80 backdrop-blur-sm border border-gray-300/50 dark:border-slate-600/50 hover:bg-gray-200/80 dark:hover:bg-slate-700/80 transition-all rounded-lg group/btn">
+                        <Github className="h-4 w-4 group-hover/btn:scale-110 transition-transform" />
+                        Repository
+                      </button>
+                      <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gradient-to-r from-purple-500 to-violet-500 text-white hover:from-purple-600 hover:to-violet-600 transition-all rounded-lg group/btn shadow-lg shadow-purple-500/20">
+                        <ExternalLink className="h-4 w-4 group-hover/btn:scale-110 transition-transform" />
+                        Live Demo
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-600 dark:text-slate-300 mb-4 leading-relaxed">
+                    Description of your third project. Focus on the impact it had and 
+                    the technical skills you developed while building it.
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 text-xs bg-purple-500/20 dark:bg-purple-400/20 border border-purple-500/30 dark:border-purple-400/30 text-purple-700 dark:text-purple-300 rounded-full font-mono">Java</span>
+                    <span className="px-3 py-1 text-xs bg-violet-500/20 dark:bg-violet-400/20 border border-violet-500/30 dark:border-violet-400/30 text-violet-700 dark:text-violet-300 rounded-full font-mono">Spring Boot</span>
+                    <span className="px-3 py-1 text-xs bg-indigo-500/20 dark:bg-indigo-400/20 border border-indigo-500/30 dark:border-indigo-400/30 text-indigo-700 dark:text-indigo-300 rounded-full font-mono">MySQL</span>
+                  </div>
                 </div>
               </div>
             </motion.div>
