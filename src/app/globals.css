@@ -9,7 +9,7 @@
   --accent: oklch(0.968 0.007 247.896);
   --accent-foreground: oklch(0.208 0.042 265.755);
   --card: oklch(1 0 0);
-  --radius: 0rem; /* Set to 0 for sharp corners */
+  --radius: 0.5rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card-foreground: oklch(0.129 0.042 264.695);
@@ -119,12 +119,6 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
-    border-radius: 0 !important;
-  }
-  
-  /* Override any border-radius from components */
-  button, input, textarea, select, div, span, section, article, nav, header, footer {
-    border-radius: 0 !important;
   }
 }
 
