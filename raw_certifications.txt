@@ -1,0 +1,1166 @@
+import Image from "next/image";
+import { Button } from "@/src/components/ui/button";
+import {
+  CollapsibleTrigger,
+  CollapsibleContent,
+  Collapsible,
+} from "@/src/components/ui/collapsible";
+import { Badge } from "@/src/components/ui/badge";
+import { Card } from "@/src/components/ui/card";
+import Link from "next/link";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "../ui/hover-card";
+
+export function CertificationsPage() {
+  const ExternalLinkIcon = (props: any) => {
+    return (
+      <svg
+        {...props}
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+        <polyline points="15 3 21 3 21 9" />
+        <line x1="10" x2="21" y1="14" y2="3" />
+      </svg>
+    );
+  };
+
+  const middleLeft = "rounded-r-none rounded-t-none mr-0 rounded-b-none mb-0 ";
+  const middleRight =
+    "rounded-l-none rounded-t-none mr-0 rounded-b-none mb-0 max-w-[50%] ";
+
+  const topMiddleLeft = "rounded-r-none mr-0 rounded-b-none mb-0";
+
+  const topMiddleRight = "rounded-l-none mr-0 rounded-b-none mb-0 max-w-[50%] ";
+
+  const bottomWhole = " rounded-t-none mr-0  max-w-[99.5%] ";
+  const topWhole = " rounded-b-none mr-0 mb-0 max-w-[99.5%] ";
+  const left = "rounded-r-none mr-0";
+  const right = "rounded-l-none  mr-0   max-w-[50%] ";
+  const bottomLeft = "rounded-r-none mr-0 rounded-t-none";
+  const bottomRight = "rounded-l-none  mr-0  rounded-t-none max-w-[50%] ";
+  const topLeft = "rounded-r-none mr-0 rounded-b-none mb-0";
+  const topRight = "rounded-l-none  mr-0 rounded-b-none max-w-[50%] mb-0";
+
+  return (
+    <section className="flex flex-col min-h-fit bg-primary-dark dark:bg-gray-900">
+      <div className="flex-1 md:px-6 md:py-2">
+        <Collapsible className="space-y-2 mt-4" defaultOpen draggable={false} id="onlylight">
+          <div className="flex items-center justify-start space-x-4 px-4">
+            <h4 className="text-xl font-semibold">Certifications</h4>
+            <CollapsibleTrigger asChild>
+              <Button size="sm" variant="ghost">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.18179 6.18181C4.35753 6.00608 4.64245 6.00608 4.81819 6.18181L7.49999 8.86362L10.1818 6.18181C10.3575 6.00608 10.6424 6.00608 10.8182 6.18181C10.9939 6.35755 10.9939 6.64247 10.8182 6.81821L7.81819 9.81821C7.73379 9.9026 7.61934 9.95001 7.49999 9.95001C7.38064 9.95001 7.26618 9.9026 7.18179 9.81821L4.18179 6.81821C4.00605 6.64247 4.00605 6.35755 4.18179 6.18181Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span className="sr-only">Toggle</span>
+              </Button>
+            </CollapsibleTrigger>
+            <Link
+              className="flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-white"
+              href="/documents/ibraheem_amin_credly.pdf"
+              target="_blank"
+            >
+              <ExternalLinkIcon className="w-4 h-4" />
+              Open Official Credly Transcript
+            </Link>
+            <Link
+              className="flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-white"
+              href="/documents/certiport_transcript.pdf"
+              target="_blank"
+            >
+              <ExternalLinkIcon className="w-4 h-4" />
+              Open Certiport Digital Transcript
+            </Link>
+          </div>
+          <CollapsibleContent className="CollapsibleContent flex flex-wrap max-h-[74vh] overflow-auto px-2">
+            <CardItem
+              className={topLeft}
+              title="Application Developer"
+              organization="Certiport | A Pearson VUE"
+              description="The Application Developer credential gives you that breadth of knowledge to make valuable contributions and informed decisions, no matter what part of the development you focus on."
+              dateEarned="Date Earned: 06/05/2023"
+              badges={[{ name: "GLTHS - After Dark", color: "bg-blue-300" }]}
+              imageRoute="/images/certifications/application_developer"
+              verificationLink="https://www.credly.com/badges/2763a83b-0ffa-476e-b7ce-e761b72ddcbe/public_url"
+              imageSize={80}
+              textSize={["text-xl", "text"]}
+            />
+            <CardItem
+              className={topRight}
+              title="IT Technical Support Specialist"
+              organization="Certiport | A Pearson VUE"
+              description="Foundation in Networking, Network Security, and Device Configuration and Management."
+              dateEarned="Date Earned: 06/05/2023"
+              badges={[{ name: "GLTHS - After Dark", color: "bg-blue-300" }]}
+              imageRoute="/images/certifications/IT_technical_support_specialist"
+              verificationLink="https://www.credly.com/badges/7944a148-135a-4b72-acc3-80bd12e67c63/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={bottomLeft}
+              title="Network Automation Specialist"
+              organization="Certiport | A Pearson VUE"
+              description="Foundation in IT, Network Automation, Python, and Software Development."
+              dateEarned="Date Earned: 05/09/2024"
+              badges={[{ name: "GLTHS - After Dark", color: "bg-blue-300" }]}
+              imageRoute="/images/certifications/network_automation_specialist"
+              verificationLink="https://www.credly.com/badges/49a3e128-5fce-4b8d-a4f5-5d67e789d9d5/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={bottomRight}
+              title="Network Security Support Technician"
+              organization="Certiport | A Pearson VUE"
+              description="Foundation in network communication and computer security via Cisco."
+              dateEarned="Date Earned: 05/09/2024"
+              badges={[{ name: "GLTHS - After Dark", color: "bg-blue-300" }]}
+              imageRoute="/images/certifications/network_security_support_technician"
+              verificationLink="https://www.credly.com/badges/248a3c1f-eacd-4a24-a289-b610f6dd3293/public_url"
+              imageSize={80}
+            />
+
+            <CardItem
+              className={left}
+              title="CCST - Cisco Certified Support Technician Cybersecurity"
+              organization="Cisco"
+              description="Successful candidates are qualified to enter the workforce as cybersecurity support specialists, technicians, analysts, and/or auditors."
+              dateEarned="Date Earned: 08/16/2023"
+              badges={[{ name: "GLTHS - After Dark", color: "bg-blue-300" }]}
+              imageRoute="/images/certifications/cisco_cybersecurity"
+              verificationLink="https://www.credly.com/badges/f117a443-f985-47bf-9f24-d77b3bea1124/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={right}
+              title="CCST - Cisco Certified Support Technician Networking"
+              organization="Cisco"
+              description="Successful candidates are qualified to enter the workforce as networking support specialists, technicians, and/or administrators."
+              dateEarned="Date Earned: 05/09/2024"
+              badges={[
+                { name: "GLTHS - After Dark", color: "bg-blue-300" },
+                {
+                  name: "ACE Accredited (3 College Credits)",
+                  color: "bg-green-300",
+                },
+              ]}
+              imageRoute="/images/certifications/cisco_networking"
+              verificationLink="https://www.credly.com/badges/a5234214-138f-4d38-a931-3c0daf15f637/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={left}
+              title="Microsoft Certified: Azure AI Fundamentals"
+              organization="Microsoft"
+              description="Earners of the Azure AI Fundamentals certification have demonstrated foundational knowledge of machine learning (ML) and artificial intelligence (AI) concepts and related Microsoft Azure services."
+              dateEarned="Date Earned: 05/12/2024"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+                {
+                  name: "ACE Accredited (1 College Credit)",
+                  color: "bg-green-300",
+                },
+              ]}
+              imageRoute="/images/certifications/microsoft_azure_ai_fundamentals"
+              verificationLink="https://www.credly.com/badges/0a11a5db-afd2-442f-bce7-e8e2aff861a7/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={right}
+              title="Microsoft Office Specialist: Word Associate (Office 2019)"
+              organization="Microsoft"
+              description="Microsoft Word certification earners have a fundamental understanding of the Word environment and the ability to complete tasks independently"
+              dateEarned="Date Earned: 05/12/2024"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+                {
+                  name: "ACE Accredited (1 College Credit)",
+                  color: "bg-green-300",
+                },
+              ]}
+              imageRoute="/images/certifications/mos_word"
+              verificationLink="https://www.credly.com/badges/89cd58ff-e20c-48bf-81f5-f378541883b1/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={"max-w-[100%]"}
+              title="Unity Certified User: Programmer"
+              organization="Unity Technologies"
+              description="Earners of the Unity Certified User: Programmer badge have the basic programming skills necessary to create interactivity in games, apps, AR/VR, and other experiences. Earners are able to create interactive content for industries such as gaming, entertainment, automotive, AEC, and XR."
+              dateEarned="Date Earned: 05/12/2024"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+              ]}
+              imageRoute="/images/certifications/unity_certified_user_programmer"
+              verificationLink="https://www.credly.com/badges/ead24645-32ee-4eba-9464-78c39d007302/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={left}
+              title="ESB: Entreprenuership and Small Business v.2"
+              organization="Certiport | A Pearson VUE"
+              description="Core concepts include entrepreneurship; recognizing and evaluating opportunities; planning for, starting, and operating a business; marketing and sales; venture capital and seed funding; and financial management."
+              dateEarned="Date Earned: 05/12/2024"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+                {
+                  name: "ACE Accredited (3 College Credits)",
+                  color: "bg-green-300",
+                },
+              ]}
+              imageRoute="/images/certifications/esb_entrepreneurship_and_small_business_v2"
+              verificationLink="https://www.credly.com/badges/b7372f3e-558b-4302-9be6-79041b291d2f/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={right}
+              title="PMI Project Management Ready™"
+              organization="Project Management Institute"
+              description="validated in the core concepts of project management, business analysis and traditional and agile methodologies used across industries globally."
+              dateEarned="Date Earned: 05/12/2024"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+                {
+                  name: "ACE Accredited (3 College Credits)",
+                  color: "bg-green-300",
+                },
+              ]}
+              imageRoute="/images/certifications/pmi_project_management_ready"
+              verificationLink="https://www.credly.com/badges/896b5237-b495-484b-a0e2-79a1bd9ea52e/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={"rounded-r-none mr-0"}
+              id="google"
+              title="Google Project Management Certificate"
+              organization="Google | Coursera"
+              description="Completed six courses that are designed to prepare them for introductory-level roles in Project Management. They are competent in initiating, planning and running both traditional and agile projects."
+              dateEarned="Date Earned: 04/03/2023"
+              imageRoute="/images/certifications/google_project_management"
+              verificationLink="https://www.credly.com/badges/0b185ac7-f44f-4edb-830a-c3dd286be144/public_url"
+              imageSize={80}
+              badges={[
+                { name: "Project LEARN", color: "bg-orange-300" },
+                {
+                  name: "ACE Accredited (9 College Credits)",
+                  color: "bg-green-300",
+                },
+              ]}
+            />
+            <CardItem
+              // className={"max-w-[50%] grow"}
+              title="Google Data Analytics Certificate"
+              className={"rounded-l-none  mr-0   max-w-[50%] "}
+              organization="Google | Coursera"
+              description="Completed eight courses that are designed to prepare for introductory-level roles in Data Analytics. Competent in tools and platforms including spreadsheets, SQL, Tableau, and R. Know how to prepare, process, analyze, and share data for thoughtful action."
+              dateEarned="Date Earned: 06/15/2022"
+              badges={[{ name: "Project LEARN", color: "bg-orange-300" }]}
+              imageRoute="/images/certifications/google_data_analytics"
+              verificationLink="https://coursera.org/share/c406053c6563f76116fda0fe1300c519"
+              imageSize={80}
+            />
+            <CardItem
+              // className={"max-w-[49.1%] grow"}
+              className={"rounded-r-none mr-0 rounded-b-none mb-0"}
+              title="IT Specialist - Artifical Intelligence"
+              organization="Certiport | A Pearson VUE Business"
+              description="Earners of this certification are AI enabled learners and are prepared for the professional use of AI by understanding how AI can be used to solve problems."
+              dateEarned="Date Earned: 06/08/2023"
+              badges={[
+                { name: "GLTHS - After Dark", color: "bg-blue-300" },
+                {
+                  name: "ACE Accredited (3 College Credits)",
+                  color: "bg-green-300",
+                },
+              ]}
+              imageRoute="/images/certifications/artificial_intelligence"
+              verificationLink="https://www.credly.com/badges/1d18d5cd-63e2-441f-8e70-e9e639bfaa0b/public_url"
+              imageSize={80}
+              certificationImage="/documents/certifications/artificial_intelligence.pdf"
+            />
+            <CardItem
+              className={"rounded-l-none mr-0 rounded-b-none mb-0 max-w-[50%] "}
+              title="IT Specialist - Cloud Computing"
+              organization="Certiport | A Pearson VUE Business"
+              description='Validates ability to identify and describe end solutions that leverage cloud technologies, considerations that span across solutions and the "art of the possible" in utilizing cloud to develop solutions..'
+              dateEarned="Date Earned: 06/06/2023"
+              badges={[
+                { name: "GLTHS - After Dark", color: "bg-blue-300" },
+                {
+                  name: "ACE Accredited (3 College Credits)",
+                  color: "bg-green-300",
+                },
+              ]}
+              imageRoute="/images/certifications/cloud_computing"
+              verificationLink="https://www.credly.com/badges/9286af1e-d393-40f2-9fc6-45a4c6db2371/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={
+                "rounded-r-none rounded-t-none mr-0 rounded-b-none mb-0 "
+              }
+              title="IT Specialist - Network Security"
+              organization="Certiport | A Pearson VUE Business"
+              description="Earners of this badge demonstrate foundational security knowledge and skills, including an understanding of core security principles operating system security, network and device security, and secure computing practices."
+              dateEarned="Date Earned: 05/30/2023"
+              badges={[
+                { name: "GLTHS - After Dark", color: "bg-blue-300" },
+                {
+                  name: "ACE Accredited (3 College Credits)",
+                  color: "bg-green-300",
+                },
+              ]}
+              imageRoute="/images/certifications/network_security"
+              verificationLink="https://www.credly.com/badges/339bb722-d784-47b3-8f9c-d5ceb1e64023/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={
+                "rounded-l-none rounded-t-none mr-0 rounded-b-none mb-0 max-w-[50%] "
+              }
+              title="IT Specialist - Networking"
+              organization="Certiport | A Pearson VUE Business"
+              description="Earners of this badge demonstrate foundational networking knowledge and skills, including TCP/IP, networking services, networking topologies, and troubleshooting in wired and wireless environments."
+              dateEarned="Date Earned: 05/22/2023"
+              badges={[
+                { name: "GLTHS - After Dark", color: "bg-blue-300" },
+                {
+                  name: "ACE Accredited (3 College Credits)",
+                  color: "bg-green-300",
+                },
+              ]}
+              imageRoute="/images/certifications/networking"
+              verificationLink="https://www.credly.com/badges/8fb61546-1e85-4a58-9172-29034b109c52/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={
+                "rounded-r-none rounded-t-none mr-0 rounded-b-none mb-0 "
+              }
+              title="IT Specialist - Java"
+              organization="Certiport | A Pearson VUE Business"
+              description="Earners of this badge demonstrate that they can recognize, write, and debug Java code that will logically solve a problem."
+              dateEarned="Date Earned: 05/23/2023"
+              badges={[
+                { name: "GLTHS - After Dark", color: "bg-blue-300" },
+                {
+                  name: "ACE Accredited (3 College Credits)",
+                  color: "bg-green-300",
+                },
+              ]}
+              imageRoute="/images/certifications/java"
+              verificationLink="https://www.credly.com/badges/0e2c65ce-d519-49cb-a3e3-194067e16c3f/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={
+                "rounded-l-none rounded-t-none mr-0 rounded-b-none mb-0 max-w-[50%] "
+              }
+              title="IT Specialist - Databases"
+              organization="Certiport | A Pearson VUE Business"
+              description="Earners of this badge demonstrate foundational knowledge of how to design and query relational databases, such as MySQL, Microsoft SQL Server, or Oracle."
+              dateEarned="Date Earned: 01/03/2023"
+              badges={[
+                { name: "GLTHS - After Dark", color: "bg-blue-300" },
+                {
+                  name: "ACE Accredited (3 College Credits)",
+                  color: "bg-green-300",
+                },
+              ]}
+              imageRoute="/images/certifications/databases"
+              verificationLink="https://www.credly.com/badges/fb5a6f42-c629-4353-bf8d-6358349fbefe/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={
+                "rounded-r-none rounded-t-none mr-0 rounded-b-none mb-0 "
+              }
+              title="IT Specialist - Data Analytics"
+              organization="Certiport | A Pearson VUE Business"
+              description="Earners of this badge prove introductory knowledge of how to responsibly manipulate, analyze, and communicate findings of data analysis. Assessed experience with data manipulation, analysis, visualization, and communication. Familiarity with general data concepts, data-related laws, and responsible analytics practices."
+              dateEarned="Date Earned: 03/06/2023"
+              badges={[
+                { name: "GLTHS - After Dark", color: "bg-blue-300" },
+                {
+                  name: "ACE Accredited (3 College Credits)",
+                  color: "bg-green-300",
+                },
+              ]}
+              imageRoute="/images/certifications/data_analytics"
+              verificationLink="https://www.credly.com/badges/ed22c056-cfb2-42e3-965a-06e9bab12f3e/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={
+                "rounded-l-none rounded-t-none mr-0 rounded-b-none mb-0 max-w-[50%] "
+              }
+              title="IT Specialist - JavaScript"
+              organization="Certiport | A Pearson VUE Business"
+              description="Earners of this badge demonstrate that they can recognize, write, and debug JavaScript code that will logically solve a problem."
+              dateEarned="Date Earned: 12/08/2022"
+              badges={[
+                { name: "GLTHS - After Dark", color: "bg-blue-300" },
+                {
+                  name: "ACE Accredited (3 College Credits)",
+                  color: "bg-green-300",
+                },
+              ]}
+              imageRoute="/images/certifications/javascript"
+              verificationLink="https://www.credly.com/badges/e2fb4ce8-535b-4645-861c-d410692ed156/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={
+                "rounded-r-none rounded-t-none mr-0 rounded-b-none mb-0 "
+              }
+              title="IT Specialist - HTML & CSS"
+              organization="Certiport | A Pearson VUE Business"
+              description="Earners for this badge demonstrate that they can structure a webpage using HTML elements and create and apply styles using CSS."
+              dateEarned="Date Earned: 12/12/2022"
+              badges={[
+                { name: "GLTHS - After Dark", color: "bg-blue-300" },
+                {
+                  name: "ACE Accredited (3 College Credits)",
+                  color: "bg-green-300",
+                },
+              ]}
+              imageRoute="/images/certifications/html_and_css"
+              verificationLink="https://www.credly.com/badges/d3f4e48c-ffc6-4fbc-8f53-96f843380387/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={
+                "rounded-l-none rounded-t-none mr-0 rounded-b-none mb-0 max-w-[50%] "
+              }
+              title="IT Specialist - Python"
+              organization="Certiport | A Pearson VUE Business"
+              description="Earners of this badge demonstrate that they can structure a webpage using HTML elements and create and apply styles using CSS."
+              dateEarned="Date Earned: 05/05/2022"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+                {
+                  name: "ACE Accredited (3 College Credits)",
+                  color: "bg-green-300",
+                },
+              ]}
+              imageRoute="/images/certifications/python"
+              verificationLink="https://www.credly.com/badges/8cc4adf4-efe5-443a-8d6a-968e04ea36de/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={
+                "rounded-r-none rounded-t-none mr-0 rounded-b-none mb-0 "
+              }
+              title="IT Specialist - HTML5 Application Development"
+              organization="Certiport | A Pearson VUE Business"
+              description="Earners of this badge demonstrate their ability to use HTML5, CSS, and JavaScript to build responsive web applications that will run on a variety of touch-enabled devices, including PCs, tablets, and phones."
+              dateEarned="Date Earned: 06/05/2023"
+              badges={[
+                {
+                  name: "GLTHS - After Dark",
+                  color: "bg-blue-300",
+                },
+                {
+                  name: "ACE Accredited (3 College Credits)",
+                  color: "bg-green-300",
+                },
+              ]}
+              imageRoute="/images/certifications/html5_application_development"
+              verificationLink="https://www.credly.com/badges/e0933175-d960-4068-b986-ef65aca69d83/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={
+                "rounded-l-none rounded-t-none mr-0 rounded-b-none mb-0 max-w-[50%] "
+              }
+              title="IT Specialist - Software Development"
+              organization="Certiport | A Pearson VUE Business"
+              description="Earners of this badge demonstrate core software development skills, including object-oriented programming, web applications, and databases. Candidates are expected to have some experience with C# and ANSI SQL."
+              dateEarned="Date Earned: 05/24/2023"
+              badges={[
+                {
+                  name: "GLTHS - After Dark",
+                  color: "bg-blue-300",
+                },
+                {
+                  name: "ACE Accredited (3 College Credits)",
+                  color: "bg-green-300",
+                },
+              ]}
+              imageRoute="/images/certifications/software_development"
+              verificationLink="https://www.credly.com/badges/48c3ceb5-9cc0-4dba-aaaf-928a28c9a014/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={
+                "rounded-r-none rounded-t-none mr-0 rounded-b-none mb-0 "
+              }
+              title="IT Specialist - Computational Thinking"
+              organization="Certiport | A Pearson VUE Business"
+              description="Earners of this badge can decompose problems, collect and analyze data, recognize patterns in data, represent data through abstractions, and automate solutions by using algorithmic thinking."
+              dateEarned="Date Earned: 05/25/2023"
+              badges={[
+                {
+                  name: "GLTHS - After Dark",
+                  color: "bg-blue-300",
+                },
+                {
+                  name: "ACE Accredited (3 College Credits)",
+                  color: "bg-green-300",
+                },
+              ]}
+              imageRoute="/images/certifications/computational_thinking"
+              verificationLink="https://www.credly.com/badges/425fa23a-e67b-446f-a266-5fc91eeccb65/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={
+                "rounded-l-none rounded-t-none mr-0 rounded-b-none mb-0 max-w-[50%] "
+              }
+              title="IT Specialist - Device Configuration and Management"
+              organization="Certiport | A Pearson VUE Business"
+              description="Earners of this badge demonstrate foundational skills in, and a basic knowledge of, Windows devices and mobility."
+              dateEarned="Date Earned: 05/30/2023"
+              badges={[
+                {
+                  name: "GLTHS - After Dark",
+                  color: "bg-blue-300",
+                },
+                {
+                  name: "ACE Accredited (3 College Credits)",
+                  color: "bg-green-300",
+                },
+              ]}
+              imageRoute="/images/certifications/device_configuration_and_management"
+              verificationLink="https://www.credly.com/badges/7f90e221-80c4-43e7-b549-3ab8863ee4bb/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={" rounded-t-none mr-0  max-w-[99.5%] "}
+              title="IT Specialist - Cybersecurity"
+              organization="Certiport | A Pearson VUE Business"
+              description="Earners of this badge are starting their journey in the cybersecurity field. This exam assesses their understanding of key security paradigms, terminology, and mindset. Badge earners have a keen awareness of the importance of security and the threats to a business when security procedures are not followed. They are willing to teach others about security concerns. They are developing the investigative and implementation skills necessary to succeed in the field."
+              dateEarned="Date Earned: 05/30/2023"
+              badges={[
+                {
+                  name: "GLTHS - After Dark",
+                  color: "bg-blue-300",
+                },
+                {
+                  name: "ACE Accredited (3 College Credits)",
+                  color: "bg-green-300",
+                },
+              ]}
+              imageRoute="/images/certifications/cybersecurity"
+              verificationLink="https://www.credly.com/badges/7f90e221-80c4-43e7-b549-3ab8863ee4bb/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              title="CIW Web Development Professional"
+              className={topWhole}
+              organization="Certified Internet Web"
+              description="Pathway certification for CIW v5 Database Design Specialist, CIW Advanced HTML5 & CSS3 Specialist, and CIW JavaScript Specialist"
+              dateEarned="Date Earned: 01/30/2024"
+              badges={[
+                {
+                  name: "GLTHS - After Dark",
+                  color: "bg-blue-300",
+                },
+              ]}
+              imageRoute="/images/certifications/CIW_logo"
+              verificationLink="https://cp.certmetrics.com/ciwcerts/en/public/verify/credential/d2fd33b8aef547638824d4a230e80eda"
+              imageSize={80}
+            />
+            <CardItem
+              className={middleLeft}
+              title="CIW v5 Database Design Specialist"
+              organization="Certified Internet Web"
+              description="This certification validates that a candidate has essential knowledge in vendor-neutral database design for individuals planning to pursue product-focused database specialization, and validates database knowledge and understanding, including Structured Query Language (SQL) and database optimization through normalization."
+              dateEarned="Date Earned: 01/30/2024"
+              badges={[
+                {
+                  name: "GLTHS - After Dark",
+                  color: "bg-blue-300",
+                },
+              ]}
+              imageRoute="/images/certifications/CIW_logo"
+              verificationLink="https://cp.certmetrics.com/ciwcerts/en/public/verify/credential/3bf171dab15d458b90f067e1bf8ebb6d"
+              imageSize={80}
+            />
+
+            <CardItem
+              className={middleRight}
+              title="CIW Advanced HTML5 & CSS3 Specialist"
+              organization="Certified Internet Web"
+              description="This certification validates that a candidate has essential HTML5, Cascading Style Sheets (CSS), and JavaScript knowledge that is required for working in the leading IT companies these days."
+              dateEarned="Date Earned: 06/13/2023"
+              badges={[
+                {
+                  name: "GLTHS - After Dark",
+                  color: "bg-blue-300",
+                },
+              ]}
+              imageRoute="/images/certifications/CIW_logo"
+              verificationLink="https://cp.certmetrics.com/ciwcerts/en/public/verify/credential/cb8df85c048c46cab9bb98f2f9c75e50"
+              imageSize={80}
+            />
+            <CardItem
+              className={bottomLeft}
+              title="CIW JavaScript Specialist"
+              organization="Certified Internet Web"
+              description="Earners of this certification will know how JavaScript is used to communicate with users, modify the Document Object Model (DOM), control program flow, validate forms, animate images, create cookies, change HTML on the fly, and communicate with databases."
+              dateEarned="Date Earned: 06/14/2023"
+              badges={[
+                {
+                  name: "GLTHS - After Dark",
+                  color: "bg-blue-300",
+                },
+              ]}
+              imageRoute="/images/certifications/CIW_logo"
+              verificationLink="https://cp.certmetrics.com/ciwcerts/en/public/verify/credential/1990428dbcc6422f984e70048b4cb520"
+              imageSize={80}
+            />
+            <CardItem
+              className={bottomRight}
+              title="CIW Site Development Associate"
+              organization="Certified Internet Web"
+              description="This certification verifies the earner's ability to use HTML5 and CSS to create GUIs, work with images, forms, and videos on webpages. Including proficiency in JavaScript APIs such as geolocation, drag-and-drop, and employing SEO optimization to reach business goals."
+              dateEarned="Date Earned: 04/05/2023"
+              badges={[
+                {
+                  name: "GLTHS - After Dark",
+                  color: "bg-blue-300",
+                },
+              ]}
+              imageRoute="/images/certifications/CIW_logo"
+              verificationLink="https://cp.certmetrics.com/ciwcerts/en/public/verify/credential/dd9bfa3c8eb542d3ba198c184729b884"
+              imageSize={80}
+            />
+            <CardItem
+              className={left}
+              title="TestOut IT Fundamentals Pro Certification"
+              organization="TestOut"
+              description="Certified for foundational knowledge and ability to perform real-world tasks using operating systems, common PC hardware and software, basic networking, databases, programming, security, and information systems."
+              dateEarned="Date Earned: 01/24/2024"
+              badges={[
+                {
+                  name: "GLTHS - After Dark",
+                  color: "bg-blue-300",
+                },
+              ]}
+              imageRoute="/images/certifications/testout_it_fundamentals"
+              verificationLink="https://certification.testout.com/verifycert/6-2C6-VALCXD"
+              imageSize={80}
+            />
+            <CardItem
+              className={right}
+              title="IT Fundamentals (ITF+)"
+              organization="CompTIA"
+              description="Earners of this certification have the knowledge and skills required to identify and explain the basics of computing, IT infrastructure, application and software, software development, database fundamentals, and security. These IT candidates have demonstrated the ability to install software, establish basic network connectivity, and identify and prevent basic security risks."
+              dateEarned="Date Earned: 01/30/2024"
+              badges={[
+                {
+                  name: "GLTHS - After Dark",
+                  color: "bg-blue-300",
+                },
+              ]}
+              imageRoute="/images/certifications/comptia_itf"
+              verificationLink="https://www.credly.com/badges/a5980bf0-7a2a-4839-9b9a-ac5091e3467b/public_url"
+              imageSize={80}
+            />
+            <CardItem
+              className={topMiddleLeft}
+              title="Career Skills Certificate - Business Web Page Design I"
+              organization="YouScience"
+              description=""
+              dateEarned="Date Earned: 04/29/2023"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+              ]}
+              imageRoute="/images/certifications/youscience_logo"
+              verificationLink="https://www.linkedin.com/in/ibraheemaamin"
+              imageSize={80}
+            />
+            <CardItem
+              className={topMiddleRight}
+              title="Career Skills Certificate - Computer Programming, Advanced"
+              organization="YouScience"
+              description=""
+              dateEarned="Date Earned: 04/29/2023"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+              ]}
+              imageRoute="/images/certifications/youscience_logo"
+              verificationLink="https://www.linkedin.com/in/ibraheemaamin"
+              imageSize={80}
+            />
+            <CardItem
+              className={middleLeft}
+              title="Career Skills Certificate - Computer Programming 2 Python"
+              organization="YouScience"
+              description=""
+              dateEarned="Date Earned: 04/29/2023"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+              ]}
+              imageRoute="/images/certifications/youscience_logo"
+              verificationLink="https://www.linkedin.com/in/ibraheemaamin"
+              imageSize={80}
+            />
+            <CardItem
+              className={middleRight}
+              title="Career Skills Certificate - Computer Programming I"
+              organization="YouScience"
+              description=""
+              dateEarned="Date Earned: 04/29/2023"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+              ]}
+              imageRoute="/images/certifications/youscience_logo"
+              verificationLink="https://www.linkedin.com/in/ibraheemaamin"
+              imageSize={80}
+            />
+            <CardItem
+              className={middleLeft}
+              title="Career Skills Certificate - Computer Science Principles"
+              organization="YouScience"
+              description=""
+              dateEarned="Date Earned: 04/29/2023"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+              ]}
+              imageRoute="/images/certifications/youscience_logo"
+              verificationLink="https://www.linkedin.com/in/ibraheemaamin"
+              imageSize={80}
+            />
+            <CardItem
+              className={middleRight}
+              title="Career Skills Certificate - Computer Technology I"
+              organization="YouScience"
+              description=""
+              dateEarned="Date Earned: 04/29/2023"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+              ]}
+              imageRoute="/images/certifications/youscience_logo"
+              verificationLink="https://www.linkedin.com/in/ibraheemaamin"
+              imageSize={80}
+            />
+            <CardItem
+              className={middleLeft}
+              title="Career Skills Certificate - Game Development Fundamentals"
+              organization="YouScience"
+              description=""
+              dateEarned="Date Earned: 04/29/2023"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+              ]}
+              imageRoute="/images/certifications/youscience_logo"
+              verificationLink="https://www.linkedin.com/in/ibraheemaamin"
+              imageSize={80}
+            />
+            <CardItem
+              className={middleRight}
+              title="Career Skills Certificate - Information Technology Fundamentals"
+              organization="YouScience"
+              description=""
+              dateEarned="Date Earned: 04/29/2023"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+              ]}
+              imageRoute="/images/certifications/youscience_logo"
+              verificationLink="https://www.linkedin.com/in/ibraheemaamin"
+              imageSize={80}
+            />
+            <CardItem
+              className={middleLeft}
+              title="Career Skills Certificate - Web Development II"
+              organization="YouScience"
+              description=""
+              dateEarned="Date Earned: 04/29/2023"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+              ]}
+              imageRoute="/images/certifications/youscience_logo"
+              verificationLink="https://www.linkedin.com/in/ibraheemaamin"
+              imageSize={80}
+            />
+            <CardItem
+              className={middleRight}
+              title="Career Skills Certificate - Web Development I"
+              organization="YouScience"
+              description=""
+              dateEarned="Date Earned: 04/29/2023"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+              ]}
+              imageRoute="/images/certifications/youscience_logo"
+              verificationLink="https://www.linkedin.com/in/ibraheemaamin"
+              imageSize={80}
+            />
+            <CardItem
+              className={middleLeft}
+              title="Career Skills Certificate - Word Processing"
+              organization="YouScience"
+              description=""
+              dateEarned="Date Earned: 04/29/2023"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+              ]}
+              imageRoute="/images/certifications/youscience_logo"
+              verificationLink="https://www.linkedin.com/in/ibraheemaamin"
+              imageSize={80}
+            />
+            <CardItem
+              className={middleRight}
+              title="Career Skills Certificate - Hospitality and Tourism"
+              organization="YouScience"
+              description=""
+              dateEarned="Date Earned: 06/15/2022"
+              badges={[
+                {
+                  name: "Lowell High School",
+                  color: "bg-orange-200",
+                },
+              ]}
+              imageRoute="/images/certifications/youscience_logo"
+              verificationLink="https://www.linkedin.com/in/ibraheemaamin"
+              imageSize={80}
+            />
+            <CardItem
+              className={bottomWhole}
+              title="Career Skills Certificate - Marketing Fundamentals"
+              organization="YouScience"
+              description=""
+              dateEarned="Date Earned: 01/14/2022"
+              badges={[
+                {
+                  name: "Lowell High School",
+                  color: "bg-orange-200",
+                },
+              ]}
+              imageRoute="/images/certifications/youscience_logo"
+              verificationLink="https://www.linkedin.com/in/ibraheemaamin"
+              imageSize={80}
+            />
+          </CollapsibleContent>
+        </Collapsible>
+        <Collapsible className="space-y-2 mt-4" defaultOpen draggable={false} id="onlylight">
+          <div className="flex items-center justify-start space-x-4 px-4">
+            <h4 className="text-xl font-semibold">Awards</h4>
+            <CollapsibleTrigger asChild>
+              <Button size="sm" variant="ghost">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.18179 6.18181C4.35753 6.00608 4.64245 6.00608 4.81819 6.18181L7.49999 8.86362L10.1818 6.18181C10.3575 6.00608 10.6424 6.00608 10.8182 6.18181C10.9939 6.35755 10.9939 6.64247 10.8182 6.81821L7.81819 9.81821C7.73379 9.9026 7.61934 9.95001 7.49999 9.95001C7.38064 9.95001 7.26618 9.9026 7.18179 9.81821L4.18179 6.81821C4.00605 6.64247 4.00605 6.35755 4.18179 6.18181Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span className="sr-only">Toggle</span>
+              </Button>
+            </CollapsibleTrigger>
+          </div>
+          <CollapsibleContent className="CollapsibleContent flex flex-wrap max-h-[74vh] overflow-auto px-2">
+            <CardItem
+              className={left}
+              title="Best of MITES Semester - Science Writing"
+              organization="MIT Introduction to Technology, Engineering, and Science"
+              description="Featured on the front page of the Best of MITES Semester 2023 publication for article: From Beethoven to Bytes: The evolution of AI-generated music."
+              dateEarned="Date Earned: Summer 2023"
+              badges={[
+                {
+                  name: "MIT",
+                  color: "bg-purple-600",
+                },
+              ]}
+              imageRoute="/images/mites"
+              verificationLink="https://mites.mit.edu/news-and-articles/mites-semester-2023-best-of-science-writing/"
+              imageSize={80}
+            />
+            <CardItem
+              className={right}
+              title="Merit Scholar Award"
+              organization="Business Professionals of America"
+              description=""
+              dateEarned="Date Earned: Fall 2023"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+              ]}
+              imageRoute="/images/bpa"
+              verificationLink="https://www.linkedin.com/in/ibraheemaamin"
+              imageSize={80}
+            />
+            <CardItem
+              className={topLeft}
+              title="National Leadership Conference - C# Programming (4th Place)"
+              organization="Business Professionals of America"
+              description=""
+              dateEarned="Date Earned: 5/11/2024"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+              ]}
+              imageRoute="/images/bpa"
+              verificationLink="https://www.linkedin.com/in/ibraheemaamin"
+              imageSize={80}
+            />
+            <CardItem
+              className={topRight}
+              title="National Leadership Conference - Python Programming (9th Place)"
+              organization="Business Professionals of America"
+              description=""
+              dateEarned="Date Earned: Spring 2022"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+              ]}
+              imageRoute="/images/bpa"
+              verificationLink="https://www.linkedin.com/in/ibraheemaamin"
+              imageSize={80}
+            />
+            <CardItem
+              className={middleLeft}
+              title="State Leadership Conference - Administrative Support Team (1st Place - Team Captain)"
+              organization="Business Professionals of America"
+              description=""
+              dateEarned="Date Earned: Fall 2023"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+              ]}
+              imageRoute="/images/bpa"
+              verificationLink="https://www.linkedin.com/in/ibraheemaamin"
+              imageSize={80}
+            />
+            <CardItem
+              className={middleRight}
+              title="State Leadership Conference - SQL Database Fundamentals (1st Place)"
+              organization="Business Professionals of America"
+              description=""
+              dateEarned="Date Earned: Fall 2023"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+              ]}
+              imageRoute="/images/bpa"
+              verificationLink="https://www.linkedin.com/in/ibraheemaamin"
+              imageSize={80}
+            />
+            <CardItem
+              className={bottomWhole}
+              title="State Leadership Conference - Python Programming - Pilot (1st Place)"
+              organization="Business Professionals of America"
+              description=""
+              dateEarned="Date Earned: Fall 2022"
+              badges={[
+                {
+                  name: "Business Professionals of America",
+                  color: "bg-red-200",
+                },
+              ]}
+              imageRoute="/images/bpa"
+              verificationLink="https://www.linkedin.com/in/ibraheemaamin"
+              imageSize={80}
+            />
+          </CollapsibleContent>
+        </Collapsible>
+      </div>
+    </section>
+  );
+}
+
+interface CardItem {
+  certificationImage?: string;
+  title: string;
+  imageSize?: number;
+  badges?: Array<badgeItem>;
+  organization: string;
+  description: string;
+  dateEarned: string;
+  imageRoute?: string;
+  verificationLink?: any;
+  textSize?: any;
+  className?: any;
+  id?: string;
+}
+
+interface badgeItem {
+  name: string;
+  color: string;
+}
+
+function CardItem(props: CardItem) {
+  return (
+    <Card
+      className={
+        "mr-2 mb-2 rounded-md border border-slate-200 p-4 shadow-sm dark:border-gray-800 grow min-w-[49%] max-w-[49.5%] " +
+        props.className
+      }
+      id={props.id}
+    >
+      <HoverCard openDelay={300} closeDelay={200}>
+        <HoverCardTrigger>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <Image
+                alt={props.title}
+                className="rounded-full"
+                height={props.imageSize ? props.imageSize : "100"}
+                // @ts-ignore
+                src={props.imageRoute + ".png"}
+                style={{
+                  aspectRatio: "100/100",
+                  objectFit: "cover",
+                }}
+                width={props.imageSize ? props.imageSize : "80"}
+              />
+              <div>
+                {" "}
+                <Link
+                  target="_blank"
+                  href={props.verificationLink}
+                  className={"text-sm font-medium " + props.textSize}
+                >
+                  {props.title}
+                </Link>
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  {props.organization}
+                </p>
+                <p className="pr-2 text-xs text-gray-500 dark:text-gray-400 max-w-screen-lg">
+                  {props.description}
+                </p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  {props.dateEarned}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-end space-y-2">
+              {props.badges &&
+                props.badges.map((badge, index) => (
+                  <Badge
+                    key={index}
+                    className={"py-1 text-xs " + badge.color}
+                    variant="secondary"
+                  >
+                    {badge.name}
+                  </Badge>
+                ))}
+            </div>
+          </div>
+        </HoverCardTrigger>
+        <HoverCardContent className="min-w-[25vw]">
+          {/* <embed
+            className="min-h-full"
+            src={props.certificationImage + "#toolbar=0&navpanes=0&scrollbar=0"}
+            type="application/pdf"
+          /> */}
+          <Image
+            width={1512}
+            height={512}
+            // @ts-ignore
+            src={
+              props.imageRoute?.replace(
+                "/certifications/",
+                "/certifications/certificates/"
+              ) + "-1.png"
+            }
+            alt="no certificate"
+          ></Image>
+        </HoverCardContent>
+      </HoverCard>
+    </Card>
+  );
+}

@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 "use client"
 import { ThemeToggle } from "@/components/theme-toggle";
+import Certifications, { categorizeCertifications } from "@/components/certifications";
 import { Github, ExternalLink, Calendar, ImageIcon, Copy } from "lucide-react";
 import {
   Carousel,
@@ -19,11 +20,11 @@ export default function Home() {
   const heroY = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
   const [activeTab, setActiveTab] = useState<'main' | 'connect'>('main');
-  const [highlightCerts, setHighlightCerts] = useState(false);
   
   // Refs for scrolling
   const projectsRef = useRef<HTMLDivElement>(null);
   const certsRef = useRef<HTMLDivElement>(null);
+  const certificationsRef = useRef<HTMLDivElement>(null);
 
   const copyToClipboard = async (text: string, label: string) => {
     try {
@@ -39,15 +40,8 @@ export default function Home() {
   };
 
   const scrollToCertifications = () => {
-    // Switch to certifications tab
-    setActiveTab('connect');
-    
-    // Scroll to certifications terminal
-    certsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    
-    // Highlight animation
-    setHighlightCerts(true);
-    setTimeout(() => setHighlightCerts(false), 2000);
+    // Scroll to the actual certifications section
+    certificationsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   const scrollToTop = () => {
@@ -168,7 +162,7 @@ export default function Home() {
                        {/* <p className="text-gray-600 dark:text-slate-300 pl-4">💻 Passionate about building meaningful software solutions</p> */}
                     </motion.div>
 
-                    <motion.div
+                    {/* <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 1.4, duration: 0.5 }}
@@ -181,9 +175,9 @@ export default function Home() {
                        <p className="text-gray-600 dark:text-slate-300 pl-4">drwxr-xr-x  systems-design/</p>
                        <p className="text-gray-600 dark:text-slate-300 pl-4">drwxr-xr-x  design-thinking/</p>
                        <p className="text-gray-600 dark:text-slate-300 pl-4">drwxr-xr-x  builder/</p>
-                    </motion.div>
+                    </motion.div> */}
 
-                    <motion.div
+                    {/* <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 1.7, duration: 0.5 }}
@@ -194,7 +188,7 @@ export default function Home() {
                          <span className="text-gray-900 dark:text-white">echo &quot;Thanks for visiting my portfolio!&quot;</span>
                        </p>
                        <p className="text-purple-600 dark:text-purple-400 pl-4">Thanks for visiting my portfolio!</p>
-                    </motion.div>
+                    </motion.div> */}
 
                     <motion.div
                       initial={{ opacity: 0 }}
@@ -207,10 +201,18 @@ export default function Home() {
                          <span className="text-gray-900 dark:text-white">./explore_projects --interactive</span>
                        </p>
                        <p className="text-orange-600 dark:text-yellow-400 pl-4">Loading project showcase...</p>
-                       <p className="text-gray-500 dark:text-slate-400 pl-4">↓ Scroll down to explore my work ↓</p>
+                      <p className="text-gray-500 dark:text-slate-400 pl-4">↓ Scroll down to explore my work ↓ <motion.span
+                      className="w-2 h-4 bg-gray-900 dark:bg-white ml-2 animate-pulse rounded-sm"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 2.3, duration: 0.5 }}
+                    >
+                      <span className="w-2 h-4 bg-gray-900 dark:bg-white ml-2 animate-pulse rounded-sm"></span>
+                    </motion.span></p>
+                       
                     </motion.div>
-
-                                         <motion.p
+                   
+                    {/* <motion.p
                        className="flex items-center pt-2"
                        initial={{ opacity: 0 }}
                        animate={{ opacity: 1 }}
@@ -218,7 +220,7 @@ export default function Home() {
                      >
                        <span className="text-green-600 dark:text-green-400">$</span>
                        <span className="w-2 h-4 bg-gray-900 dark:bg-white ml-2 animate-pulse rounded-sm"></span>
-                     </motion.p>
+                     </motion.p> */}
                   </div>
                 </div>
               </div>
@@ -237,11 +239,7 @@ export default function Home() {
               {/* Second Terminal Window */}
               <div 
                 style={{ borderRadius: '10px' }} 
-                className={`bg-gradient-to-br from-gray-100/95 to-gray-200/95 dark:from-slate-800/90 dark:to-slate-900/90 backdrop-blur-xl border shadow-2xl overflow-hidden transition-all duration-500 ${
-                  highlightCerts 
-                    ? 'border-blue-500/80 dark:border-blue-400/80 shadow-blue-500/20 dark:shadow-blue-400/20 shadow-2xl ring-2 ring-blue-500/20 dark:ring-blue-400/20' 
-                    : 'border-gray-300/50 dark:border-slate-600/50'
-                }`}
+                className="bg-gradient-to-br from-gray-100/95 to-gray-200/95 dark:from-slate-800/90 dark:to-slate-900/90 backdrop-blur-xl border border-gray-300/50 dark:border-slate-600/50 shadow-2xl overflow-hidden transition-all duration-500"
               >
                 {/* Terminal Header with Tabs */}
                 <div className="bg-gray-200/80 dark:bg-slate-700/50 border-b border-gray-300/50 dark:border-slate-600/30">
@@ -367,21 +365,30 @@ export default function Home() {
                           </p>
                           
                           <div className="pl-4 space-y-1">
-                            <a href="#" className="text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors block cursor-pointer">
-                              -rw-r--r--  AWS Cloud Practitioner
-                            </a>
-                            <a href="#" className="text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors block cursor-pointer">
-                              -rw-r--r--  Google Cloud Associate
-                            </a>
-                            <a href="#" className="text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors block cursor-pointer">
-                              -rw-r--r--  MongoDB Developer
-                            </a>
-                            <a href="#" className="text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors block cursor-pointer">
-                              -rw-r--r--  CompTIA Security+
-                            </a>
-                            <a href="#" className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors block cursor-pointer">
-                              ... and 7 more
-                            </a>
+                            {(() => {
+                              // Get all certifications from all groups
+                              const allCertifications = categorizeCertifications().flatMap(group => group.certifications);
+                              const firstThree = allCertifications.slice(0, 3);
+                              const remaining = allCertifications.length - 3;
+                              
+                              return (
+                                <>
+                                  {firstThree.map((cert, index) => (
+                                    <div key={index} className="text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors block cursor-pointer">
+                                      -rw-r--r--  {cert.name}
+                                    </div>
+                                  ))}
+                                  {remaining > 0 && (
+                                    <button
+                                      onClick={scrollToCertifications}
+                                      className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors block cursor-pointer underline decoration-dotted underline-offset-2"
+                                    >
+                                      ... and {remaining} more
+                                    </button>
+                                  )}
+                                </>
+                              );
+                            })()}
                           </div>
 
                           <p className="pt-2 flex items-center">
@@ -525,7 +532,7 @@ export default function Home() {
                 <div className="p-6 relative">
                   {/* Decorative code comment */}
                   <div className="absolute top-2 right-4 text-gray-400/40 dark:text-slate-500/40 font-mono text-xs">
-                    /* featured */
+                    {/* featured */}
                   </div>
                   
                   <div className="flex flex-col space-y-4 mb-4">
@@ -643,7 +650,7 @@ export default function Home() {
                 <div className="p-6 relative">
                   {/* Decorative code comment */}
                   <div className="absolute top-2 right-4 text-gray-400/40 dark:text-slate-500/40 font-mono text-xs">
-                    /* hackathon */
+                    {/* hackathon */}
                   </div>
                   
                   <div className="flex flex-col space-y-4 mb-4">
@@ -754,7 +761,7 @@ export default function Home() {
                 <div className="p-6 relative">
                   {/* Decorative code comment */}
                   <div className="absolute top-2 right-4 text-gray-400/40 dark:text-slate-500/40 font-mono text-xs">
-                    /* archived */
+                    {/* archived */}
                   </div>
                   
                   <div className="flex flex-col space-y-4 mb-4">
@@ -798,6 +805,11 @@ export default function Home() {
               </div>
             </motion.div>
           </div>
+        </div>
+
+        {/* Certifications Section */}
+        <div ref={certificationsRef}>
+          <Certifications />
         </div>
 
         {/* Footer */}
