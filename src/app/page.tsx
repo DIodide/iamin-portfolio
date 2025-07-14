@@ -122,7 +122,7 @@ export default function Home() {
 
                                  {/* Terminal Content */}
                  <div className="p-8 bg-white/70 dark:bg-slate-900/60 backdrop-blur-md">
-                   <div className="text-gray-700 dark:text-slate-300 text-sm md:text-base space-y-3 font-mono max-w-4xl">
+                   <div className="text-gray-700 dark:text-slate-300 text-sm md:text-base space-y-3 font-mono max-w-5xl">
                     {/* Welcome Header */}
                     <motion.div
                       initial={{ opacity: 0 }}
@@ -130,7 +130,7 @@ export default function Home() {
                       transition={{ delay: 0.5, duration: 0.5 }}
                     >
                                              <p className="text-blue-600 dark:text-cyan-400 text-lg mb-4">
-                         # Welcome to Ibraheem&apos;s Digital Workspace
+                         # Hi, I&apos;m Ibraheem, scroll down to explore my work!
                        </p>
                     </motion.div>
 
@@ -144,8 +144,8 @@ export default function Home() {
                                              <p>
                          <span className="text-green-600 dark:text-green-400">$</span> <span className="text-gray-900 dark:text-white">whoami</span>
                        </p>
-                       <p className="text-blue-600 dark:text-cyan-400 pl-4">Ibraheem Amin</p>
-                       <p className="text-gray-600 dark:text-slate-300 pl-4">CS Student at Princeton University</p>
+                       <p className="text-blue-600 dark:text-cyan-400 pl-4">Ibraheem Amin<span className="text-gray-600 dark:text-slate-300 pl-4">Computer Science (B.S.E) Undergrad at Princeton University</span></p>
+                       
                     </motion.div>
 
                     <motion.div
@@ -155,12 +155,48 @@ export default function Home() {
                       className="space-y-2"
                     >
                                              <p>
-                         <span className="text-green-600 dark:text-green-400">$</span> <span className="text-gray-900 dark:text-white">cat about.txt</span>
+                         <span className="text-green-600 dark:text-green-400">$</span> <span className="text-gray-900 dark:text-white">cat introduction.md</span>
                        </p>
-                       <p className="text-gray-600 dark:text-slate-300 pl-4">Lowell, MA</p>
-                       <p className="text-gray-600 dark:text-slate-300 pl-4">Sophomore</p>
-                       {/* <p className="text-gray-600 dark:text-slate-300 pl-4">💻 Passionate about building meaningful software solutions</p> */}
+                       <div className="text-gray-600 dark:text-slate-300 pl-4 space-y-2">
+                         <p>Hi! I&apos;m Ibraheem, a current computer science undergraduate student at Princeton University.</p>
+                         <p>I am interested in systems design, LLM utilization and interoperability strategies, and web infrastructure.</p>
+                        </div>
                     </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1.4, duration: 0.5 }}
+                      className="space-y-2"
+                    >
+                                             <p>
+                         <span className="text-green-600 dark:text-green-400">$</span> <span className="text-gray-900 dark:text-white">cat interests.txt</span>
+                       </p>
+                       <div className="text-gray-600 dark:text-slate-300 pl-4 space-y-1">
+                         <p className="text-purple-600 dark:text-purple-400">Some other things that I am interested in:</p>
+                         <p>➼  Representing code and design decisions as nodes in a graph and vector embeddings</p>
+                         <p>➼  Building to reduce or use &quot;dead&quot; compute or &quot;dead&quot; memory for shared compute and serverless</p>
+                         <p>➼  Ways to measure &quot;similarity&quot; between arbitrary and graph-like data sources</p>
+                       </div>
+                    </motion.div>
+
+                    {/* <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1.7, duration: 0.5 }}
+                      className="space-y-2"
+                    >
+                                             <p>
+                         <span className="text-green-600 dark:text-green-400">$</span> <span className="text-gray-900 dark:text-white">cat contact.txt</span>
+                       </p>
+                       <div className="text-gray-600 dark:text-slate-300 pl-4 space-y-1">
+                         <p>Feel free to reach out:</p>
+                         <p className="text-blue-600 dark:text-cyan-400">📧 ibraheem@princeton.edu</p>
+                         <p className="text-gray-500 dark:text-slate-400 text-xs pl-4">for academic inquiries</p>
+                         <p className="text-blue-600 dark:text-cyan-400">📧 ibraheem.amin2@gmail.com</p>
+                         <p className="text-gray-500 dark:text-slate-400 text-xs pl-4">for professional inquiries</p>
+                       </div>
+                    </motion.div> */}
 
                     {/* <motion.div
                       initial={{ opacity: 0 }}
@@ -193,7 +229,7 @@ export default function Home() {
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ delay: 2.0, duration: 0.5 }}
+                      transition={{ delay: 2.3, duration: 0.5 }}
                       className="space-y-2"
                     >
                                              <p>
@@ -205,7 +241,7 @@ export default function Home() {
                       className="w-2 h-4 bg-gray-900 dark:bg-white ml-2 animate-pulse rounded-sm"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ delay: 2.3, duration: 0.5 }}
+                      transition={{ delay: 2.6, duration: 0.5 }}
                     >
                       <span className="w-2 h-4 bg-gray-900 dark:bg-white ml-2 animate-pulse rounded-sm"></span>
                     </motion.span></p>

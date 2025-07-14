@@ -138,7 +138,7 @@ const certificationsData = {
       "image_route": "/images/certifications/google_data_analytics"
     },
     {
-      "name": "IT Specialist - Artifical Intelligence",
+      "name": "IT Specialist - Artificial Intelligence",
       "organization": "Certiport | A Pearson VUE Business",
       "description": "Earners of this certification are AI enabled learners and are prepared for the professional use of AI by understanding how AI can be used to solve problems.",
       "date": "06/08/2023",
@@ -456,7 +456,7 @@ export const categorizeCertifications = (): CertificationGroup[] => {
         "Created interactive games and applications with Unity engine",
         "Applied computational thinking and algorithm design principles"
       ],
-      keySkills: ["Full-Stack Development", "Object-Oriented Programming", "Web Technologies", "Game Development", "Algorithm Design"]
+      keySkills: ["Full-Stack Development", "Object-Oriented Programming", "Web Technologies", "Software Development Fundamentals"]
     },
     {
       title: "Cloud Computing & AI",
@@ -472,7 +472,7 @@ export const categorizeCertifications = (): CertificationGroup[] => {
       keySkills: ["Azure Cloud", "Machine Learning", "Data Analytics", "Cloud Architecture", "AI Implementation"]
     },
     {
-      title: "IT Fundamentals & Business",
+      title: "Product Development and Management",
       description: "Core IT foundations and business management competencies",
       category: "business",
       certifications: sortByTerm(itBusiness),
