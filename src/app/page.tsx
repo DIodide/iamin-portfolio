@@ -639,21 +639,6 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-cyan-500/10 backdrop-blur-sm rounded-lg -z-10 transform group-hover:rotate-1 transition-transform duration-300"></div>
 
               <div className="bg-gradient-to-br from-gray-50/90 via-white/70 to-gray-100/90 dark:from-slate-800/90 dark:via-slate-700/70 dark:to-slate-800/90 backdrop-blur-xl border border-gray-200/50 dark:border-slate-600/50 rounded-lg overflow-hidden group-hover:shadow-2xl group-hover:shadow-blue-500/10 transition-all duration-300">
-                {/* Status bar */}
-                <div className="flex items-center justify-between px-4 py-2 bg-gray-100/60 dark:bg-slate-700/60 border-b border-gray-200/50 dark:border-slate-600/50">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-xs text-gray-600 dark:text-slate-400 font-mono">
-                      eval-gaming.tsx
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <div className="w-1 h-1 bg-blue-500 rounded-full"></div>
-                    <div className="w-1 h-1 bg-purple-500 rounded-full"></div>
-                    <div className="w-1 h-1 bg-cyan-500 rounded-full"></div>
-                  </div>
-                </div>
-
                 {/* Project Image Carousel */}
                 <div className="relative h-48 w-full bg-gradient-to-br from-blue-500/10 via-transparent to-indigo-500/10 overflow-hidden">
                   <Carousel className="w-full h-full">
@@ -783,21 +768,6 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-emerald-500/5 to-teal-500/10 backdrop-blur-sm rounded-lg -z-10 transform group-hover:rotate-1 transition-transform duration-300"></div>
 
               <div className="bg-gradient-to-br from-gray-50/90 via-white/70 to-gray-100/90 dark:from-slate-800/90 dark:via-slate-700/70 dark:to-slate-800/90 backdrop-blur-xl border border-gray-200/50 dark:border-slate-600/50 rounded-lg overflow-hidden group-hover:shadow-2xl group-hover:shadow-green-500/10 transition-all duration-300">
-                {/* Status bar */}
-                <div className="flex items-center justify-between px-4 py-2 bg-gray-100/60 dark:bg-slate-700/60 border-b border-gray-200/50 dark:border-slate-600/50">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></div>
-                    <span className="text-xs text-gray-600 dark:text-slate-400 font-mono">
-                      mindbridge.tsx
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <div className="w-1 h-1 bg-green-500 rounded-full"></div>
-                    <div className="w-1 h-1 bg-emerald-500 rounded-full"></div>
-                    <div className="w-1 h-1 bg-teal-500 rounded-full"></div>
-                  </div>
-                </div>
-
                 {/* Project Image Carousel */}
                 <div className="relative h-48 w-full bg-gradient-to-br from-green-500/10 via-transparent to-emerald-500/10 overflow-hidden">
                   <Carousel className="w-full h-full">
@@ -937,21 +907,6 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-red-500/5 to-yellow-500/10 backdrop-blur-sm rounded-lg -z-10 transform group-hover:rotate-1 transition-transform duration-300"></div>
 
               <div className="bg-gradient-to-br from-gray-50/90 via-white/70 to-gray-100/90 dark:from-slate-800/90 dark:via-slate-700/70 dark:to-slate-800/90 backdrop-blur-xl border border-gray-200/50 dark:border-slate-600/50 rounded-lg overflow-hidden group-hover:shadow-2xl group-hover:shadow-orange-500/10 transition-all duration-300">
-                {/* Status bar */}
-                <div className="flex items-center justify-between px-4 py-2 bg-gray-100/60 dark:bg-slate-700/60 border-b border-gray-200/50 dark:border-slate-600/50">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
-                    <span className="text-xs text-gray-600 dark:text-slate-400 font-mono">
-                      BlockWarriorsBeacon.java
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <div className="w-1 h-1 bg-orange-500 rounded-full"></div>
-                    <div className="w-1 h-1 bg-red-500 rounded-full"></div>
-                    <div className="w-1 h-1 bg-yellow-500 rounded-full"></div>
-                  </div>
-                </div>
-
                 {/* Project Image Carousel */}
                 <div className="relative h-48 w-full bg-gradient-to-br from-orange-500/10 via-transparent to-red-500/10 overflow-hidden">
                   <Carousel className="w-full h-full">
@@ -996,7 +951,7 @@ export default function Home() {
                   <div className="flex flex-col space-y-4 mb-4">
                     <div className="flex items-center gap-2">
                       <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 via-orange-800 to-red-800 dark:from-white dark:via-orange-200 dark:to-red-200 bg-clip-text text-transparent">
-                        BlockWarriors Beacon
+                        BlockWarriors AI
                       </h3>
                       <div className="px-2 py-1 bg-green-500/20 dark:bg-green-400/20 border border-green-500/30 dark:border-green-400/30 rounded text-xs text-green-700 dark:text-green-300 font-mono">
                         ACTIVE
@@ -1004,7 +959,7 @@ export default function Home() {
                     </div>
                     <p className="text-sm text-gray-600 dark:text-slate-400 flex items-center gap-2 font-mono">
                       <Calendar className="h-3 w-3" />
-                      <span>Fall 2024</span>
+                      <span>2024-2025</span>
                       <span className="text-gray-400 dark:text-slate-500">
                         •
                       </span>
@@ -1033,10 +988,9 @@ export default function Home() {
                   </div>
 
                   <p className="text-gray-600 dark:text-slate-300 mb-4 leading-relaxed">
-                    A comprehensive Minecraft plugin system powering AI battle
-                    bot tournaments. The Beacon plugin handles real-time game
-                    state management, player coordination, and seamless
-                    integration with the web dashboard for live tournament
+                    A Java plugin system handling real-time game state
+                    management, player coordination, and seamless integration
+                    with the web application via WebSockets for live tournament
                     broadcasting and team management.
                   </p>
 
@@ -1044,17 +998,15 @@ export default function Home() {
                     <span className="px-3 py-1 text-xs bg-orange-500/20 dark:bg-orange-400/20 border border-orange-500/30 dark:border-orange-400/30 text-orange-700 dark:text-orange-300 rounded-full font-mono">
                       Java
                     </span>
-                    <span className="px-3 py-1 text-xs bg-red-500/20 dark:bg-red-400/20 border border-red-500/30 dark:border-red-400/30 text-red-700 dark:text-red-300 rounded-full font-mono">
-                      Minecraft API
-                    </span>
+
                     <span className="px-3 py-1 text-xs bg-blue-500/20 dark:bg-blue-400/20 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 rounded-full font-mono">
                       Socket.io
                     </span>
                     <span className="px-3 py-1 text-xs bg-green-500/20 dark:bg-green-400/20 border border-green-500/30 dark:border-green-400/30 text-green-700 dark:text-green-300 rounded-full font-mono">
-                      Next.js Dashboard
+                      Next.js
                     </span>
                     <span className="px-3 py-1 text-xs bg-purple-500/20 dark:bg-purple-400/20 border border-purple-500/30 dark:border-purple-400/30 text-purple-700 dark:text-purple-300 rounded-full font-mono">
-                      Supabase
+                      Express.js
                     </span>
                   </div>
                 </div>
