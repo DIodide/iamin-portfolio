@@ -610,7 +610,7 @@ export default function Home() {
                   {/* Main heading */}
                   <div className="flex-1">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
-                      Featured Projects
+                      Projects
                     </h2>
                     <p className="text-sm text-gray-600 dark:text-slate-400 mt-1 font-mono">
                       personal projects, freelance work, and hackathon ideas.
@@ -683,7 +683,6 @@ export default function Home() {
                   </Carousel>
                   {/* Animated overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent pointer-events-none"></div>
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 opacity-50 group-hover:opacity-100 transition-opacity"></div>
                 </div>
 
                 <div className="p-6 relative">
@@ -823,7 +822,6 @@ export default function Home() {
                   </Carousel>
                   {/* Animated overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent pointer-events-none"></div>
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 opacity-50 group-hover:opacity-100 transition-opacity"></div>
                 </div>
 
                 <div className="p-6 relative">
@@ -938,7 +936,6 @@ export default function Home() {
                   </Carousel>
                   {/* Animated overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent pointer-events-none"></div>
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 opacity-50 group-hover:opacity-100 transition-opacity"></div>
                 </div>
 
                 <div className="p-6 relative">
@@ -1109,7 +1106,6 @@ export default function Home() {
                   </Carousel>
                   {/* Animated overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent pointer-events-none"></div>
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 opacity-50 group-hover:opacity-100 transition-opacity"></div>
                 </div>
 
                 <div className="p-6 relative">
@@ -1259,7 +1255,6 @@ export default function Home() {
                       </Carousel>
                       {/* Animated overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent pointer-events-none"></div>
-                      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-500 via-purple-500 to-indigo-500 opacity-50 group-hover:opacity-100 transition-opacity"></div>
                     </div>
                   </div>
 
@@ -1337,13 +1332,13 @@ export default function Home() {
                 Next.js & shadcn/ui.
               </p>
               <p className="text-xs text-muted-foreground/70">
-                Last updated: December 2024
+                Last updated: July 2025
               </p>
             </div>
 
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium bg-background/80 dark:bg-slate-800/80 backdrop-blur-sm border border-border/50 hover:bg-accent hover:text-accent-foreground transition-all rounded-lg group"
+              className="cursor-pointer inline-flex items-center gap-2 px-4 py-2 text-xs font-medium bg-background/80 dark:bg-slate-800/80 backdrop-blur-sm border border-border/50 hover:bg-accent hover:text-accent-foreground transition-all rounded-lg group"
               aria-label="Back to top"
             >
               <svg
