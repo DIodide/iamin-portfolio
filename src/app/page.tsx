@@ -16,6 +16,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { toast, Toaster } from "sonner";
 import { useState, useRef } from "react";
+import { useTerminal, getTerminalButtonClasses } from "@/lib/terminal";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -23,15 +24,9 @@ export default function Home() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
   const [activeTab, setActiveTab] = useState<"main" | "connect">("main");
 
-  // Terminal color schemes and shake states
-  const [terminal1ColorScheme, setTerminal1ColorScheme] = useState<
-    "default" | "red" | "yellow" | "green"
-  >("default");
-  const [terminal2ColorScheme, setTerminal2ColorScheme] = useState<
-    "default" | "red" | "yellow" | "green"
-  >("default");
-  const [terminal1Shake, setTerminal1Shake] = useState(false);
-  const [terminal2Shake, setTerminal2Shake] = useState(false);
+  // Terminal hooks
+  const terminal1 = useTerminal();
+  const terminal2 = useTerminal();
 
   // Refs for scrolling
   const projectsRef = useRef<HTMLDivElement>(null);
@@ -44,66 +39,6 @@ export default function Home() {
       toast.success(`${label} copied to clipboard!`);
     } catch {
       toast.error("Failed to copy to clipboard");
-    }
-  };
-
-  // Terminal control functions
-  const handleTerminalButtonClick = (
-    terminal: 1 | 2,
-    color: "red" | "yellow" | "green"
-  ) => {
-    if (terminal === 1) {
-      setTerminal1ColorScheme(color);
-      setTerminal1Shake(true);
-      setTimeout(() => setTerminal1Shake(false), 500);
-    } else {
-      setTerminal2ColorScheme(color);
-      setTerminal2Shake(true);
-      setTimeout(() => setTerminal2Shake(false), 500);
-    }
-  };
-
-  // Get color scheme styles
-  const getTerminalColorScheme = (
-    scheme: "default" | "red" | "yellow" | "green"
-  ) => {
-    switch (scheme) {
-      case "red":
-        return {
-          container:
-            "from-red-100/95 to-red-200/95 dark:from-red-900/90 dark:to-red-800/90",
-          header:
-            "bg-red-200/80 dark:bg-red-800/50 border-red-300/50 dark:border-red-700/30",
-          content: "bg-red-50/70 dark:bg-red-900/60",
-          border: "border-red-300/50 dark:border-red-600/50",
-        };
-      case "yellow":
-        return {
-          container:
-            "from-yellow-100/95 to-yellow-200/95 dark:from-yellow-900/90 dark:to-yellow-800/90",
-          header:
-            "bg-yellow-200/80 dark:bg-yellow-800/50 border-yellow-300/50 dark:border-yellow-700/30",
-          content: "bg-yellow-50/70 dark:bg-yellow-900/60",
-          border: "border-yellow-300/50 dark:border-yellow-600/50",
-        };
-      case "green":
-        return {
-          container:
-            "from-green-100/95 to-green-200/95 dark:from-green-900/90 dark:to-green-800/90",
-          header:
-            "bg-green-200/80 dark:bg-green-800/50 border-green-300/50 dark:border-green-700/30",
-          content: "bg-green-50/70 dark:bg-green-900/60",
-          border: "border-green-300/50 dark:border-green-600/50",
-        };
-      default:
-        return {
-          container:
-            "from-gray-100/95 to-gray-200/95 dark:from-slate-800/90 dark:to-slate-900/90",
-          header:
-            "bg-gray-200/80 dark:bg-slate-700/50 border-gray-300/50 dark:border-slate-600/30",
-          content: "bg-white/70 dark:bg-slate-900/60",
-          border: "border-gray-300/50 dark:border-slate-600/50",
-        };
     }
   };
 
@@ -181,51 +116,55 @@ export default function Home() {
               animate={{
                 opacity: 1,
                 scale: 1,
-                x: terminal1Shake ? [-2, 2, -2, 2, 0] : 0,
+                x: terminal1.isShaking ? [-2, 2, -2, 2, 0] : 0,
               }}
               transition={{
-                duration: terminal1Shake ? 0.5 : 0.8,
-                delay: terminal1Shake ? 0 : 0.2,
+                duration: terminal1.isShaking ? 0.5 : 0.8,
+                delay: terminal1.isShaking ? 0 : 0.2,
               }}
               style={{ y: heroY, opacity: heroOpacity }}
             >
               {/* Terminal Window */}
               <div
                 style={{ borderRadius: "10px" }}
-                className={`bg-gradient-to-br ${
-                  getTerminalColorScheme(terminal1ColorScheme).container
-                } backdrop-blur-xl border ${
-                  getTerminalColorScheme(terminal1ColorScheme).border
-                } shadow-2xl overflow-hidden`}
+                className={`bg-gradient-to-br ${terminal1.colors.container} backdrop-blur-xl border ${terminal1.colors.border} shadow-2xl overflow-hidden`}
               >
                 {/* Terminal Header */}
                 <div
-                  className={`flex items-center justify-between px-4 py-3 ${
-                    getTerminalColorScheme(terminal1ColorScheme).header
-                  } border-b`}
+                  className={`flex items-center justify-between px-4 py-3 ${terminal1.colors.header} border-b`}
                 >
                   <div className="flex items-center space-x-2">
                     <div
-                      className="w-3 h-3 bg-red-500 rounded-full cursor-pointer hover:bg-red-600 transition-colors duration-200 flex items-center justify-center group"
-                      onClick={() => handleTerminalButtonClick(1, "red")}
+                      className={getTerminalButtonClasses("red").buttonClass}
+                      onClick={() => terminal1.handleButtonClick("red")}
                     >
-                      <span className="text-[12px] text-red-900 opacity-0 group-hover:opacity-100 transition-opacity duration-200 font-bold leading-none">
+                      <span
+                        className={getTerminalButtonClasses("red").symbolClass}
+                      >
                         ×
                       </span>
                     </div>
                     <div
-                      className="w-3 h-3 bg-yellow-500 rounded-full cursor-pointer hover:bg-yellow-600 transition-colors duration-200 flex items-center justify-center group"
-                      onClick={() => handleTerminalButtonClick(1, "yellow")}
+                      className={getTerminalButtonClasses("yellow").buttonClass}
+                      onClick={() => terminal1.handleButtonClick("yellow")}
                     >
-                      <span className="text-[12px] text-yellow-900 opacity-0 group-hover:opacity-100 transition-opacity duration-200 font-bold leading-none">
+                      <span
+                        className={
+                          getTerminalButtonClasses("yellow").symbolClass
+                        }
+                      >
                         −
                       </span>
                     </div>
                     <div
-                      className="w-3 h-3 bg-green-500 rounded-full cursor-pointer hover:bg-green-600 transition-colors duration-200 flex items-center justify-center group"
-                      onClick={() => handleTerminalButtonClick(1, "green")}
+                      className={getTerminalButtonClasses("green").buttonClass}
+                      onClick={() => terminal1.handleButtonClick("green")}
                     >
-                      <span className="text-[12px] text-green-900 opacity-0 group-hover:opacity-100 transition-opacity duration-200 font-bold leading-none">
+                      <span
+                        className={
+                          getTerminalButtonClasses("green").symbolClass
+                        }
+                      >
                         +
                       </span>
                     </div>
@@ -238,9 +177,7 @@ export default function Home() {
 
                 {/* Terminal Content */}
                 <div
-                  className={`p-8 ${
-                    getTerminalColorScheme(terminal1ColorScheme).content
-                  } backdrop-blur-md`}
+                  className={`p-8 ${terminal1.colors.content} backdrop-blur-md`}
                 >
                   <div className="text-gray-700 dark:text-slate-300 text-sm md:text-base space-y-3 font-mono max-w-5xl">
                     {/* Welcome Header */}
@@ -437,51 +374,59 @@ export default function Home() {
               animate={{
                 opacity: 1,
                 scale: 1,
-                x: terminal2Shake ? [-2, 2, -2, 2, 0] : 0,
+                x: terminal2.isShaking ? [-2, 2, -2, 2, 0] : 0,
               }}
               transition={{
-                duration: terminal2Shake ? 0.5 : 0.8,
-                delay: terminal2Shake ? 0 : 0.6,
+                duration: terminal2.isShaking ? 0.5 : 0.8,
+                delay: terminal2.isShaking ? 0 : 0.6,
               }}
             >
               {/* Second Terminal Window */}
               <div
                 style={{ borderRadius: "10px" }}
-                className={`bg-gradient-to-br ${
-                  getTerminalColorScheme(terminal2ColorScheme).container
-                } backdrop-blur-xl border ${
-                  getTerminalColorScheme(terminal2ColorScheme).border
-                } shadow-2xl overflow-hidden transition-all duration-500`}
+                className={`bg-gradient-to-br ${terminal2.colors.container} backdrop-blur-xl border ${terminal2.colors.border} shadow-2xl overflow-hidden transition-all duration-500`}
               >
                 {/* Terminal Header with Tabs */}
-                <div
-                  className={`${
-                    getTerminalColorScheme(terminal2ColorScheme).header
-                  } border-b`}
-                >
+                <div className={`${terminal2.colors.header} border-b`}>
                   <div className="flex items-center justify-between px-4 py-3">
                     <div className="flex items-center space-x-2">
                       <div
-                        className="w-3 h-3 bg-red-500 rounded-full cursor-pointer hover:bg-red-600 transition-colors duration-200 flex items-center justify-center group"
-                        onClick={() => handleTerminalButtonClick(2, "red")}
+                        className={getTerminalButtonClasses("red").buttonClass}
+                        onClick={() => terminal2.handleButtonClick("red")}
                       >
-                        <span className="text-[12px] text-red-900 opacity-0 group-hover:opacity-100 transition-opacity duration-200 font-bold leading-none">
+                        <span
+                          className={
+                            getTerminalButtonClasses("red").symbolClass
+                          }
+                        >
                           ×
                         </span>
                       </div>
                       <div
-                        className="w-3 h-3 bg-yellow-500 rounded-full cursor-pointer hover:bg-yellow-600 transition-colors duration-200 flex items-center justify-center group"
-                        onClick={() => handleTerminalButtonClick(2, "yellow")}
+                        className={
+                          getTerminalButtonClasses("yellow").buttonClass
+                        }
+                        onClick={() => terminal2.handleButtonClick("yellow")}
                       >
-                        <span className="text-[12px] text-yellow-900 opacity-0 group-hover:opacity-100 transition-opacity duration-200 font-bold leading-none">
+                        <span
+                          className={
+                            getTerminalButtonClasses("yellow").symbolClass
+                          }
+                        >
                           −
                         </span>
                       </div>
                       <div
-                        className="w-3 h-3 bg-green-500 rounded-full cursor-pointer hover:bg-green-600 transition-colors duration-200 flex items-center justify-center group"
-                        onClick={() => handleTerminalButtonClick(2, "green")}
+                        className={
+                          getTerminalButtonClasses("green").buttonClass
+                        }
+                        onClick={() => terminal2.handleButtonClick("green")}
                       >
-                        <span className="text-[12px] text-green-900 opacity-0 group-hover:opacity-100 transition-opacity duration-200 font-bold leading-none">
+                        <span
+                          className={
+                            getTerminalButtonClasses("green").symbolClass
+                          }
+                        >
                           +
                         </span>
                       </div>
@@ -494,23 +439,19 @@ export default function Home() {
 
                   {/* Tab Navigation */}
                   <div
-                    className={`flex border-t ${getTerminalColorScheme(
-                      terminal2ColorScheme
-                    ).border.replace("border-", "border-t-")}`}
+                    className={`flex border-t ${terminal2.colors.border.replace(
+                      "border-",
+                      "border-t-"
+                    )}`}
                   >
                     <button
                       onClick={() => setActiveTab("main")}
-                      className={`px-4 py-2 text-sm font-mono border-r ${getTerminalColorScheme(
-                        terminal2ColorScheme
-                      ).border.replace(
+                      className={`px-4 py-2 text-sm font-mono border-r ${terminal2.colors.border.replace(
                         "border-",
                         "border-r-"
                       )} transition-colors cursor-pointer ${
                         activeTab === "main"
-                          ? `${
-                              getTerminalColorScheme(terminal2ColorScheme)
-                                .content
-                            } text-gray-900 dark:text-white`
+                          ? `${terminal2.colors.content} text-gray-900 dark:text-white`
                           : "text-gray-600 dark:text-slate-400 hover:bg-gray-100/50 dark:hover:bg-slate-800/50"
                       }`}
                     >
@@ -520,10 +461,7 @@ export default function Home() {
                       onClick={() => setActiveTab("connect")}
                       className={`px-4 py-2 text-sm font-mono transition-colors cursor-pointer ${
                         activeTab === "connect"
-                          ? `${
-                              getTerminalColorScheme(terminal2ColorScheme)
-                                .content
-                            } text-gray-900 dark:text-white`
+                          ? `${terminal2.colors.content} text-gray-900 dark:text-white`
                           : "text-gray-600 dark:text-slate-400 hover:bg-gray-100/50 dark:hover:bg-slate-800/50"
                       }`}
                     >
@@ -534,9 +472,7 @@ export default function Home() {
 
                 {/* Terminal Content */}
                 <div
-                  className={`p-6 ${
-                    getTerminalColorScheme(terminal2ColorScheme).content
-                  } backdrop-blur-md min-h-[400px]`}
+                  className={`p-6 ${terminal2.colors.content} backdrop-blur-md min-h-[400px]`}
                 >
                   {activeTab === "main" ? (
                     <div className="text-gray-700 dark:text-slate-300 text-sm font-mono space-y-3">
