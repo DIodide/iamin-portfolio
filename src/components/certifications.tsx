@@ -522,7 +522,6 @@ export const categorizeCertifications = (): CertificationGroup[] => {
       keySkills: [
         "TCP/IP",
         "Network Security",
-        "Cisco IOS",
         "Threat Analysis",
         "Network Automation",
       ],

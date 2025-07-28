@@ -690,22 +690,20 @@ export default function Home() {
                   </div>
 
                   <div className="flex flex-col space-y-4 mb-4">
-                    <div className="flex items-center gap-2">
-                      <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
-                        EVAL
-                      </h3>
-                      <div className="px-2 py-1 bg-green-500/20 dark:bg-green-400/20 border border-green-500/30 dark:border-green-400/30 rounded text-xs text-green-700 dark:text-green-300 font-mono">
-                        ACTIVE
+                    <div className="flex items-center justify-between w-full">
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
+                          EVAL
+                        </h3>
+                        <div className="px-2 py-1 bg-green-500/20 dark:bg-green-400/20 border border-green-500/30 dark:border-green-400/30 rounded text-xs text-green-700 dark:text-green-300 font-mono">
+                          ACTIVE
+                        </div>
                       </div>
+                      <p className="text-sm text-gray-600 dark:text-slate-400 flex items-center gap-2 font-mono">
+                        <Calendar className="h-3 w-3" />
+                        <span>Summer 2025</span>
+                      </p>
                     </div>
-                    <p className="text-sm text-gray-600 dark:text-slate-400 flex items-center gap-2 font-mono">
-                      <Calendar className="h-3 w-3" />
-                      <span>Summer 2025</span>
-                      <span className="text-gray-400 dark:text-slate-500">
-                        •
-                      </span>
-                      <span>v0.1.0</span>
-                    </p>
                     <div className="flex gap-2 flex-wrap">
                       <a
                         href="https://github.com/DIodide/eval-next"
@@ -832,22 +830,20 @@ export default function Home() {
                   </div>
 
                   <div className="flex flex-col space-y-4 mb-4">
-                    <div className="flex items-center gap-2">
-                      <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 via-green-800 to-emerald-800 dark:from-white dark:via-green-200 dark:to-emerald-200 bg-clip-text text-transparent">
-                        MindBridge
-                      </h3>
-                      <div className="px-2 py-1 bg-purple-500/20 dark:bg-purple-400/20 border border-purple-500/30 dark:border-purple-400/30 rounded text-xs text-purple-700 dark:text-purple-300 font-mono">
-                        HACKATHON
+                    <div className="flex items-center justify-between w-full">
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 via-green-800 to-emerald-800 dark:from-white dark:via-green-200 dark:to-emerald-200 bg-clip-text text-transparent">
+                          MindBridge
+                        </h3>
+                        <div className="px-2 py-1 bg-purple-500/20 dark:bg-purple-400/20 border border-purple-500/30 dark:border-purple-400/30 rounded text-xs text-purple-700 dark:text-purple-300 font-mono">
+                          HACKATHON
+                        </div>
                       </div>
+                      <p className="text-sm text-gray-600 dark:text-slate-400 flex items-center gap-2 font-mono">
+                        <Calendar className="h-3 w-3" />
+                        <span>Fall 2024</span>
+                      </p>
                     </div>
-                    <p className="text-sm text-gray-600 dark:text-slate-400 flex items-center gap-2 font-mono">
-                      <Calendar className="h-3 w-3" />
-                      <span>Fall 2024</span>
-                      <span className="text-gray-400 dark:text-slate-500">
-                        •
-                      </span>
-                      <span>v1.0.0</span>
-                    </p>
                     <div className="flex gap-2 flex-wrap">
                       <a
                         href="https://github.com/DIodide/MindBridge-front"
@@ -949,22 +945,20 @@ export default function Home() {
                   </div>
 
                   <div className="flex flex-col space-y-4 mb-4">
-                    <div className="flex items-center gap-2">
-                      <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 via-orange-800 to-red-800 dark:from-white dark:via-orange-200 dark:to-red-200 bg-clip-text text-transparent">
-                        BlockWarriors AI
-                      </h3>
-                      <div className="px-2 py-1 bg-green-500/20 dark:bg-green-400/20 border border-green-500/30 dark:border-green-400/30 rounded text-xs text-green-700 dark:text-green-300 font-mono">
-                        ACTIVE
+                    <div className="flex items-center justify-between w-full">
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 via-orange-800 to-red-800 dark:from-white dark:via-orange-200 dark:to-red-200 bg-clip-text text-transparent">
+                          BlockWarriors AI
+                        </h3>
+                        <div className="px-2 py-1 bg-green-500/20 dark:bg-green-400/20 border border-green-500/30 dark:border-green-400/30 rounded text-xs text-green-700 dark:text-green-300 font-mono">
+                          ACTIVE
+                        </div>
                       </div>
+                      <p className="text-sm text-gray-600 dark:text-slate-400 flex items-center gap-2 font-mono">
+                        <Calendar className="h-3 w-3" />
+                        <span>2024-2025</span>
+                      </p>
                     </div>
-                    <p className="text-sm text-gray-600 dark:text-slate-400 flex items-center gap-2 font-mono">
-                      <Calendar className="h-3 w-3" />
-                      <span>2024-2025</span>
-                      <span className="text-gray-400 dark:text-slate-500">
-                        •
-                      </span>
-                      <span>v2.1.0</span>
-                    </p>
                     <div className="flex gap-2 flex-wrap">
                       <a
                         href="https://github.com/project-blockwarriors/blockwarriors-cmd"
