@@ -120,18 +120,21 @@ export default function Home() {
                 {/* Terminal Header */}
                 <div className="flex items-center justify-between px-4 py-3 bg-gray-200/80 dark:bg-slate-700/50 border-b border-gray-300/50 dark:border-slate-600/30">
                   <div className="flex items-center space-x-2">
-                    <div
-                      className="w-3 h-3 bg-red-500"
-                      style={{ borderRadius: "50%" }}
-                    ></div>
-                    <div
-                      className="w-3 h-3 bg-yellow-500"
-                      style={{ borderRadius: "50%" }}
-                    ></div>
-                    <div
-                      className="w-3 h-3 bg-green-500"
-                      style={{ borderRadius: "50%" }}
-                    ></div>
+                    <div className="w-3 h-3 bg-red-500 rounded-full cursor-pointer hover:bg-red-600 transition-colors duration-200 flex items-center justify-center group">
+                      <span className="text-[12px] text-red-900 opacity-0 group-hover:opacity-100 transition-opacity duration-200 font-bold leading-none">
+                        ×
+                      </span>
+                    </div>
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full cursor-pointer hover:bg-yellow-600 transition-colors duration-200 flex items-center justify-center group">
+                      <span className="text-[12px] text-yellow-900 opacity-0 group-hover:opacity-100 transition-opacity duration-200 font-bold leading-none">
+                        −
+                      </span>
+                    </div>
+                    <div className="w-3 h-3 bg-green-500 rounded-full cursor-pointer hover:bg-green-600 transition-colors duration-200 flex items-center justify-center group">
+                      <span className="text-[12px] text-green-900 opacity-0 group-hover:opacity-100 transition-opacity duration-200 font-bold leading-none">
+                        +
+                      </span>
+                    </div>
                   </div>
                   <div className="text-gray-600 dark:text-slate-400 text-sm font-mono">
                     ~/ibraheem-portfolio
@@ -345,18 +348,21 @@ export default function Home() {
                 <div className="bg-gray-200/80 dark:bg-slate-700/50 border-b border-gray-300/50 dark:border-slate-600/30">
                   <div className="flex items-center justify-between px-4 py-3">
                     <div className="flex items-center space-x-2">
-                      <div
-                        className="w-3 h-3 bg-red-500"
-                        style={{ borderRadius: "50%" }}
-                      ></div>
-                      <div
-                        className="w-3 h-3 bg-yellow-500"
-                        style={{ borderRadius: "50%" }}
-                      ></div>
-                      <div
-                        className="w-3 h-3 bg-green-500"
-                        style={{ borderRadius: "50%" }}
-                      ></div>
+                      <div className="w-3 h-3 bg-red-500 rounded-full cursor-pointer hover:bg-red-600 transition-colors duration-200 flex items-center justify-center group">
+                        <span className="text-[12px] text-red-900 opacity-0 group-hover:opacity-100 transition-opacity duration-200 font-bold leading-none">
+                          ×
+                        </span>
+                      </div>
+                      <div className="w-3 h-3 bg-yellow-500 rounded-full cursor-pointer hover:bg-yellow-600 transition-colors duration-200 flex items-center justify-center group">
+                        <span className="text-[12px] text-yellow-900 opacity-0 group-hover:opacity-100 transition-opacity duration-200 font-bold leading-none">
+                          −
+                        </span>
+                      </div>
+                      <div className="w-3 h-3 bg-green-500 rounded-full cursor-pointer hover:bg-green-600 transition-colors duration-200 flex items-center justify-center group">
+                        <span className="text-[12px] text-green-900 opacity-0 group-hover:opacity-100 transition-opacity duration-200 font-bold leading-none">
+                          +
+                        </span>
+                      </div>
                     </div>
                     <div className="text-gray-600 dark:text-slate-400 text-sm font-mono">
                       ~/connect
