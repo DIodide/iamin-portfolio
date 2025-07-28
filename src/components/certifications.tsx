@@ -648,18 +648,51 @@ export default function Certifications() {
     <section className="mb-12">
       {/* Header */}
       <motion.div
-        className="text-center mb-12"
+        className="mb-12"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-900 via-emerald-800 to-cyan-800 dark:from-white dark:via-emerald-200 dark:to-cyan-200 bg-clip-text text-transparent">
-          Certification Timeline
-        </h2>
-        <p className="text-gray-600 dark:text-slate-400 mt-2 max-w-2xl mx-auto">
-          A chronological journey through my technical certifications and skills
-          development
-        </p>
+        <div className="relative">
+          {/* Background accent */}
+          <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-blue-500/10 backdrop-blur-sm rounded-lg -z-10 transform rotate-1"></div>
+
+          {/* Main header container */}
+          <div className="bg-gradient-to-r from-gray-50/80 via-white/60 to-gray-50/80 dark:from-slate-800/80 dark:via-slate-700/60 dark:to-slate-800/80 backdrop-blur-xl border border-gray-200/50 dark:border-slate-600/50 rounded-lg p-6 relative overflow-hidden">
+            {/* Animated background pattern */}
+            <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-emerald-500 via-cyan-500 to-blue-500 animate-pulse"></div>
+            </div>
+
+            {/* Code-style decorative elements */}
+            <div className="absolute top-3 right-4 text-gray-400/30 dark:text-slate-500/30 font-mono text-xs">
+              {/* // timeline */}
+            </div>
+            <div className="absolute bottom-1 left-4 text-gray-400/30 dark:text-slate-500/30 font-mono text-xs">
+              &lt;certifications/&gt;
+            </div>
+
+            <div className="relative z-10 flex items-center gap-4">
+              {/* Main heading */}
+              <div className="flex-1 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-900 via-emerald-800 to-cyan-800 dark:from-white dark:via-emerald-200 dark:to-cyan-200 bg-clip-text text-transparent">
+                  Certification Timeline
+                </h2>
+                <p className="text-sm text-gray-600 dark:text-slate-400 mt-1 font-mono">
+                  certifications from cisco, certiport, microsoft, and more.
+                </p>
+              </div>
+            </div>
+
+            {/* Progress bar aesthetic */}
+            <div className="mt-4 flex gap-1">
+              <div className="h-1 bg-emerald-500 rounded-full flex-1 animate-pulse"></div>
+              <div className="h-1 bg-cyan-500 rounded-full flex-1 animate-pulse delay-75"></div>
+              <div className="h-1 bg-blue-500 rounded-full flex-1 animate-pulse delay-150"></div>
+              <div className="h-1 bg-indigo-500 rounded-full flex-1 animate-pulse delay-225"></div>
+            </div>
+          </div>
+        </div>
       </motion.div>
 
       {/* Timeline */}

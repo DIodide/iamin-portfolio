@@ -1009,6 +1009,317 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
+
+            {/* Project 4 - Wildfire Visualization */}
+            <motion.div
+              className="relative group"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.6 }}
+            >
+              {/* Background accent */}
+              <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-orange-500/5 to-yellow-500/10 backdrop-blur-sm rounded-lg -z-10 transform group-hover:rotate-1 transition-transform duration-300"></div>
+
+              <div className="bg-gradient-to-br from-gray-50/90 via-white/70 to-gray-100/90 dark:from-slate-800/90 dark:via-slate-700/70 dark:to-slate-800/90 backdrop-blur-xl border border-gray-200/50 dark:border-slate-600/50 rounded-lg overflow-hidden group-hover:shadow-2xl group-hover:shadow-red-500/10 transition-all duration-300">
+                {/* Project Image Carousel */}
+                <div className="relative h-48 w-full bg-gradient-to-br from-red-500/10 via-transparent to-orange-500/10 overflow-hidden">
+                  <Carousel className="w-full h-full">
+                    <CarouselContent>
+                      <CarouselItem>
+                        <div className="relative h-48 w-full bg-gradient-to-br from-red-500/20 to-orange-500/20 flex items-center justify-center">
+                          <div className="text-center">
+                            <div className="relative">
+                              <div className="h-12 w-12 mx-auto mb-2 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <svg
+                                  className="h-6 w-6 text-white"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                  ></path>
+                                </svg>
+                              </div>
+                            </div>
+                            <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">
+                              3D Visualization
+                            </p>
+                          </div>
+                        </div>
+                      </CarouselItem>
+                      <CarouselItem>
+                        <div className="relative h-48 w-full bg-gradient-to-br from-orange-500/20 to-yellow-500/20 flex items-center justify-center">
+                          <div className="text-center">
+                            <div className="relative">
+                              <div className="h-12 w-12 mx-auto mb-2 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <svg
+                                  className="h-6 w-6 text-white"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                                  ></path>
+                                </svg>
+                              </div>
+                            </div>
+                            <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">
+                              NASA MODIS Data
+                            </p>
+                          </div>
+                        </div>
+                      </CarouselItem>
+                      <CarouselItem>
+                        <div className="relative h-48 w-full bg-gradient-to-br from-yellow-500/20 to-red-500/20 flex items-center justify-center">
+                          <div className="text-center">
+                            <div className="relative">
+                              <div className="h-12 w-12 mx-auto mb-2 bg-gradient-to-br from-yellow-500 to-red-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <svg
+                                  className="h-6 w-6 text-white"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 0h10m-9 0a2 2 0 00-2 2v14a2 2 0 002 2h8a2 2 0 002-2V6a2 2 0 00-2-2M9 12h6"
+                                  ></path>
+                                </svg>
+                              </div>
+                            </div>
+                            <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">
+                              MIT Symposium
+                            </p>
+                          </div>
+                        </div>
+                      </CarouselItem>
+                    </CarouselContent>
+                    <CarouselPrevious className="left-2" />
+                    <CarouselNext className="right-2" />
+                  </Carousel>
+                  {/* Animated overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent pointer-events-none"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+
+                <div className="p-6 relative">
+                  {/* Decorative code comment */}
+                  <div className="absolute top-2 right-4 text-gray-400/40 dark:text-slate-500/40 font-mono text-xs">
+                    {/* research */}
+                  </div>
+
+                  <div className="flex flex-col space-y-4 mb-4">
+                    <div className="flex items-center justify-between w-full">
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 via-red-800 to-orange-800 dark:from-white dark:via-red-200 dark:to-orange-200 bg-clip-text text-transparent">
+                          3D Wildfires Animation
+                        </h3>
+                      </div>
+                      <p className="text-sm text-gray-600 dark:text-slate-400 flex items-center gap-2 font-mono">
+                        <Calendar className="h-3 w-3" />
+                        <span>Summer 2023</span>
+                      </p>
+                    </div>
+                    <div className="flex gap-2 flex-wrap">
+                      <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gray-100/80 dark:bg-slate-800/80 backdrop-blur-sm border border-gray-300/50 dark:border-slate-600/50 hover:bg-gray-200/80 dark:hover:bg-slate-700/80 transition-all rounded-lg group/btn cursor-pointer opacity-60">
+                        <Github className="h-4 w-4 group-hover/btn:scale-110 transition-transform" />
+                        Repository (Private)
+                      </button>
+                    </div>
+                  </div>
+
+                  <p className="text-gray-600 dark:text-slate-300 mb-4 leading-relaxed">
+                    3D wildfire animation system using Maya and MEL scripting to
+                    visualize NASA MODIS satellite data. Generates dynamic
+                    spatiotemporal fire pattern animations, presented at MIT
+                    symposium.
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 text-xs bg-red-500/20 dark:bg-red-400/20 border border-red-500/30 dark:border-red-400/30 text-red-700 dark:text-red-300 rounded-full font-mono">
+                      Autodesk Maya
+                    </span>
+                    <span className="px-3 py-1 text-xs bg-orange-500/20 dark:bg-orange-400/20 border border-orange-500/30 dark:border-orange-400/30 text-orange-700 dark:text-orange-300 rounded-full font-mono">
+                      Python
+                    </span>
+                    <span className="px-3 py-1 text-xs bg-yellow-500/20 dark:bg-yellow-400/20 border border-yellow-500/30 dark:border-yellow-400/30 text-yellow-700 dark:text-yellow-300 rounded-full font-mono">
+                      MEL Scripting
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Project 5 - ZBot */}
+            <motion.div
+              className="relative group col-span-1 md:col-span-2 lg:col-span-2"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.8 }}
+            >
+              {/* Background accent */}
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-purple-500/5 to-indigo-500/10 backdrop-blur-sm rounded-lg -z-10 transform group-hover:rotate-1 transition-transform duration-300"></div>
+
+              <div className="bg-gradient-to-br from-gray-50/90 via-white/70 to-gray-100/90 dark:from-slate-800/90 dark:via-slate-700/70 dark:to-slate-800/90 backdrop-blur-xl border border-gray-200/50 dark:border-slate-600/50 rounded-lg overflow-hidden group-hover:shadow-2xl group-hover:shadow-violet-500/10 transition-all duration-300">
+                {/* Two-column layout */}
+                <div className="flex flex-col md:flex-row">
+                  {/* Left Column - Image Carousel */}
+                  <div className="flex-1 md:w-1/2">
+                    <div className="relative h-[31rem] w-full bg-gradient-to-br from-violet-500/10 via-transparent to-purple-500/10 overflow-hidden">
+                      <Carousel className="w-full h-full">
+                        <CarouselContent>
+                          <CarouselItem>
+                            <div className="relative h-[31rem] w-full overflow-hidden bg-gradient-to-br from-violet-500/10 to-purple-500/10">
+                              <Image
+                                src="/images/projects/territory-taken-1.png"
+                                alt="Territory Taken - Discord Bot Territory Capture Visualization"
+                                fill
+                                className="object-contain group-hover:scale-105 transition-transform duration-300"
+                              />
+                              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2">
+                                <p className="text-xs text-white font-mono">
+                                  Territory Captured
+                                </p>
+                              </div>
+                            </div>
+                          </CarouselItem>
+                          <CarouselItem>
+                            <div className="relative h-[31rem] w-full overflow-hidden bg-gradient-to-br from-purple-500/10 to-indigo-500/10">
+                              <Image
+                                src="/images/projects/territory-image-generator1.png"
+                                alt="Territory Image Generator - Discord Bot Map Generation"
+                                fill
+                                className="object-contain group-hover:scale-105 transition-transform duration-300"
+                              />
+                              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2">
+                                <p className="text-xs text-white font-mono">
+                                  Map Generator
+                                </p>
+                              </div>
+                            </div>
+                          </CarouselItem>
+                          <CarouselItem>
+                            <div className="relative h-[31rem] w-full overflow-hidden bg-gradient-to-br from-indigo-500/10 to-blue-500/10">
+                              <Image
+                                src="/images/projects/allstats-table1.png"
+                                alt="All Stats Table - Discord Bot Statistics Dashboard"
+                                fill
+                                className="object-contain group-hover:scale-105 transition-transform duration-300"
+                              />
+                              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2">
+                                <p className="text-xs text-white font-mono">
+                                  Statistics Dashboard
+                                </p>
+                              </div>
+                            </div>
+                          </CarouselItem>
+                          <CarouselItem>
+                            <div className="relative h-[31rem] w-full overflow-hidden bg-gradient-to-br from-blue-500/10 to-cyan-500/10">
+                              <Image
+                                src="/images/projects/allstats-table2.png"
+                                alt="All Stats Table 2 - Discord Bot War Statistics"
+                                fill
+                                className="object-contain group-hover:scale-105 transition-transform duration-300"
+                              />
+                              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2">
+                                <p className="text-xs text-white font-mono">
+                                  War Statistics
+                                </p>
+                              </div>
+                            </div>
+                          </CarouselItem>
+                          <CarouselItem>
+                            <div className="relative h-[31rem] w-full overflow-hidden bg-gradient-to-br from-cyan-500/10 to-violet-500/10">
+                              <Image
+                                src="/images/projects/fullmap.png"
+                                alt="Full Map - Discord Bot Complete Territory Overview"
+                                fill
+                                className="object-contain group-hover:scale-105 transition-transform duration-300"
+                              />
+                              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2">
+                                <p className="text-xs text-white font-mono">
+                                  Full Territory Map
+                                </p>
+                              </div>
+                            </div>
+                          </CarouselItem>
+                        </CarouselContent>
+                        <CarouselPrevious className="left-2" />
+                        <CarouselNext className="right-2" />
+                      </Carousel>
+                      {/* Animated overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent pointer-events-none"></div>
+                      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-500 via-purple-500 to-indigo-500 opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                  </div>
+
+                  {/* Right Column - Text Content */}
+                  <div className="flex-1 md:w-1/2 p-6 relative flex flex-col justify-between min-h-[31rem]">
+                    {/* Decorative code comment */}
+                    <div className="absolute top-2 right-4 text-gray-400/40 dark:text-slate-500/40 font-mono text-xs">
+                      {/* freelance */}
+                    </div>
+
+                    <div className="flex flex-col space-y-4 mb-4">
+                      <div className="flex items-center justify-between w-full">
+                        <div className="flex items-center gap-2">
+                          <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 via-violet-800 to-purple-800 dark:from-white dark:via-violet-200 dark:to-purple-200 bg-clip-text text-transparent">
+                            ZBot
+                          </h3>
+                          <div className="px-2 py-1 bg-gray-500/20 dark:bg-gray-400/20 border border-gray-500/30 dark:border-gray-400/30 rounded text-xs text-gray-700 dark:text-gray-300 font-mono">
+                            COMPLETED
+                          </div>
+                        </div>
+                        <p className="text-sm text-gray-600 dark:text-slate-400 flex items-center gap-2 font-mono">
+                          <Calendar className="h-3 w-3" />
+                          <span>2019-2022</span>
+                        </p>
+                      </div>
+                      <div className="flex gap-2 flex-wrap">
+                        <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-gray-100/80 dark:bg-slate-800/80 backdrop-blur-sm border border-gray-300/50 dark:border-slate-600/50 hover:bg-gray-200/80 dark:hover:bg-slate-700/80 transition-all rounded-lg group/btn cursor-pointer opacity-60">
+                          <Github className="h-4 w-4 group-hover/btn:scale-110 transition-transform" />
+                          Repository (Private)
+                        </button>
+                      </div>
+                    </div>
+
+                    <p className="text-gray-600 dark:text-slate-300 mb-4 leading-relaxed">
+                      Premier Discord guild management system integrating with
+                      Wynncraft APIs to provide comprehensive war statistics,
+                      territory visualizations, and real-time paging systems.
+                      Features asynchronous data orchestration, database
+                      concurrency control, and 30+ secure commands serving 300+
+                      private end users.
+                    </p>
+
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 text-xs bg-violet-500/20 dark:bg-violet-400/20 border border-violet-500/30 dark:border-violet-400/30 text-violet-700 dark:text-violet-300 rounded-full font-mono">
+                        Python
+                      </span>
+                      <span className="px-3 py-1 text-xs bg-indigo-500/20 dark:bg-indigo-400/20 border border-indigo-500/30 dark:border-indigo-400/30 text-indigo-700 dark:text-indigo-300 rounded-full font-mono">
+                        Discord.py
+                      </span>
+                      <span className="px-3 py-1 text-xs bg-blue-500/20 dark:bg-blue-400/20 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 rounded-full font-mono">
+                        Airflow
+                      </span>
+                      <span className="px-3 py-1 text-xs bg-cyan-500/20 dark:bg-cyan-400/20 border border-cyan-500/30 dark:border-cyan-400/30 text-cyan-700 dark:text-cyan-300 rounded-full font-mono">
+                        Aiohttp
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
 
@@ -1018,11 +1329,39 @@ export default function Home() {
         </div>
 
         {/* Footer */}
-        <footer className="text-center text-muted-foreground text-sm py-8 mt-12 border-t border-border/30">
-          <p>
-            &copy; {new Date().getFullYear()} Ibraheem Amin. Built with Next.js
-            & shadcn/ui.
-          </p>
+        <footer className="relative text-center text-muted-foreground text-sm py-8 mt-12 border-t border-border/30">
+          <div className="flex flex-col md:flex-row items-center justify-between max-w-4xl mx-auto px-4">
+            <div className="flex flex-col items-center md:items-start space-y-1 mb-4 md:mb-0">
+              <p>
+                &copy; {new Date().getFullYear()} Ibraheem Amin. Built with
+                Next.js & shadcn/ui.
+              </p>
+              <p className="text-xs text-muted-foreground/70">
+                Last updated: December 2024
+              </p>
+            </div>
+
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium bg-background/80 dark:bg-slate-800/80 backdrop-blur-sm border border-border/50 hover:bg-accent hover:text-accent-foreground transition-all rounded-lg group"
+              aria-label="Back to top"
+            >
+              <svg
+                className="h-4 w-4 group-hover:scale-110 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M5 10l7-7m0 0l7 7m-7-7v18"
+                />
+              </svg>
+              Back to Top
+            </button>
+          </div>
         </footer>
       </div>
     </div>
