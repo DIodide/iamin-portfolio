@@ -534,12 +534,15 @@ export default function Home() {
                               return (
                                 <>
                                   {firstThree.map((cert, index) => (
-                                    <div
+                                    <a
                                       key={index}
+                                      href={cert.verification_link}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
                                       className="text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors block cursor-pointer"
                                     >
                                       -rw-r--r-- {cert.name}
-                                    </div>
+                                    </a>
                                   ))}
                                   {remaining > 0 && (
                                     <button
