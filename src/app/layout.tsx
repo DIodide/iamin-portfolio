@@ -20,7 +20,48 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "Ibraheem Amin - Developer Portfolio",
-  description: "Portfolio of Ibraheem Amin, Princeton University, CS Major",
+  description:
+    "Portfolio of Ibraheem Amin, Princeton University, CS Major. Showcasing projects in AI, full-stack development, and systems design.",
+  keywords: [
+    "Ibraheem Amin",
+    "Princeton University",
+    "Computer Science",
+    "Developer",
+    "Portfolio",
+    "AI",
+    "Full Stack",
+    "Next.js",
+    "TypeScript",
+  ],
+  authors: [{ name: "Ibraheem Amin" }],
+  creator: "Ibraheem Amin",
+  metadataBase: new URL("https://iamin-portfolio.vercel.app"),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://iamin-portfolio.vercel.app",
+    title: "Ibraheem Amin - Developer Portfolio",
+    description:
+      "Portfolio of Ibraheem Amin, Princeton University, CS Major. Showcasing projects in AI, full-stack development, and systems design.",
+    siteName: "Ibraheem Amin Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ibraheem Amin - Developer Portfolio",
+    description:
+      "Portfolio of Ibraheem Amin, Princeton University, CS Major. Showcasing projects in AI, full-stack development, and systems design.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
