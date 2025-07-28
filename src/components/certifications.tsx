@@ -675,7 +675,7 @@ export default function Certifications() {
             <div className="relative z-10 flex items-center gap-4">
               {/* Main heading */}
               <div className="flex-1 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-900 via-emerald-800 to-cyan-800 dark:from-white dark:via-emerald-200 dark:to-cyan-200 bg-clip-text text-transparent">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
                   Certification Timeline
                 </h2>
                 <p className="text-sm text-gray-600 dark:text-slate-400 mt-1 font-mono">

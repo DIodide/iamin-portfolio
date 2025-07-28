@@ -609,7 +609,7 @@ export default function Home() {
 
                   {/* Main heading */}
                   <div className="flex-1">
-                    <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
                       Featured Projects
                     </h2>
                     <p className="text-sm text-gray-600 dark:text-slate-400 mt-1 font-mono">
@@ -695,7 +695,7 @@ export default function Home() {
                   <div className="flex flex-col space-y-4 mb-4">
                     <div className="flex items-center justify-between w-full">
                       <div className="flex items-center gap-2">
-                        <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                           EVAL
                         </h3>
                         <div className="px-2 py-1 bg-green-500/20 dark:bg-green-400/20 border border-green-500/30 dark:border-green-400/30 rounded text-xs text-green-700 dark:text-green-300 font-mono">
@@ -835,7 +835,7 @@ export default function Home() {
                   <div className="flex flex-col space-y-4 mb-4">
                     <div className="flex items-center justify-between w-full">
                       <div className="flex items-center gap-2">
-                        <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 via-green-800 to-emerald-800 dark:from-white dark:via-green-200 dark:to-emerald-200 bg-clip-text text-transparent">
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                           MindBridge
                         </h3>
                         <div className="px-2 py-1 bg-purple-500/20 dark:bg-purple-400/20 border border-purple-500/30 dark:border-purple-400/30 rounded text-xs text-purple-700 dark:text-purple-300 font-mono">
@@ -950,7 +950,7 @@ export default function Home() {
                   <div className="flex flex-col space-y-4 mb-4">
                     <div className="flex items-center justify-between w-full">
                       <div className="flex items-center gap-2">
-                        <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 via-orange-800 to-red-800 dark:from-white dark:via-orange-200 dark:to-red-200 bg-clip-text text-transparent">
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                           BlockWarriors AI
                         </h3>
                         <div className="px-2 py-1 bg-green-500/20 dark:bg-green-400/20 border border-green-500/30 dark:border-green-400/30 rounded text-xs text-green-700 dark:text-green-300 font-mono">
@@ -1121,7 +1121,7 @@ export default function Home() {
                   <div className="flex flex-col space-y-4 mb-4">
                     <div className="flex items-center justify-between w-full">
                       <div className="flex items-center gap-2">
-                        <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 via-red-800 to-orange-800 dark:from-white dark:via-red-200 dark:to-orange-200 bg-clip-text text-transparent">
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                           3D Wildfires Animation
                         </h3>
                       </div>
@@ -1273,7 +1273,7 @@ export default function Home() {
                     <div className="flex flex-col space-y-4 mb-4">
                       <div className="flex items-center justify-between w-full">
                         <div className="flex items-center gap-2">
-                          <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 via-violet-800 to-purple-800 dark:from-white dark:via-violet-200 dark:to-purple-200 bg-clip-text text-transparent">
+                          <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                             ZBot
                           </h3>
                           <div className="px-2 py-1 bg-gray-500/20 dark:bg-gray-400/20 border border-gray-500/30 dark:border-gray-400/30 rounded text-xs text-gray-700 dark:text-gray-300 font-mono">
