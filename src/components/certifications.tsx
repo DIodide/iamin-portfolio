@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Award, CheckCircle, ChevronDown, ChevronUp } from "lucide-react";
+import { CheckCircle, ChevronDown, ChevronUp } from "lucide-react";
 import Image from "next/image";
 
 // Import certification data directly for performance
@@ -602,7 +602,6 @@ export default function Certifications() {
                               
                               {/* Header */}
                               <div className="flex items-center gap-3 mb-4 justify-end">
-                                <Award className={`h-6 w-6 ${colors.text}`} />
                                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                                   {group.title}
                                 </h3>
@@ -818,7 +817,6 @@ export default function Certifications() {
                               
                               {/* Header */}
                               <div className="flex items-center gap-3 mb-4 justify-start">
-                                <Award className={`h-6 w-6 ${colors.text}`} />
                                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                                   {group.title}
                                 </h3>
@@ -879,7 +877,6 @@ export default function Certifications() {
       >
         <div className="inline-flex items-center gap-4 px-6 py-3 bg-gradient-to-r from-gray-100/80 via-white/60 to-gray-100/80 dark:from-slate-800/80 dark:via-slate-700/60 dark:to-slate-800/80 backdrop-blur-xl border border-gray-200/50 dark:border-slate-600/50 rounded-full">
           <div className="flex items-center gap-2">
-            <Award className="h-4 w-4 text-blue-500" />
             <span className="text-sm font-medium text-gray-700 dark:text-slate-300">
               {certificationsData.certifications.length} Certifications
             </span>
