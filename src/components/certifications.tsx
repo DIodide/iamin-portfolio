@@ -676,10 +676,11 @@ export default function Certifications() {
               {/* Main heading */}
               <div className="flex-1 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
-                  Certification Timeline
+                  Certifications & Credentials
                 </h2>
                 <p className="text-sm text-gray-600 dark:text-slate-400 mt-1 font-mono">
-                  certifications from cisco, certiport, microsoft, and more.
+                  certifications from cisco, certiport, microsoft, and more. All
+                  sponsored by GLTHS IT diploma.
                 </p>
               </div>
             </div>

@@ -22,7 +22,9 @@ export default function Home() {
   const { scrollYProgress } = useScroll();
   const heroY = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
-  const [activeTab, setActiveTab] = useState<"main" | "connect">("main");
+  const [activeTab, setActiveTab] = useState<"main" | "connect" | "courses">(
+    "main"
+  );
 
   // Terminal hooks
   const terminal1 = useTerminal();
@@ -104,7 +106,7 @@ export default function Home() {
         </div>
       </header>
 
-      <div className="max-w-[90rem] mx-auto px-4 py-8">
+      <div className="max-w-[92rem] mx-auto px-4 py-8">
         {/* Top Grid - Terminals */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
           {/* Main Terminal - Takes 3/4 of the width on large screens */}
@@ -459,13 +461,26 @@ export default function Home() {
                     </button>
                     <button
                       onClick={() => setActiveTab("connect")}
-                      className={`px-4 py-2 text-sm font-mono transition-colors cursor-pointer ${
+                      className={`px-4 py-2 text-sm font-mono border-r ${terminal2.colors.border.replace(
+                        "border-",
+                        "border-r-"
+                      )} transition-colors cursor-pointer ${
                         activeTab === "connect"
                           ? `${terminal2.colors.content} text-gray-900 dark:text-white`
                           : "text-gray-600 dark:text-slate-400 hover:bg-gray-100/50 dark:hover:bg-slate-800/50"
                       }`}
                     >
                       certs.sh
+                    </button>
+                    <button
+                      onClick={() => setActiveTab("courses")}
+                      className={`px-4 py-2 text-sm font-mono transition-colors cursor-pointer ${
+                        activeTab === "courses"
+                          ? `${terminal2.colors.content} text-gray-900 dark:text-white`
+                          : "text-gray-600 dark:text-slate-400 hover:bg-gray-100/50 dark:hover:bg-slate-800/50"
+                      }`}
+                    >
+                      courses.sh
                     </button>
                   </div>
                 </div>
@@ -542,7 +557,15 @@ export default function Home() {
                           <div className="pl-4 space-y-2">
                             <div className="flex items-center justify-between group">
                               <span className="text-gray-600 dark:text-slate-300">
-                                GitHub: DIodide
+                                GitHub:{" "}
+                                <a
+                                  href="https://github.com/DIodide"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-600 dark:text-cyan-400 hover:text-blue-700 dark:hover:text-cyan-300 underline decoration-dotted underline-offset-2 transition-colors"
+                                >
+                                  DIodide
+                                </a>
                               </span>
                               <button
                                 onClick={() =>
@@ -558,7 +581,15 @@ export default function Home() {
                             </div>
                             <div className="flex items-center justify-between group">
                               <span className="text-gray-600 dark:text-slate-300">
-                                LinkedIn: /in/ibraheem-amin
+                                LinkedIn:{" "}
+                                <a
+                                  href="https://linkedin.com/in/ibraheem-amin"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-600 dark:text-cyan-400 hover:text-blue-700 dark:hover:text-cyan-300 underline decoration-dotted underline-offset-2 transition-colors"
+                                >
+                                  /in/ibraheem-amin
+                                </a>
                               </span>
                               <button
                                 onClick={() =>
@@ -583,7 +614,7 @@ export default function Home() {
                         </div>
                       </motion.div>
                     </div>
-                  ) : (
+                  ) : activeTab === "connect" ? (
                     <div className="text-gray-700 dark:text-slate-300 text-sm font-mono space-y-3">
                       <motion.div
                         initial={{ opacity: 0 }}
@@ -638,6 +669,182 @@ export default function Home() {
                                 </>
                               );
                             })()}
+                          </div>
+
+                          <p className="pt-2 flex items-center">
+                            <span className="text-green-600 dark:text-green-400">
+                              $
+                            </span>
+                            <span className="w-2 h-4 bg-gray-900 dark:bg-white ml-2 animate-pulse rounded-sm"></span>
+                          </p>
+                        </div>
+                      </motion.div>
+                    </div>
+                  ) : (
+                    <div className="text-gray-700 dark:text-slate-300 text-sm font-mono space-y-3">
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.3 }}
+                      >
+                        <p className="text-blue-600 dark:text-cyan-400 mb-3">
+                          # Academic Coursework
+                        </p>
+
+                        <div className="space-y-2">
+                          <p>
+                            <span className="text-green-600 dark:text-green-400">
+                              $
+                            </span>{" "}
+                            <span className="text-gray-900 dark:text-white">
+                              cat princeton_courses.txt
+                            </span>
+                          </p>
+
+                          <div className="pl-4 space-y-1">
+                            <div className="text-gray-600 dark:text-slate-300">
+                              <span className="text-purple-600 dark:text-purple-400">
+                                Computer Science:
+                              </span>
+                            </div>
+                            <div className="pl-2 group cursor-default">
+                              <span className="text-gray-600 dark:text-slate-300">
+                                Algorithms and Data Structures
+                              </span>
+                              <span
+                                className="fixed opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-blue-500/10 dark:bg-blue-400/10 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 font-mono text-xs px-2 py-1 rounded z-50"
+                                style={{
+                                  left: "calc(50% + 180px)",
+                                  top: "50%",
+                                  transform: "translateY(-50%)",
+                                }}
+                              >
+                                COS226
+                              </span>
+                            </div>
+                            <div className="pl-2 group cursor-default">
+                              <span className="text-gray-600 dark:text-slate-300">
+                                Intro to Programming Systems
+                              </span>
+                              <span
+                                className="fixed opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-blue-500/10 dark:bg-blue-400/10 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 font-mono text-xs px-2 py-1 rounded z-50"
+                                style={{
+                                  left: "calc(50% + 180px)",
+                                  top: "50%",
+                                  transform: "translateY(-50%)",
+                                }}
+                              >
+                                COS217
+                              </span>
+                            </div>
+
+                            <div className="text-gray-600 dark:text-slate-300 pt-2">
+                              <span className="text-purple-600 dark:text-purple-400">
+                                Mathematics:
+                              </span>
+                            </div>
+                            <div className="pl-2 group cursor-default">
+                              <span className="text-gray-600 dark:text-slate-300">
+                                Multivariable Calculus
+                              </span>
+                              <span
+                                className="fixed opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-blue-500/10 dark:bg-blue-400/10 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 font-mono text-xs px-2 py-1 rounded z-50"
+                                style={{
+                                  left: "calc(50% + 180px)",
+                                  top: "50%",
+                                  transform: "translateY(-50%)",
+                                }}
+                              >
+                                MAT201
+                              </span>
+                            </div>
+                            <div className="pl-2 group cursor-default">
+                              <span className="text-gray-600 dark:text-slate-300">
+                                Honors Linear Algebra
+                              </span>
+                              <span
+                                className="fixed opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-blue-500/10 dark:bg-blue-400/10 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 font-mono text-xs px-2 py-1 rounded z-50"
+                                style={{
+                                  left: "calc(50% + 180px)",
+                                  top: "50%",
+                                  transform: "translateY(-50%)",
+                                }}
+                              >
+                                MAT217
+                              </span>
+                            </div>
+
+                            <div className="text-gray-600 dark:text-slate-300 pt-2">
+                              <span className="text-purple-600 dark:text-purple-400">
+                                Sciences:
+                              </span>
+                            </div>
+                            <div className="pl-2 group cursor-default">
+                              <span className="text-gray-600 dark:text-slate-300">
+                                General Physics 1
+                              </span>
+                              <span
+                                className="fixed opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-blue-500/10 dark:bg-blue-400/10 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 font-mono text-xs px-2 py-1 rounded z-50"
+                                style={{
+                                  left: "calc(50% + 180px)",
+                                  top: "50%",
+                                  transform: "translateY(-50%)",
+                                }}
+                              >
+                                PHY103
+                              </span>
+                            </div>
+                            <div className="pl-2 group cursor-default">
+                              <span className="text-gray-600 dark:text-slate-300">
+                                General Physics 2
+                              </span>
+                              <span
+                                className="fixed opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-blue-500/10 dark:bg-blue-400/10 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 font-mono text-xs px-2 py-1 rounded z-50"
+                                style={{
+                                  left: "calc(50% + 180px)",
+                                  top: "50%",
+                                  transform: "translateY(-50%)",
+                                }}
+                              >
+                                PHY104
+                              </span>
+                            </div>
+
+                            <div className="text-gray-600 dark:text-slate-300 pt-2">
+                              <span className="text-purple-600 dark:text-purple-400">
+                                Liberal Arts:
+                              </span>
+                            </div>
+                            <div className="pl-2 group cursor-default">
+                              <span className="text-gray-600 dark:text-slate-300">
+                                Ethics in Finance
+                              </span>
+                              <span
+                                className="fixed opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-blue-500/10 dark:bg-blue-400/10 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 font-mono text-xs px-2 py-1 rounded z-50"
+                                style={{
+                                  left: "calc(50% + 180px)",
+                                  top: "50%",
+                                  transform: "translateY(-50%)",
+                                }}
+                              >
+                                FRS149
+                              </span>
+                            </div>
+                            <div className="pl-2 group cursor-default">
+                              <span className="text-gray-600 dark:text-slate-300">
+                                Priceless
+                              </span>
+                              <span
+                                className="fixed opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-blue-500/10 dark:bg-blue-400/10 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 font-mono text-xs px-2 py-1 rounded z-50"
+                                style={{
+                                  left: "calc(50% + 180px)",
+                                  top: "50%",
+                                  transform: "translateY(-50%)",
+                                }}
+                              >
+                                WRI144
+                              </span>
+                            </div>
                           </div>
 
                           <p className="pt-2 flex items-center">
