@@ -605,6 +605,20 @@ export default function Home() {
                             </div>
                           </div>
 
+                          <div className="pt-4 text-center">
+                            <pre className="text-gray-500 dark:text-slate-500 text-xs font-mono leading-tight">
+                              {`_____4863133_______7645487345___
+_____4689461______4563789456____
+_____8745879_____3456_____789___
+_____5675894____5678_______456__
+_____3456789___4567789456789489_
+_____6789456__3456___________567
+_____4563789_5678_____________89
+_____8967345_4567____________5789
+_____5634567_567____________4563`}
+                            </pre>
+                          </div>
+
                           <p className="pt-2 flex items-center">
                             <span className="text-green-600 dark:text-green-400">
                               $
