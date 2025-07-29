@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 "use client";
+import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggle";
 import Certifications, {
   categorizeCertifications,
@@ -68,40 +69,45 @@ export default function Home() {
         <div className="max-w-[90rem] mx-auto px-4 py-4 flex justify-between items-center">
           <div className="logo-rainbow-hover" onClick={scrollToTop}>
             <div className="p-1">
-              <h1 className="text-2xl font-bold font-dm-sans">Ibraheem Amin</h1>
-              <p className="text-sm text-muted-foreground font-dm-sans">
+              <h1 className="text-2xl font-bold font-outfit">Ibraheem Amin</h1>
+              <p className="text-sm text-muted-foreground font-outfit">
                 CS Student at Princeton
               </p>
             </div>
           </div>
-
           {/* Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8 font-outfit lowercase">
             <button
               onClick={scrollToProjects}
-              className="relative text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer group font-dm-sans"
+              className="relative text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer group font-outfit"
             >
-              Projects
+              projects
               <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </button>
+            <Link
+              href="/posts"
+              className="relative text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer group font-outfit"
+            >
+              posts
+              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </Link>
             <button
               onClick={scrollToCertifications}
-              className="relative text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer group font-dm-sans"
+              className="relative text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer group font-outfit"
             >
-              Certifications
+              certifications
               <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </button>
             <a
               href="https://ibraheem-amin.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer group font-dm-sans"
+              className="relative text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer group font-outfit"
             >
-              Legacy Portfolio
+              legacy portfolio
               <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </a>
           </nav>
-
           <ThemeToggle />
         </div>
       </header>

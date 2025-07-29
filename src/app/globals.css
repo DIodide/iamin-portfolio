@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+@import "katex/dist/katex.min.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -36,6 +38,8 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+  --link-unvisited: oklch(0.6 0.118 184.704);
+  --link-visited: oklch(0.769 0.188 70.08);
 }
 
 @theme inline {
@@ -57,6 +61,8 @@
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
+  --color-link-unvisited: var(--link-unvisited);
+  --color-link-visited: var(--link-visited);
   --color-chart-5: var(--chart-5);
   --color-chart-4: var(--chart-4);
   --color-chart-3: var(--chart-3);
@@ -111,6 +117,8 @@
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+  --link-unvisited: oklch(0.696 0.17 162.48);
+  --link-visited: oklch(0.627 0.265 303.9);
 }
 
 @layer base {
@@ -230,3 +238,92 @@ html {
   0% { background-position: 0% 50%; }
   100% { background-position: 200% 50%; }
 }
+
+/* Post link visited/unvisited states */
+.post-link {
+  transition: all 0.2s ease;
+}
+
+.post-link:link {
+  border-color: var(--color-link-unvisited);
+}
+
+.post-link:visited {
+  border-color: var(--color-link-visited);
+  opacity: 0.85;
+}
+
+.post-link:hover {
+  opacity: 1 !important;
+  border-color: var(--color-primary) !important;
+}
+
+.post-link:link .post-title {
+  color: var(--color-link-unvisited);
+}
+
+.post-link:visited .post-title {
+  color: var(--color-link-visited);
+}
+
+.post-link:hover .post-title {
+  color: var(--color-primary) !important;
+}
+
+/* Visual indicator for post cards */
+.post-card .post-link:visited {
+  background-color: color-mix(in srgb, var(--color-link-visited) 8%, transparent);
+}
+
+.post-card .post-link:link {
+  background-color: color-mix(in srgb, var(--color-link-unvisited) 5%, transparent);
+}
+
+.post-card .post-link:hover {
+  background-color: color-mix(in srgb, var(--color-primary) 10%, transparent) !important;
+}
+
+/* KaTeX Math Styling */
+.katex-display {
+  margin: 1em 0;
+  text-align: center;
+}
+
+.katex-inline {
+  display: inline;
+}
+
+.math-error {
+  color: #cc0000;
+  background-color: #ffebee;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+.dark .math-error {
+  background-color: #3d0000;
+  color: #ff6b6b;
+}
+
+/* Override KaTeX colors for dark mode */
+.dark .katex {
+  color: var(--color-foreground);
+}
+
+.dark .katex .mord,
+.dark .katex .mrel,
+.dark .katex .mbin,
+.dark .katex .mop,
+.dark .katex .mopen,
+.dark .katex .mclose,
+.dark .katex .mpunct {
+  color: var(--color-foreground);
+}
+
+/* Ensure KaTeX fonts work properly */
+.katex * {
+  border-color: var(--color-border);
+}
+
