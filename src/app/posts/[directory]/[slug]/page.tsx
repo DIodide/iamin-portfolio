@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import Link from "next/link";
 import { ArrowLeft, Calendar, FolderOpen } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
-import katex from "katex";
+import { MarkdownRenderer } from "@/components/markdown-renderer";
 
 interface Props {
   params: Promise<{
@@ -77,99 +77,6 @@ async function getPost(directory: string, slug: string) {
   }
 }
 
-// Enhanced markdown to HTML converter with KaTeX support
-function markdownToHtml(markdown: string): string {
-  let html = markdown;
-
-  // First, process display math ($$...$$) to avoid conflicts with inline math
-  html = html.replace(/\$\$([\s\S]*?)\$\$/g, (match, math) => {
-    try {
-      const rendered = katex.renderToString(math.trim(), {
-        displayMode: true,
-        throwOnError: false,
-        errorColor: "#cc0000",
-        fleqn: false, // Center equations
-        macros: {
-          "\\RR": "\\mathbb{R}",
-          "\\NN": "\\mathbb{N}",
-          "\\ZZ": "\\mathbb{Z}",
-          "\\QQ": "\\mathbb{Q}",
-          "\\CC": "\\mathbb{C}",
-        },
-        trust: (context) =>
-          ["\\htmlClass", "\\htmlId", "\\htmlStyle", "\\htmlData"].includes(
-            context.command
-          ),
-      });
-      return `<div class="katex-display">${rendered}</div>`;
-    } catch (error) {
-      console.warn("KaTeX display math error:", error);
-      return `<div class="math-error">Display Math Error: $$${math.trim()}$$</div>`;
-    }
-  });
-
-  // Then process inline math ($...$)
-  html = html.replace(/\$([^$\n]+?)\$/g, (match, math) => {
-    try {
-      const rendered = katex.renderToString(math.trim(), {
-        displayMode: false,
-        throwOnError: false,
-        errorColor: "#cc0000",
-        macros: {
-          "\\RR": "\\mathbb{R}",
-          "\\NN": "\\mathbb{N}",
-          "\\ZZ": "\\mathbb{Z}",
-          "\\QQ": "\\mathbb{Q}",
-          "\\CC": "\\mathbb{C}",
-        },
-      });
-      return `<span class="katex-inline">${rendered}</span>`;
-    } catch (error) {
-      console.warn("KaTeX inline math error:", error);
-      return `<span class="math-error">Math Error: $${math.trim()}$</span>`;
-    }
-  });
-
-  // Process other markdown elements
-  return (
-    html
-      // Headers
-      .replace(/^### (.*$)/gim, "<h3>$1</h3>")
-      .replace(/^## (.*$)/gim, "<h2>$1</h2>")
-      .replace(/^# (.*$)/gim, "<h1>$1</h1>")
-      // Bold
-      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-      // Italic
-      .replace(/\*(.*?)\*/g, "<em>$1</em>")
-      // Code blocks
-      .replace(/```([\s\S]*?)```/g, "<pre><code>$1</code></pre>")
-      // Inline code (but avoid math expressions)
-      .replace(/`([^`]+?)`/g, "<code>$1</code>")
-      // Links
-      .replace(
-        /\[([^\]]*)\]\(([^\)]*)\)/g,
-        '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
-      )
-      // Line breaks
-      .replace(/\n\n/g, "</p><p>")
-      // Wrap in paragraph tags
-      .replace(/^(.*)$/gm, (match) => {
-        if (
-          match.startsWith("<h") ||
-          match.startsWith("<pre") ||
-          match.startsWith("</p>") ||
-          match.startsWith("<p>") ||
-          match.startsWith('<div class="katex-display"')
-        ) {
-          return match;
-        }
-        return `<p>${match}</p>`;
-      })
-      // Clean up empty paragraphs
-      .replace(/<p><\/p>/g, "")
-  );
-}
-
 export default async function PostPage({ params }: Props) {
   const { directory, slug } = await params;
   const post = await getPost(directory, slug);
@@ -177,8 +84,6 @@ export default async function PostPage({ params }: Props) {
   if (!post) {
     notFound();
   }
-
-  const htmlContent = markdownToHtml(post.content);
 
   return (
     <div className="min-h-screen bg-background">
@@ -225,10 +130,7 @@ export default async function PostPage({ params }: Props) {
 
         {/* Post Content */}
         <div className="prose prose-gray dark:prose-invert max-w-none">
-          <div
-            className="text-foreground leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: htmlContent }}
-          />
+          <MarkdownRenderer content={post.content} />
         </div>
 
         {/* Navigation */}
