@@ -1,7 +1,9 @@
 ---
-title: "Complete Markdown & LaTeX Test"
+title: "Comprehensive Markdown Test"
 date: "2024-01-20"
-description: "A comprehensive test of all markdown features including headers, formatting, math, code, links, and Obsidian images."
+description: "A complete test of all markdown features including math, code blocks, formatting, and images."
+image: "/images/projects/eval/evalmain.png"
+hide: true
 ---
 
 # Header Level 1
