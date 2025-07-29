@@ -4,7 +4,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import Certifications, {
   categorizeCertifications,
 } from "@/components/certifications";
-import { Github, ExternalLink, Calendar, ImageIcon, Copy } from "lucide-react";
+import { Github, ExternalLink, Calendar, Copy } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -864,20 +864,32 @@ _8888888__.__8___8`}
                         </div>
                       </CarouselItem>
                       <CarouselItem>
-                        <div className="relative h-48 w-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
-                          <div className="text-center">
-                            <ImageIcon className="h-12 w-12 text-blue-500 mx-auto mb-2" />
-                            <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">
-                              Dashboard View
+                        <div className="relative h-48 w-full">
+                          <Image
+                            src="/images/projects/eval/evalmain.png"
+                            alt="EVAL Gaming Platform - Main Dashboard"
+                            fill
+                            className="object-cover transition-transform group-hover:scale-105"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          />
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2">
+                            <p className="text-xs text-white font-mono">
+                              Main Dashboard
                             </p>
                           </div>
                         </div>
                       </CarouselItem>
                       <CarouselItem>
-                        <div className="relative h-48 w-full bg-gradient-to-br from-purple-500/20 to-cyan-500/20 flex items-center justify-center">
-                          <div className="text-center">
-                            <ImageIcon className="h-12 w-12 text-purple-500 mx-auto mb-2" />
-                            <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">
+                        <div className="relative h-48 w-full">
+                          <Image
+                            src="/images/projects/eval/evalprofiles.png"
+                            alt="EVAL Gaming Platform - Player Profiles"
+                            fill
+                            className="object-cover transition-transform group-hover:scale-105"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          />
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2">
+                            <p className="text-xs text-white font-mono">
                               Player Profiles
                             </p>
                           </div>
@@ -981,7 +993,7 @@ _8888888__.__8___8`}
                       <CarouselItem>
                         <div className="relative h-48 w-full">
                           <Image
-                            src="/images/projects/mindbridge-title.png"
+                            src="/images/projects/mindbridge/mindbridge-title.png"
                             alt="MindBridge - AI-Powered Learning Platform"
                             fill
                             className="object-cover transition-transform group-hover:scale-105"
@@ -992,7 +1004,7 @@ _8888888__.__8___8`}
                       <CarouselItem>
                         <div className="relative h-48 w-full">
                           <Image
-                            src="/images/projects/mindbridge-selection.png"
+                            src="/images/projects/mindbridge/mindbridge-selection.png"
                             alt="MindBridge - Course Selection Interface"
                             fill
                             className="object-cover transition-transform group-hover:scale-105"
@@ -1003,7 +1015,7 @@ _8888888__.__8___8`}
                       <CarouselItem>
                         <div className="relative h-48 w-full">
                           <Image
-                            src="/images/projects/mindbridge-knowledge.png"
+                            src="/images/projects/mindbridge/mindbridge-knowledge.png"
                             alt="MindBridge - Knowledge Graph Visualization"
                             fill
                             className="object-cover transition-transform group-hover:scale-105"
@@ -1014,7 +1026,7 @@ _8888888__.__8___8`}
                       <CarouselItem>
                         <div className="relative h-48 w-full">
                           <Image
-                            src="/images/projects/mindbridge-graph.png"
+                            src="/images/projects/mindbridge/mindbridge-graph.png"
                             alt="MindBridge - Interactive Learning Graph"
                             fill
                             className="object-cover transition-transform group-hover:scale-105"
@@ -1117,7 +1129,7 @@ _8888888__.__8___8`}
                       <CarouselItem>
                         <div className="relative h-48 w-full">
                           <Image
-                            src="/images/projects/blockwarriors-ai.webp"
+                            src="/images/projects/blockwarriors/blockwarriors-ai.webp"
                             alt="BlockWarriors AI - AI Battle Bot Interface"
                             fill
                             className="object-cover transition-transform group-hover:scale-105"
@@ -1128,7 +1140,7 @@ _8888888__.__8___8`}
                       <CarouselItem>
                         <div className="relative h-48 w-full">
                           <Image
-                            src="/images/projects/blockwarriors setup.png"
+                            src="/images/projects/blockwarriors/blockwarriors-setup.png"
                             alt="BlockWarriors Setup - Tournament Configuration"
                             fill
                             className="object-cover transition-transform group-hover:scale-105"
@@ -1229,79 +1241,49 @@ _8888888__.__8___8`}
                   <Carousel className="w-full h-full">
                     <CarouselContent>
                       <CarouselItem>
-                        <div className="relative h-48 w-full bg-gradient-to-br from-red-500/20 to-orange-500/20 flex items-center justify-center">
-                          <div className="text-center">
-                            <div className="relative">
-                              <div className="h-12 w-12 mx-auto mb-2 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <svg
-                                  className="h-6 w-6 text-white"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                                  ></path>
-                                </svg>
-                              </div>
-                            </div>
-                            <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">
-                              3D Visualization
+                        <div className="relative h-48 w-full">
+                          <Image
+                            src="/images/projects/wildfire/wildfiresglobe1.png"
+                            alt="Wildfire Visualization - Global Fire Data Visualization"
+                            fill
+                            className="object-cover transition-transform group-hover:scale-105"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          />
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2">
+                            <p className="text-xs text-white font-mono">
+                              Global Fire Data Visualization
                             </p>
                           </div>
                         </div>
                       </CarouselItem>
                       <CarouselItem>
-                        <div className="relative h-48 w-full bg-gradient-to-br from-orange-500/20 to-yellow-500/20 flex items-center justify-center">
-                          <div className="text-center">
-                            <div className="relative">
-                              <div className="h-12 w-12 mx-auto mb-2 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <svg
-                                  className="h-6 w-6 text-white"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                                  ></path>
-                                </svg>
-                              </div>
-                            </div>
-                            <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">
-                              NASA MODIS Data
+                        <div className="relative h-48 w-full">
+                          <Image
+                            src="/images/projects/wildfire/latlongmapping.png"
+                            alt="Wildfire Visualization - Latitude Longitude Mapping"
+                            fill
+                            className="object-cover transition-transform group-hover:scale-105"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          />
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2">
+                            <p className="text-xs text-white font-mono">
+                              Lat/Long Coordinate Mapping
                             </p>
                           </div>
                         </div>
                       </CarouselItem>
                       <CarouselItem>
-                        <div className="relative h-48 w-full bg-gradient-to-br from-yellow-500/20 to-red-500/20 flex items-center justify-center">
-                          <div className="text-center">
-                            <div className="relative">
-                              <div className="h-12 w-12 mx-auto mb-2 bg-gradient-to-br from-yellow-500 to-red-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <svg
-                                  className="h-6 w-6 text-white"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 0h10m-9 0a2 2 0 00-2 2v14a2 2 0 002 2h8a2 2 0 002-2V6a2 2 0 00-2-2M9 12h6"
-                                  ></path>
-                                </svg>
-                              </div>
-                            </div>
-                            <p className="text-sm text-gray-500 dark:text-slate-400 font-mono">
-                              MIT Symposium
+                        <div className="relative h-48 w-full">
+                          <Image
+                            src="/images/projects/wildfire/lowellrender.png"
+                            alt="Wildfire Visualization - Lowell Observatory Final Render"
+                            fill
+                            className="object-cover transition-transform group-hover:scale-105"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          />
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2">
+                            <p className="text-xs text-white font-mono">
+                              Lowell Observatory Render
                             </p>
                           </div>
                         </div>
@@ -1383,7 +1365,7 @@ _8888888__.__8___8`}
                           <CarouselItem>
                             <div className="relative h-[31rem] w-full overflow-hidden bg-gradient-to-br from-violet-500/10 to-purple-500/10">
                               <Image
-                                src="/images/projects/territory-taken-1.png"
+                                src="/images/projects/zbot/territory-taken-1.png"
                                 alt="Territory Taken - Discord Bot Territory Capture Visualization"
                                 fill
                                 className="object-contain group-hover:scale-105 transition-transform duration-300"
@@ -1398,7 +1380,7 @@ _8888888__.__8___8`}
                           <CarouselItem>
                             <div className="relative h-[31rem] w-full overflow-hidden bg-gradient-to-br from-purple-500/10 to-indigo-500/10">
                               <Image
-                                src="/images/projects/territory-image-generator1.png"
+                                src="/images/projects/zbot/territory-image-generator1.png"
                                 alt="Territory Image Generator - Discord Bot Map Generation"
                                 fill
                                 className="object-contain group-hover:scale-105 transition-transform duration-300"
@@ -1413,7 +1395,7 @@ _8888888__.__8___8`}
                           <CarouselItem>
                             <div className="relative h-[31rem] w-full overflow-hidden bg-gradient-to-br from-indigo-500/10 to-blue-500/10">
                               <Image
-                                src="/images/projects/allstats-table1.png"
+                                src="/images/projects/zbot/allstats-table1.png"
                                 alt="All Stats Table - Discord Bot Statistics Dashboard"
                                 fill
                                 className="object-contain group-hover:scale-105 transition-transform duration-300"
@@ -1428,7 +1410,7 @@ _8888888__.__8___8`}
                           <CarouselItem>
                             <div className="relative h-[31rem] w-full overflow-hidden bg-gradient-to-br from-blue-500/10 to-cyan-500/10">
                               <Image
-                                src="/images/projects/allstats-table2.png"
+                                src="/images/projects/zbot/allstats-table2.png"
                                 alt="All Stats Table 2 - Discord Bot War Statistics"
                                 fill
                                 className="object-contain group-hover:scale-105 transition-transform duration-300"
@@ -1443,7 +1425,7 @@ _8888888__.__8___8`}
                           <CarouselItem>
                             <div className="relative h-[31rem] w-full overflow-hidden bg-gradient-to-br from-cyan-500/10 to-violet-500/10">
                               <Image
-                                src="/images/projects/fullmap.png"
+                                src="/images/projects/zbot/fullmap.png"
                                 alt="Full Map - Discord Bot Complete Territory Overview"
                                 fill
                                 className="object-contain group-hover:scale-105 transition-transform duration-300"
