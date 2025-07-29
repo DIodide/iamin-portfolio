@@ -57,6 +57,11 @@ async function getPost(directory: string, slug: string) {
       data = {};
     }
 
+    // Return null for hidden posts (will trigger 404)
+    if (data.hide === true) {
+      return null;
+    }
+
     return {
       slug,
       title:

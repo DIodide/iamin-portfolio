@@ -76,6 +76,11 @@ export async function GET() {
             (data.description as string) ||
             content.substring(0, 200) + (content.length > 200 ? "..." : "");
 
+          // Skip hidden posts
+          if (data.hide === true) {
+            continue;
+          }
+
           posts.push({
             slug,
             title,
