@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, Calendar, FileText, FolderOpen } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -11,6 +12,7 @@ interface Post {
   date?: string;
   content: string;
   directory: string;
+  image?: string;
 }
 
 export default function PostsPage() {
@@ -135,29 +137,44 @@ export default function PostsPage() {
                 key={post.slug}
                 className="post-card group relative rounded-lg border border-border bg-card p-6 hover:shadow-md transition-all duration-200"
               >
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <h2 className="post-title text-xl font-semibold text-foreground transition-colors">
-                      {post.title}
-                    </h2>
-                    {post.date && (
-                      <div className="flex items-center gap-2 mt-2 text-sm text-muted-foreground">
-                        <Calendar className="h-4 w-4" />
-                        {new Date(post.date).toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        })}
+                <div className="flex items-start gap-6 rounded">
+                  {post.image && (
+                    <div className="rounded relative w-28 h-28 overflow-hidden bg-muted flex-shrink-0 shadow-sm ring-1 ring-black/5 dark:ring-white/10">
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="rounded object-cover"
+                        sizes="112px"
+                      />
+                    </div>
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1 min-w-0">
+                        <h2 className="post-title text-xl font-semibold text-foreground transition-colors">
+                          {post.title}
+                        </h2>
+                        {post.date && (
+                          <div className="flex items-center gap-2 mt-2 text-sm text-muted-foreground">
+                            <Calendar className="h-4 w-4" />
+                            {new Date(post.date).toLocaleDateString("en-US", {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            })}
+                          </div>
+                        )}
+                        <p className="mt-3 text-muted-foreground line-clamp-3">
+                          {post.content}
+                        </p>
                       </div>
-                    )}
-                    <p className="mt-3 text-muted-foreground line-clamp-3">
-                      {post.content}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground font-mono">
-                    <span className="px-2 py-1 bg-muted rounded-md">
-                      {post.directory}
-                    </span>
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground font-mono ml-4">
+                        <span className="px-2 py-1 bg-muted rounded-md">
+                          {post.directory}
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <Link

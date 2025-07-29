@@ -83,6 +83,14 @@
   --radius-md: 0px; /* Sharp corners */
   --radius-lg: 0px; /* Sharp corners */
   --radius-xl: 0px; /* Sharp corners */
+  --radius-sm: 0.0625rem;
+    /* 2px */
+    --radius-md: 0.125rem;
+    /* 6px */
+    --radius-lg: 0.1875rem;
+    /* 8px */
+    --radius-xl: 0.25rem;
+    /* 12px */
 }
 
 .dark {
@@ -124,7 +132,7 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    /* border-radius: 0; /* Force all elements to have sharp corners */
+  
   }
   body {
     @apply bg-background text-foreground font-sans;
@@ -169,8 +177,7 @@ html {
   top: 1.5rem;
   width: 0.5rem;
   height: 0.5rem;
-  background: hsl(var(--primary));
-  border-radius: 0; /* Make timeline dots square */
+  background: hsl(var(--primary));/* Make timeline dots square */
   z-index: 1;
 }
 
@@ -187,10 +194,6 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Theme toggle button styling */
-.theme-toggle {
-  border-radius: 0 !important;
-}
 
 /* Responsive adjustments */
 @media (max-width: 640px) {

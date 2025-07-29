@@ -10,6 +10,7 @@ interface Post {
   content: string;
   directory: string;
   frontmatter: Record<string, unknown>;
+  image?: string;
 }
 
 export async function GET() {
@@ -84,6 +85,7 @@ export async function GET() {
             content: contentPreview,
             directory,
             frontmatter: data,
+            image: data.image as string | undefined,
           });
         }
       } catch (error) {
