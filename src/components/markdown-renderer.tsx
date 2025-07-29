@@ -22,11 +22,32 @@ function parseMarkdownToComponents(markdown: string): React.ReactNode[] {
   const flushParagraph = () => {
     if (currentParagraph.length > 0) {
       const paragraphContent = currentParagraph.join("\n");
-      elements.push(
-        <p key={`p-${keyCounter++}`} className="mb-4">
-          {parseInlineElements(paragraphContent, keyCounter)}
-        </p>
-      );
+
+      // If paragraph has multiple lines, preserve line breaks
+      if (currentParagraph.length > 1) {
+        const paragraphElements: React.ReactNode[] = [];
+        currentParagraph.forEach((line, index) => {
+          paragraphElements.push(
+            ...parseInlineElements(line, keyCounter + index * 100)
+          );
+          if (index < currentParagraph.length - 1) {
+            paragraphElements.push(<br key={`br-${keyCounter}-${index}`} />);
+          }
+        });
+
+        elements.push(
+          <p key={`p-${keyCounter++}`} className="mb-4">
+            {paragraphElements}
+          </p>
+        );
+      } else {
+        // Single line paragraph
+        elements.push(
+          <p key={`p-${keyCounter++}`} className="mb-4">
+            {parseInlineElements(paragraphContent, keyCounter)}
+          </p>
+        );
+      }
       currentParagraph = [];
     }
   };
@@ -109,6 +130,42 @@ function parseMarkdownToComponents(markdown: string): React.ReactNode[] {
           language={language}
           code={codeLines.join("\n")}
         />
+      );
+      continue;
+    }
+
+    // Handle checkboxes (- [x] or - [ ])
+    const checkboxMatch = trimmedLine.match(/^- \[([ x])\] (.+)$/);
+    if (checkboxMatch) {
+      flushParagraph();
+      const isChecked = checkboxMatch[1] === "x";
+      const checkboxText = checkboxMatch[2];
+
+      elements.push(
+        <CheckboxItem
+          key={`checkbox-${keyCounter++}`}
+          checked={isChecked}
+          text={checkboxText}
+          baseKey={keyCounter}
+        />
+      );
+      continue;
+    }
+
+    // Handle regular list items (- item)
+    const listItemMatch = trimmedLine.match(/^- (.+)$/);
+    if (listItemMatch && !checkboxMatch) {
+      flushParagraph();
+      const listText = listItemMatch[1];
+
+      elements.push(
+        <div
+          key={`list-${keyCounter++}`}
+          className="flex items-start gap-2 my-2"
+        >
+          <span className="text-muted-foreground mt-1">•</span>
+          <span>{parseInlineElements(listText, keyCounter)}</span>
+        </div>
       );
       continue;
     }
@@ -364,6 +421,34 @@ function ObsidianImage({ filename }: { filename: string }) {
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
         />
       </div>
+    </div>
+  );
+}
+
+function CheckboxItem({
+  checked,
+  text,
+  baseKey,
+}: {
+  checked: boolean;
+  text: string;
+  baseKey: number;
+}) {
+  return (
+    <div className="flex items-start gap-3 my-2">
+      <input
+        type="checkbox"
+        checked={checked}
+        readOnly
+        className="mt-1 h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary cursor-default"
+      />
+      <span
+        className={`flex-1 ${
+          checked ? "line-through text-muted-foreground" : ""
+        }`}
+      >
+        {parseInlineElements(text, baseKey)}
+      </span>
     </div>
   );
 }

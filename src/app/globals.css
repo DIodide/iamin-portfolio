@@ -330,3 +330,17 @@ html {
   border-color: var(--color-border);
 }
 
+/* Override Tailwind Typography plugin's automatic backticks on code elements */
+.prose code::before,
+.prose code::after {
+  content: "" !important;
+}
+
+/* Ensure code blocks don't get Typography plugin interference */
+.prose pre code::before,
+.prose pre code::after {
+  content: "" !important;
+}
+
+/* Post Links Styling */
+
