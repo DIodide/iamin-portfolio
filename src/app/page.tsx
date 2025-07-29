@@ -189,7 +189,7 @@ export default function Home() {
                       transition={{ delay: 0.5, duration: 0.5 }}
                     >
                       <p className="text-blue-600 dark:text-cyan-400 text-lg mb-4">
-                        # Hi, I&apos;m Ibraheem, scroll down to explore my work!
+                        # Hi, I&apos;m Ibraheem, hope you enjoy your stay!
                       </p>
                     </motion.div>
 
