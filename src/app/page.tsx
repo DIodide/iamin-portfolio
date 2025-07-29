@@ -707,35 +707,11 @@ export default function Home() {
                                 Computer Science:
                               </span>
                             </div>
-                            <div className="pl-2 group cursor-default">
-                              <span className="text-gray-600 dark:text-slate-300">
-                                Algorithms and Data Structures
-                              </span>
-                              <span
-                                className="fixed opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-blue-500/10 dark:bg-blue-400/10 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 font-mono text-xs px-2 py-1 rounded z-50"
-                                style={{
-                                  left: "calc(50% + 180px)",
-                                  top: "50%",
-                                  transform: "translateY(-50%)",
-                                }}
-                              >
-                                COS226
-                              </span>
+                            <div className="text-gray-600 dark:text-slate-300 pl-2">
+                              Algorithms and Data Structures
                             </div>
-                            <div className="pl-2 group cursor-default">
-                              <span className="text-gray-600 dark:text-slate-300">
-                                Intro to Programming Systems
-                              </span>
-                              <span
-                                className="fixed opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-blue-500/10 dark:bg-blue-400/10 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 font-mono text-xs px-2 py-1 rounded z-50"
-                                style={{
-                                  left: "calc(50% + 180px)",
-                                  top: "50%",
-                                  transform: "translateY(-50%)",
-                                }}
-                              >
-                                COS217
-                              </span>
+                            <div className="text-gray-600 dark:text-slate-300 pl-2">
+                              Intro to Programming Systems
                             </div>
 
                             <div className="text-gray-600 dark:text-slate-300 pt-2">
@@ -743,35 +719,11 @@ export default function Home() {
                                 Mathematics:
                               </span>
                             </div>
-                            <div className="pl-2 group cursor-default">
-                              <span className="text-gray-600 dark:text-slate-300">
-                                Multivariable Calculus
-                              </span>
-                              <span
-                                className="fixed opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-blue-500/10 dark:bg-blue-400/10 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 font-mono text-xs px-2 py-1 rounded z-50"
-                                style={{
-                                  left: "calc(50% + 180px)",
-                                  top: "50%",
-                                  transform: "translateY(-50%)",
-                                }}
-                              >
-                                MAT201
-                              </span>
+                            <div className="text-gray-600 dark:text-slate-300 pl-2">
+                              Multivariable Calculus
                             </div>
-                            <div className="pl-2 group cursor-default">
-                              <span className="text-gray-600 dark:text-slate-300">
-                                Honors Linear Algebra
-                              </span>
-                              <span
-                                className="fixed opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-blue-500/10 dark:bg-blue-400/10 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 font-mono text-xs px-2 py-1 rounded z-50"
-                                style={{
-                                  left: "calc(50% + 180px)",
-                                  top: "50%",
-                                  transform: "translateY(-50%)",
-                                }}
-                              >
-                                MAT217
-                              </span>
+                            <div className="text-gray-600 dark:text-slate-300 pl-2">
+                              Honors Linear Algebra
                             </div>
 
                             <div className="text-gray-600 dark:text-slate-300 pt-2">
@@ -779,35 +731,11 @@ export default function Home() {
                                 Sciences:
                               </span>
                             </div>
-                            <div className="pl-2 group cursor-default">
-                              <span className="text-gray-600 dark:text-slate-300">
-                                General Physics 1
-                              </span>
-                              <span
-                                className="fixed opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-blue-500/10 dark:bg-blue-400/10 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 font-mono text-xs px-2 py-1 rounded z-50"
-                                style={{
-                                  left: "calc(50% + 180px)",
-                                  top: "50%",
-                                  transform: "translateY(-50%)",
-                                }}
-                              >
-                                PHY103
-                              </span>
+                            <div className="text-gray-600 dark:text-slate-300 pl-2">
+                              General Physics 1
                             </div>
-                            <div className="pl-2 group cursor-default">
-                              <span className="text-gray-600 dark:text-slate-300">
-                                General Physics 2
-                              </span>
-                              <span
-                                className="fixed opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-blue-500/10 dark:bg-blue-400/10 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 font-mono text-xs px-2 py-1 rounded z-50"
-                                style={{
-                                  left: "calc(50% + 180px)",
-                                  top: "50%",
-                                  transform: "translateY(-50%)",
-                                }}
-                              >
-                                PHY104
-                              </span>
+                            <div className="text-gray-600 dark:text-slate-300 pl-2">
+                              General Physics 2
                             </div>
 
                             <div className="text-gray-600 dark:text-slate-300 pt-2">
@@ -815,35 +743,11 @@ export default function Home() {
                                 Liberal Arts:
                               </span>
                             </div>
-                            <div className="pl-2 group cursor-default">
-                              <span className="text-gray-600 dark:text-slate-300">
-                                Ethics in Finance
-                              </span>
-                              <span
-                                className="fixed opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-blue-500/10 dark:bg-blue-400/10 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 font-mono text-xs px-2 py-1 rounded z-50"
-                                style={{
-                                  left: "calc(50% + 180px)",
-                                  top: "50%",
-                                  transform: "translateY(-50%)",
-                                }}
-                              >
-                                FRS149
-                              </span>
+                            <div className="text-gray-600 dark:text-slate-300 pl-2">
+                              Ethics in Finance
                             </div>
-                            <div className="pl-2 group cursor-default">
-                              <span className="text-gray-600 dark:text-slate-300">
-                                Priceless
-                              </span>
-                              <span
-                                className="fixed opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-blue-500/10 dark:bg-blue-400/10 border border-blue-500/30 dark:border-blue-400/30 text-blue-700 dark:text-blue-300 font-mono text-xs px-2 py-1 rounded z-50"
-                                style={{
-                                  left: "calc(50% + 180px)",
-                                  top: "50%",
-                                  transform: "translateY(-50%)",
-                                }}
-                              >
-                                WRI144
-                              </span>
+                            <div className="text-gray-600 dark:text-slate-300 pl-2">
+                              Priceless
                             </div>
                           </div>
 
@@ -1438,7 +1342,7 @@ export default function Home() {
                     <span className="px-3 py-1 text-xs bg-orange-500/20 dark:bg-orange-400/20 border border-orange-500/30 dark:border-orange-400/30 text-orange-700 dark:text-orange-300 rounded-full font-mono">
                       Python
                     </span>
-                    <span className="px-3 py-1 text-xs bg-yellow-500/20 dark:bg-yellow-400/20 border border-yellow-500/30 dark:border-yellow-400/30 text-yellow-700 dark:text-yellow-300 rounded-full font-mono">
+                    <span className="px-3 py-1 text-xs bg-[#eab308]/20 dark:bg-yellow-400/20 border border-yellow-500/30 dark:border-yellow-400/30 text-yellow-700 dark:text-yellow-300 rounded-full font-mono">
                       MEL Scripting
                     </span>
                   </div>
