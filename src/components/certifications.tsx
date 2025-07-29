@@ -645,10 +645,10 @@ export default function Certifications() {
   };
 
   return (
-    <section className="mb-12">
+    <section className="mb-12 px-4 sm:px-6 lg:px-8">
       {/* Header */}
       <motion.div
-        className="mb-12"
+        className="mb-8 sm:mb-12"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
@@ -658,27 +658,27 @@ export default function Certifications() {
           <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-blue-500/10 backdrop-blur-sm rounded-lg -z-10 transform rotate-1"></div>
 
           {/* Main header container */}
-          <div className="bg-gradient-to-r from-gray-50/80 via-white/60 to-gray-50/80 dark:from-slate-800/80 dark:via-slate-700/60 dark:to-slate-800/80 backdrop-blur-xl border border-gray-200/50 dark:border-slate-600/50 rounded-lg p-6 relative overflow-hidden">
+          <div className="bg-gradient-to-r from-gray-50/80 via-white/60 to-gray-50/80 dark:from-slate-800/80 dark:via-slate-700/60 dark:to-slate-800/80 backdrop-blur-xl border border-gray-200/50 dark:border-slate-600/50 rounded-lg p-4 sm:p-6 relative overflow-hidden">
             {/* Animated background pattern */}
             <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-emerald-500 via-cyan-500 to-blue-500 animate-pulse"></div>
             </div>
 
             {/* Code-style decorative elements */}
-            <div className="absolute top-3 right-4 text-gray-400/30 dark:text-slate-500/30 font-mono text-xs">
+            <div className="absolute top-2 sm:top-3 right-2 sm:right-4 text-gray-400/30 dark:text-slate-500/30 font-mono text-xs">
               {/* // timeline */}
             </div>
-            <div className="absolute bottom-1 left-4 text-gray-400/30 dark:text-slate-500/30 font-mono text-xs">
+            <div className="absolute bottom-1 left-2 sm:left-4 text-gray-400/30 dark:text-slate-500/30 font-mono text-xs">
               &lt;certifications/&gt;
             </div>
 
             <div className="relative z-10 flex items-center gap-4">
               {/* Main heading */}
               <div className="flex-1 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
                   Certifications & Credentials
                 </h2>
-                <p className="text-sm text-gray-600 dark:text-slate-400 mt-1 font-mono">
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-slate-400 mt-1 font-mono px-2">
                   certifications from cisco, certiport, microsoft, and more. All
                   sponsored by GLTHS IT diploma.
                 </p>
@@ -698,11 +698,14 @@ export default function Certifications() {
 
       {/* Timeline */}
       <div className="relative max-w-6xl mx-auto">
-        {/* Timeline Line */}
-        <div className="absolute left-1/2 transform -translate-x-0.5 w-0.5 h-full bg-gradient-to-b from-emerald-500 via-cyan-500 to-blue-500"></div>
+        {/* Timeline Line - Hidden on mobile, visible on larger screens */}
+        <div className="hidden lg:block absolute left-1/2 transform -translate-x-0.5 w-0.5 h-full bg-gradient-to-b from-emerald-500 via-cyan-500 to-blue-500"></div>
+
+        {/* Mobile Timeline Line - Visible only on mobile */}
+        <div className="lg:hidden absolute left-6 top-0 w-0.5 h-full bg-gradient-to-b from-emerald-500 via-cyan-500 to-blue-500"></div>
 
         {/* Timeline Items */}
-        <div className="space-y-16">
+        <div className="space-y-8 lg:space-y-16">
           {certificationGroups.map((group, index) => {
             const colors = getCategoryColors(group.category);
             const isLeft = index % 2 === 0;
@@ -711,17 +714,164 @@ export default function Certifications() {
               <motion.div
                 key={group.title}
                 className="relative"
-                initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
+                initial={{ opacity: 0, x: 0 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 + index * 0.2 }}
               >
-                {/* Timeline Dot */}
+                {/* Timeline Dot - Desktop */}
                 <div
-                  className={`absolute left-1/2 top-8 transform -translate-x-1/2 w-4 h-4 ${colors.dot} rounded-full border-4 border-white dark:border-slate-900 shadow-lg z-10`}
+                  className={`hidden lg:block absolute left-1/2 top-8 transform -translate-x-1/2 w-4 h-4 ${colors.dot} rounded-full border-4 border-white dark:border-slate-900 shadow-lg z-10`}
                 ></div>
 
-                {/* Content */}
-                <div className="flex items-start gap-16">
+                {/* Timeline Dot - Mobile */}
+                <div
+                  className={`lg:hidden absolute left-6 top-6 transform -translate-x-1/2 w-3 h-3 ${colors.dot} rounded-full border-2 border-white dark:border-slate-900 shadow-lg z-10`}
+                ></div>
+
+                {/* Content - Mobile Layout */}
+                <div className="lg:hidden pl-12">
+                  <div className="space-y-4">
+                    {/* Header Section */}
+                    <div
+                      className={`bg-gradient-to-br ${colors.gradient} backdrop-blur-sm rounded-lg p-1`}
+                    >
+                      <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl rounded-lg p-4">
+                        {/* Header */}
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-3">
+                          <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+                            {group.title}
+                          </h3>
+                          <div
+                            className={`self-start sm:self-auto px-2 py-1 ${colors.bg} ${colors.border} border rounded text-xs ${colors.text} font-mono`}
+                          >
+                            {group.certifications.length} CERTS
+                          </div>
+                        </div>
+
+                        <p className="text-gray-600 dark:text-slate-300 mb-3 text-sm">
+                          {group.description}
+                        </p>
+
+                        {/* Skills Summary */}
+                        <div className="mb-3">
+                          <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
+                            Key Accomplishments:
+                          </h4>
+                          <ul className="space-y-1">
+                            {group.skillsSummary.map((skill, skillIndex) => (
+                              <li
+                                key={skillIndex}
+                                className="text-sm text-gray-700 dark:text-slate-300"
+                              >
+                                <span>• {skill}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Key Skills */}
+                        <div className="mb-2">
+                          <div className="flex flex-wrap gap-1">
+                            {group.keySkills.map((skill, skillIndex) => (
+                              <span
+                                key={skillIndex}
+                                className={`px-2 py-1 text-xs ${colors.bg} ${colors.text} rounded border ${colors.border}`}
+                              >
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Certifications List */}
+                    <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-lg p-4 border border-gray-200/50 dark:border-slate-600/50">
+                      <div className="space-y-3">
+                        {(expandedGroups.has(group.title)
+                          ? group.certifications
+                          : group.certifications.slice(0, 4)
+                        ).map((cert) => (
+                          <motion.a
+                            key={cert.certification_id || cert.name}
+                            href={cert.verification_link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group block"
+                            whileHover={{ scale: 1.02 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <div className="flex items-center gap-3 p-3 bg-white dark:bg-slate-700 rounded-lg border border-gray-200 dark:border-slate-600 group-hover:border-blue-400 dark:group-hover:border-blue-500 transition-all group-hover:shadow-md">
+                              {/* Logo */}
+                              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white border border-gray-200 dark:border-slate-600 overflow-hidden flex-shrink-0">
+                                <Image
+                                  src={`${cert.image_route}.png`}
+                                  alt={cert.name}
+                                  width={40}
+                                  height={40}
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+
+                              {/* Certification Details */}
+                              <div className="flex-1 min-w-0">
+                                <h4 className="font-medium text-gray-900 dark:text-white text-sm leading-tight">
+                                  {cert.name}
+                                </h4>
+                                <p className="text-xs text-gray-600 dark:text-slate-400 truncate">
+                                  {cert.organization}
+                                </p>
+                                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mt-1">
+                                  <span className="text-xs text-gray-500 dark:text-slate-500">
+                                    {cert.term}
+                                  </span>
+                                  {cert.certification_id && (
+                                    <>
+                                      <span className="hidden sm:inline text-xs text-gray-400">
+                                        •
+                                      </span>
+                                      <code className="text-xs text-gray-500 dark:text-slate-500 font-mono">
+                                        {cert.certification_id.slice(0, 8)}...
+                                      </code>
+                                    </>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          </motion.a>
+                        ))}
+
+                        {/* Show More/Less Toggle */}
+                        {group.certifications.length > 4 && (
+                          <button
+                            onClick={() => toggleGroupExpansion(group.title)}
+                            className="w-full p-3 bg-gray-50 dark:bg-slate-700/50 rounded-lg border border-gray-200 dark:border-slate-600 text-center hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors group"
+                          >
+                            <div className="flex items-center justify-center gap-2">
+                              <span className="text-sm text-gray-600 dark:text-slate-400">
+                                {expandedGroups.has(group.title)
+                                  ? `Hide ${
+                                      group.certifications.length - 4
+                                    } certifications`
+                                  : `+${
+                                      group.certifications.length - 4
+                                    } more certifications`}
+                              </span>
+                              {expandedGroups.has(group.title) ? (
+                                <ChevronUp className="h-4 w-4 text-gray-500 dark:text-slate-400 group-hover:text-gray-700 dark:group-hover:text-slate-300" />
+                              ) : (
+                                <ChevronDown className="h-4 w-4 text-gray-500 dark:text-slate-400 group-hover:text-gray-700 dark:group-hover:text-slate-300" />
+                              )}
+                            </div>
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content - Desktop Layout */}
+                <div className="hidden lg:flex items-start gap-16">
                   {isLeft ? (
                     <>
                       {/* Left Side - Description */}
@@ -1044,18 +1194,18 @@ export default function Certifications() {
 
       {/* Summary Stats */}
       <motion.div
-        className="mt-16 text-center"
+        className="mt-12 lg:mt-16 text-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1.0 }}
       >
-        <div className="inline-flex items-center gap-4 px-6 py-3 bg-gradient-to-r from-gray-100/80 via-white/60 to-gray-100/80 dark:from-slate-800/80 dark:via-slate-700/60 dark:to-slate-800/80 backdrop-blur-xl border border-gray-200/50 dark:border-slate-600/50 rounded-full">
+        <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 px-4 sm:px-6 py-3 bg-gradient-to-r from-gray-100/80 via-white/60 to-gray-100/80 dark:from-slate-800/80 dark:via-slate-700/60 dark:to-slate-800/80 backdrop-blur-xl border border-gray-200/50 dark:border-slate-600/50 rounded-full">
           <div className="flex items-center gap-2">
             <span className="text-sm font-medium text-gray-700 dark:text-slate-300">
               {certificationsData.certifications.length} Certifications
             </span>
           </div>
-          <div className="w-px h-4 bg-gray-300 dark:bg-slate-600"></div>
+          <div className="hidden sm:block w-px h-4 bg-gray-300 dark:bg-slate-600"></div>
           <div className="flex items-center gap-2">
             <span className="text-sm font-medium text-gray-700 dark:text-slate-300">
               {certificationGroups.length} Specializations
