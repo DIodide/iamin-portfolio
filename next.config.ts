@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "evalgaming.com",
       },
+      {
+        protocol: "https",
+        hostname: "lh7-rt.googleusercontent.com",
+      },
     ],
   },
 
